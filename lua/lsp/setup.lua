@@ -20,7 +20,7 @@ end
 
 lsp_installer.on_server_ready(function(server)
   --local opts = servers[server.name]
-  opts = {'pylsp', 'remark_ls', 'sumneko_lua', 'tsserver', 'volar', 'html', 'bashls', 'cmake', 'pyright', 'yamlls', 'dockerls', 'clangd', 'diagnosticls', 'grammarly', 'jsonls', 'lemminx'}
+  opts = {'pylsp', 'sumneko_lua', 'tsserver', 'volar', 'html', 'bashls', 'cmake', 'pyright', 'yamlls', 'dockerls', 'clangd', 'diagnosticls', 'grammarly', 'jsonls', 'lemminx', "remark-ls"}
   if opts then
     opts.on_attach = function(_, bufnr)
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end

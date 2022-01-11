@@ -100,5 +100,10 @@ return require('packer').startup(function()
   use 'rcarriga/nvim-notify'
   -- Snippet Code Runner
   use { 'michaelb/sniprun', run = 'bash ./install.sh'}
+  -- LuaLine scope
+  use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter"
+  }
 end)
 

@@ -17,7 +17,7 @@ Run Neovim and type
 
 Decomment all the lines in `init.lua`
 
-### Files recommend to look at
+### Files recommend looking at
 
 + `lua/lsp/setup.lua`
     Use `:LspInstallInfo` to check and `:LspInstall <language>` to install LSP. After installation, you need to add it in `lua/lsp/setup.lua`
