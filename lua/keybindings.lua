@@ -7,22 +7,25 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Sidebar nvim-tree file explorer toggler
-map('n', '<leader>b', '<cmd>:NvimTreeToggle<CR>')
+map('n', '<leader>b', '<cmd>NvimTreeToggle<CR>')
+
+-- Bufferline Closer
+map('n', '<leader>w', '<cmd>BufferLinePickClose<CR>')
 
 -- bufferline tab switcher
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>")
-map("n", "<C-l>", ":BufferLineCycleNext<CR>")
+map("n", "<C-h>", "<cmd>BufferLineCyclePrev<CR>")
+map("n", "<C-l>", "<cmd>BufferLineCycleNext<CR>")
 
 -- bufferline tab jumper
-map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>")
-map("n", "<leader>2", ":BufferLineGoToBuffer 2<CR>")
-map("n", "<leader>3", ":BufferLineGoToBuffer 3<CR>")
-map("n", "<leader>4", ":BufferLineGoToBuffer 4<CR>")
-map("n", "<leader>5", ":BufferLineGoToBuffer 5<CR>")
-map("n", "<leader>6", ":BufferLineGoToBuffer 6<CR>")
-map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>")
-map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>")
-map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>")
+map("n", "<leader>1", "<cmd>BufferLineGoToBuffer 1<CR>")
+map("n", "<leader>2", "<cmd>BufferLineGoToBuffer 2<CR>")
+map("n", "<leader>3", "<cmd>BufferLineGoToBuffer 3<CR>")
+map("n", "<leader>4", "<cmd>BufferLineGoToBuffer 4<CR>")
+map("n", "<leader>5", "<cmd>BufferLineGoToBuffer 5<CR>")
+map("n", "<leader>6", "<cmd>BufferLineGoToBuffer 6<CR>")
+map("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<CR>")
+map("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<CR>")
+map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>")
 
 -- Telescope Shortcuts
 map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
@@ -31,10 +34,13 @@ map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
 
 -- Hop Shortcuts
-map("", "<leader><leader>j", ":HopLine<CR>", {})
-map("", "<leader><leader>w", ":HopWord<CR>", {})
-map('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
-map('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+map("", "<leader><leader>w", "<cmd>HopWord<CR>", {})
+map("", "<leader><leader>j", "<cmd>HopLine<CR>", {})
+map("", "<leader><leader>k", "<cmd>HopLine<CR>", {})
+map('', '<leader><leader>l', "<cmd>HopWordCurrentLineAC<CR>", {})
+map('', '<leader><leader>h', "<cmd>HopWordCurrentLineBC<CR>", {})
+map('n', 'f', "<cmd>HopChar1CurrentLineAC<CR>", {})
+map('n', 'F', "<cmd>HopChar1CurrentLineBC<CR>", {})
 map('o', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
 map('o', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
 map('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
@@ -42,28 +48,34 @@ map('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.H
 
 
 -- Floating Terminal Shortcuts
-map('', "<leader><leader>ftc", ":FloatermNew<CR>")
-map('', "<leader><leader>ftp", ":FloatermPrev<CR>")
-map('', "<leader><leader>ftn", ":FloatermNext<CR>")
-map('', "<leader><leader>ftt", ":FloatermToggle<CR>")
-map('t', "<leader><leader>ftt", ":FloatermToggle<CR>")
+map('', "<leader><leader>ftc", "<cmd>FloatermNew<CR>")
+map('', "<leader><leader>ftp", "<cmd>FloatermPrev<CR>")
+map('', "<leader><leader>ftn", "<cmd>FloatermNext<CR>")
+map('', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
+map('t', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 
-map('', "<leader>s", ":SymbolsOutline<CR>")
+map('', "<leader>s", "<cmd>SymbolsOutline<CR>")
 
 -- Move Shortcuts
-map('n', '<A-j>', ":MoveLine(1)<CR>", { noremap = true, silent = true })
-map('n', '<A-k>', ":MoveLine(-1)<CR>", { noremap = true, silent = true })
-map('v', '<A-j>', ":MoveBlock(1)<CR>", { noremap = true, silent = true })
-map('v', '<A-k>', ":MoveBlock(-1)<CR>", { noremap = true, silent = true })
-map('n', '<A-l>', ":MoveHChar(1)<CR>", { noremap = true, silent = true })
-map('n', '<A-h>', ":MoveHChar(-1)<CR>", { noremap = true, silent = true })
-map('v', '<A-l>', ":MoveHBlock(1)<CR>", { noremap = true, silent = true })
-map('v', '<A-h>', ":MoveHBlock(-1)<CR>", { noremap = true, silent = true })
+map('n', '<A-j>', "<cmd>MoveLine(1)<CR>", { noremap = true, silent = true })
+map('n', '<A-k>', "<cmd>MoveLine(-1)<CR>", { noremap = true, silent = true })
+map('v', '<A-j>', "<cmd>MoveBlock(1)<CR>", { noremap = true, silent = true })
+map('v', '<A-k>', "<cmd>MoveBlock(-1)<CR>", { noremap = true, silent = true })
+map('n', '<A-l>', "<cmd>MoveHChar(1)<CR>", { noremap = true, silent = true })
+map('n', '<A-h>', "<cmd>MoveHChar(-1)<CR>", { noremap = true, silent = true })
+map('v', '<A-l>', "<cmd>MoveHBlock(1)<CR>", { noremap = true, silent = true })
+map('v', '<A-h>', "<cmd>MoveHBlock(-1)<CR>", { noremap = true, silent = true })
 
 -- SnipRun Shortcuts
-map('v', '<leader>r', ':SnipRun<CR>', {silent = true})
-map('n', '<leader>r', ':SnipRunOperator<CR>', {silent = true})
-map('n', '<leader>rr', ':SnipRun<CR>', {silent = true})
+map('v', '<leader>r', '<cmd>SnipRun<CR>', {silent = true})
+map('n', '<leader>r', '<cmd>SnipRunOperator<CR>', {silent = true})
+map('n', '<leader>rr', '<cmd>SnipRun<CR>', {silent = true})
+
+-- Dashboard Shortcuts
+map('', '<leader>ss', '<cmd><C-u>SessionSave<CR>')
+map('', '<leader>sl', '<cmd><C-u>SessionLoad<CR>')
+map('n', '<leader>tc', '<cmd>DashboardChangeColorscheme<CR>', { silent = true })
+map('n', '<leader>cn', '<cmd>DashboardNewFile<CR>', { silent = true })
 
 local pluginKeys = {}
 
