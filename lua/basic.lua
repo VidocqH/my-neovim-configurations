@@ -18,3 +18,13 @@ set.termguicolors = true
 set.mouse = 'a'
 
 set.hidden = true
+
+if (vim.fn.has('win32'))
+then
+  set.shell = 'powershell'
+  set.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+  set.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  set.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  set.shellquote = ''
+  set.shellxquote = ''
+end
