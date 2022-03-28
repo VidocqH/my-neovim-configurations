@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"vim", "lua", "javascript", "json", "typescript", "python", "cpp"},
+  ensure_installed = {"vim", "lua", "javascript", "json", "typescript", "python", "cpp", "c"},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = true,
@@ -26,6 +26,16 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   },
+
+  -- Rainbow parentheses
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }
+    extended_mode = true,
+    max_file_lines = nil,
+    -- colors = {},
+    -- termcolors = {}
+  }
 }
 
 -- Foldding Module

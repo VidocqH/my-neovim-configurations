@@ -117,7 +117,7 @@ pluginKeys.maplsp = function(mapbuf)
   mapbuf('v', '<leader>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>" , opt)
   -- go xx
   -- mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
-  -- mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
+  -- mapbuf('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
   mapbuf('n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opt)
   mapbuf('n', 'gh', "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opt)
   mapbuf('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>" , opt)

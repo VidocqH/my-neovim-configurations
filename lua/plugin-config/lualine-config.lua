@@ -7,8 +7,8 @@ require('lualine').setup {
     lualine_x = {'encoding', 'filetype', 'progress'},
     lualine_y = {},
   },
-  options = {
-    theme = 'github'
-  },
+  -- options = {
+  --   theme = 'github'
+  -- },
   extensions = { 'nvim-tree' , 'toggleterm', 'symbols-outline'}
 }

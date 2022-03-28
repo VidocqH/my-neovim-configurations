@@ -1,3 +1,10 @@
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
@@ -5,8 +12,12 @@
 
 return require('packer').startup(function()
   -- Github Theme
+  -- use {
+  --   "projekt0n/github-nvim-theme",
+  -- }
+  -- OneDarkPro Theme
   use {
-    "projekt0n/github-nvim-theme",
+    'olimorris/onedarkpro.nvim',
   }
   -- Bottom Line
   use {
@@ -23,11 +34,11 @@ return require('packer').startup(function()
   -- Highlighting
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- Tab
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   -- Github Copilot
   use { 'github/copilot.vim' }
   -- LSP Server
-  use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
+  use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' }
   -- nvim-cmp
   use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
   use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
@@ -49,7 +60,7 @@ return require('packer').startup(function()
   }
   -- surround
   use {
-    "blackCauldron7/surround.nvim",
+    "ur4ltz/surround.nvim",
     config = function()
       require"surround".setup {mappings_style = "surround"}
     end
@@ -105,5 +116,30 @@ return require('packer').startup(function()
     "SmiteshP/nvim-gps",
     requires = "nvim-treesitter/nvim-treesitter"
   }
+  -- Rainbow parentheses
+  use {
+    "p00f/nvim-ts-rainbow"
+  }
+  use { "jiangmiao/auto-pairs" }
+  -- Auto Session
+  use {
+    'rmagatti/auto-session',
+    config = function()
+      require('auto-session').setup {
+        log_level = 'info',
+        auto_session_suppress_dirs = {'~/', '~/Projects'}
+      }
+    end
+  }
+  -- Fix Buffer Deletion
+  use {
+    'famiu/bufdelete.nvim'
+  }
+  -- use {
+    -- 'p00f/clangd_extensions.nvim'
+    -- config = function()
+    --   require('clangd_extensions').setup()
+    -- end
+  -- }
 end)
 

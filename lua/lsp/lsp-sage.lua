@@ -18,7 +18,7 @@ lspsaga.setup { -- defaults ...
   },
   finder_definition_icon = "  ",
   finder_reference_icon = "  ",
-  max_preview_lines = 10,
+  max_preview_lines = 300,
   finder_action_keys = {
     open = "<CR>",
     vsplit = "s",
@@ -40,4 +40,6 @@ lspsaga.setup { -- defaults ...
   rename_prompt_prefix = "➤",
   server_filetype_map = {},
   diagnostic_prefix_format = "%d. ",
+  diagnostic_message_format = "%m %c",
+  highlight_prefix = true,
 }

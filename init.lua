@@ -1,6 +1,6 @@
 require('basic')
 require('keybindings')
-require('plugin-config/github-nvim-theme-config')
+require('plugin-config/nvim-theme-config')
 require('plugin-config/lualine-config')
 require('plugin-config/nvim-gps-config')
 require('plugin-config/nvim-treesitter-config')

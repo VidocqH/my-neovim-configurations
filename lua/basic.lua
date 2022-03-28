@@ -5,10 +5,9 @@ set.tabstop = 2
 set.shiftwidth = 2
 set.softtabstop = 2
 set.expandtab = true
-set.smartindent = true
 
 set.cursorline = true
-set.cursorcolumn = true
+-- set.cursorcolumn = true
 
 set.number = true
 set.relativenumber = true
@@ -19,7 +18,10 @@ set.mouse = 'a'
 
 set.hidden = true
 
-if (vim.fn.has('win32'))
+set.conceallevel = 3
+
+-- Windows Shell Setting
+if (vim.fn.has('win32') == 1)
 then
   set.shell = 'powershell'
   set.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
