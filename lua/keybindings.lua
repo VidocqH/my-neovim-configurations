@@ -67,9 +67,9 @@ map('v', '<A-l>', "<cmd>MoveHBlock(1)<CR>", { noremap = true, silent = true })
 map('v', '<A-h>', "<cmd>MoveHBlock(-1)<CR>", { noremap = true, silent = true })
 
 -- SnipRun Shortcuts
-map('v', '<leader>r', '<cmd>SnipRun<CR>', {silent = true})
-map('n', '<leader>r', '<cmd>SnipRunOperator<CR>', {silent = true})
-map('n', '<leader>rr', '<cmd>SnipRun<CR>', {silent = true})
+map('v', '<leader>rr', '<cmd>SnipRun<CR>', {silent = true})
+map('n', '<leader>rr', '<cmd>SnipRunOperator<CR>', {silent = true})
+map('n', '<leader>rrr', '<cmd>SnipRun<CR>', {silent = true})
 
 -- Dashboard Shortcuts
 map('', '<leader>ss', '<cmd><C-u>SessionSave<CR>')

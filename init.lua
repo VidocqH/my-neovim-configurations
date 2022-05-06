@@ -1,6 +1,10 @@
 require('basic')
 require('keybindings')
-require('plugin-config/nvim-theme-config')
+-- Currently doesn't have a beautiful solution for vscode checking. 'cond' option
+-- under Packer mess theme plugin.
+if vim.fn.exists('g:vscode') == 0 then
+  require('plugin-config/nvim-theme-config')
+end
 require('plugin-config/lualine-config')
 require('plugin-config/nvim-gps-config')
 require('plugin-config/nvim-treesitter-config')

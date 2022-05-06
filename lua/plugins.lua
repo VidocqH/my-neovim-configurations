@@ -1,3 +1,7 @@
+local noVSCode = function()
+  return vim.fn.exists('g:vscode') == 0
+end
+
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -5,19 +9,18 @@ vim.cmd([[
   augroup end
 ]])
 
+-- print(noVSCode())
+
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
 -- vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
-  -- Github Theme
-  -- use {
-  --   "projekt0n/github-nvim-theme",
-  -- }
   -- OneDarkPro Theme
   use {
     'olimorris/onedarkpro.nvim',
+    -- cond = { noVSCode },
   }
   -- Bottom Line
   use {
@@ -34,7 +37,7 @@ return require('packer').startup(function()
   -- Highlighting
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- Tab
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
   -- Github Copilot
   use { 'github/copilot.vim' }
   -- LSP Server
@@ -62,7 +65,7 @@ return require('packer').startup(function()
   use {
     "ur4ltz/surround.nvim",
     config = function()
-      require"surround".setup {mappings_style = "surround"}
+      require"surround".setup { mappings_style = "surround" }
     end
   }
   -- comment
@@ -104,7 +107,7 @@ return require('packer').startup(function()
   -- Symbols Outline
   use "simrat39/symbols-outline.nvim"
   -- Terminal tab
-  use "akinsho/toggleterm.nvim"
+  use { "akinsho/toggleterm.nvim", tag = "v2.*" }
   -- mini, multiple functionalities
   use { 'echasnovski/mini.nvim', branch = 'stable' }
   -- Notify
@@ -127,7 +130,8 @@ return require('packer').startup(function()
     config = function()
       require('auto-session').setup {
         log_level = 'info',
-        auto_session_suppress_dirs = {'~/', '~/Projects'}
+        -- auto_session_enabled = false,
+        auto_session_suppress_dirs = { '~/', '~/Projects' }
       }
     end
   }
@@ -135,11 +139,8 @@ return require('packer').startup(function()
   use {
     'famiu/bufdelete.nvim'
   }
-  -- use {
-    -- 'p00f/clangd_extensions.nvim'
-    -- config = function()
-    --   require('clangd_extensions').setup()
-    -- end
-  -- }
+  use {
+    'p00f/clangd_extensions.nvim'
+  }
 end)
 

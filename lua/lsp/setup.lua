@@ -1,3 +1,4 @@
+vim.lsp.set_log_level("debug")
 local lsp_installer = require "nvim-lsp-installer"
 
 -- Installer List
@@ -23,23 +24,37 @@ for name, _ in pairs(servers) do
   end
 end
 
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  -- Bind shortcut
+  require('keybindings').maplsp(buf_set_keymap)
+end
+
 lsp_installer.on_server_ready(function(server)
   local opts = servers[server.name] or {}
-  if server.name == 'clangd' then
-    -- Clangd Extension Setup
-    require "clangd_extensions".setup {}
-    return
-  end
-  if opts then
-    opts.on_attach = function(_, bufnr)
-      local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-      -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-      -- Bind shortcut
-      require('keybindings').maplsp(buf_set_keymap)
-    end
-  end
-  -- opts.flags = {
-  --   debounce_text_changes = 150,
-  -- }
+  opts.on_attach = on_attach
+  opts.flags = {
+    debounce_text_changes = 150,
+  }
   server:setup(opts)
 end)
+
+require("clangd_extensions").setup {
+  server = {
+    on_attach = on_attach,
+    flags = { debounce_text_changes = 150, },
+    cmd = {
+      "clangd",
+      "-j=8",
+      "--background-index",
+      "--clang-tidy",
+      "--fallback-style=llvm",
+      "--all-scopes-completion",
+      "--completion-style=detailed",
+      "--header-insertion=iwyu",
+      "--header-insertion-decorators",
+      "--pch-storage=memory",
+    }
+  },
+}
