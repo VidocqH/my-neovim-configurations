@@ -1,12 +1,8 @@
--- require("github-theme").setup({
---   theme_style = "dark_default",
--- })
---
-
 local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
   -- Theme can be overwritten with 'onedark' or 'onelight' as a string
-  theme = "onedark_vivid",
+  -- theme = "onedark_vivid",
+  theme = "onedark_dark",
   colors = {
     onedark = {
       bg = "#161616",
@@ -14,7 +10,8 @@ onedarkpro.setup({
       green = "#89ca78",
       cyan = "#2bbac5",
       purple = "#d55fde",
-    }
+    },
+    cursorline = "#222222"
   }, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   hlgroups = {
     -- Temp Python Highlight
@@ -33,11 +30,8 @@ onedarkpro.setup({
     }
   }, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugins highlight groups are loaded
-      -- native_lsp = true,
-      -- polygot = true,
-      -- treesitter = true,
-      -- NOTE: Other plugins have been omitted for brevity
-    lsp_saga = false
+    all = true
+    -- lsp_saga = false
   },
   styles = {
       strings = "NONE", -- Style that is applied to strings
@@ -48,10 +42,10 @@ onedarkpro.setup({
   },
   options = {
       bold = true, -- Use the themes opinionated bold styles?
-      italic = false, -- Use the themes opinionated italic styles?
+      italic = true, -- Use the themes opinionated italic styles?
       underline = true, -- Use the themes opinionated underline styles?
-      undercurl = false, -- Use the themes opinionated undercurl styles?
-      cursorline = true, -- Use cursorline highlighting?
+      undercurl = true, -- Use the themes opinionated undercurl styles?
+      cursorline = false, -- Use cursorline highlighting?
       transparency = false, -- Use a transparent background?
       terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
       window_unfocussed_color = true, -- When the window is out of focus, change the normal background?

@@ -29,6 +29,7 @@ local on_attach = function(client, bufnr)
   -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   -- Bind shortcut
   require('keybindings').maplsp(buf_set_keymap)
+  require("aerial").on_attach(client, bufnr)    -- Aerial LSP Support
 end
 
 lsp_installer.on_server_ready(function(server)

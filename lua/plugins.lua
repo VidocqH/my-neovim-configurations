@@ -37,7 +37,8 @@ return require('packer').startup(function()
   -- Highlighting
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- Tab
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  -- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  use { 'romgrk/barbar.nvim', requires='kyazdani42/nvim-web-devicons' }
   -- Github Copilot
   use { 'github/copilot.vim' }
   -- LSP Server
@@ -105,7 +106,7 @@ return require('packer').startup(function()
     end
   }
   -- Symbols Outline
-  use "simrat39/symbols-outline.nvim"
+  use "stevearc/aerial.nvim"
   -- Terminal tab
   use { "akinsho/toggleterm.nvim", tag = "v2.*" }
   -- mini, multiple functionalities

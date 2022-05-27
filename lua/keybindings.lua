@@ -9,23 +9,26 @@ end
 -- Sidebar nvim-tree file explorer toggler
 map('n', '<leader>b', '<cmd>NvimTreeToggle<CR>')
 
+-- BufferLine Magic Picker
+map('n', '<leader>p', '<cmd>BufferPick<CR>')
+
 -- Bufferline Closer
-map('n', '<leader>w', '<cmd>BufferLinePickClose<CR>')
+map('n', '<leader>w', '<cmd>BufferClose<CR>')
 
 -- bufferline tab switcher
-map("n", "<C-h>", "<cmd>BufferLineCyclePrev<CR>")
-map("n", "<C-l>", "<cmd>BufferLineCycleNext<CR>")
+map("n", "<C-h>", "<cmd>BufferPrevious<CR>")
+map("n", "<C-l>", "<cmd>BufferNext<CR>")
 
 -- bufferline tab jumper
-map("n", "<leader>1", "<cmd>BufferLineGoToBuffer 1<CR>")
-map("n", "<leader>2", "<cmd>BufferLineGoToBuffer 2<CR>")
-map("n", "<leader>3", "<cmd>BufferLineGoToBuffer 3<CR>")
-map("n", "<leader>4", "<cmd>BufferLineGoToBuffer 4<CR>")
-map("n", "<leader>5", "<cmd>BufferLineGoToBuffer 5<CR>")
-map("n", "<leader>6", "<cmd>BufferLineGoToBuffer 6<CR>")
-map("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<CR>")
-map("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<CR>")
-map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>")
+map("n", "<leader>1", "<cmd>BufferGoto 1<CR>")
+map("n", "<leader>2", "<cmd>BufferGoto 2<CR>")
+map("n", "<leader>3", "<cmd>BufferGoto 3<CR>")
+map("n", "<leader>4", "<cmd>BufferGoto 4<CR>")
+map("n", "<leader>5", "<cmd>BufferGoto 5<CR>")
+map("n", "<leader>6", "<cmd>BufferGoto 6<CR>")
+map("n", "<leader>7", "<cmd>BufferGoto 7<CR>")
+map("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
+map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 
 -- Telescope Shortcuts
 map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
