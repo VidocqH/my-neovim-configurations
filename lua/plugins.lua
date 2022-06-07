@@ -140,8 +140,13 @@ return require('packer').startup(function()
   use {
     'famiu/bufdelete.nvim'
   }
+  -- Clangd Extension
   use {
     'p00f/clangd_extensions.nvim'
+  }
+  -- Discord Rich Presence
+  use {
+    'andweeb/presence.nvim'
   }
 end)
 

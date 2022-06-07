@@ -1,5 +1,3 @@
-vim.g.nvim_tree_group_empty = true
-
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 require'nvim-tree'.setup {
@@ -50,6 +48,11 @@ require'nvim-tree'.setup {
     number = false,
     relativenumber = false,
     signcolumn = "yes"
+  },
+  renderer = {
+    group_empty = true,
+    -- highlight_git = true,
+    highlight_opened_files = "name",
   },
   trash = {
     cmd = "trash",
