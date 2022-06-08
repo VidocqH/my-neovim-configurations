@@ -132,13 +132,10 @@ return require('packer').startup(function()
       require('auto-session').setup {
         log_level = 'info',
         -- auto_session_enabled = false,
-        auto_session_suppress_dirs = { '~/', '~/Projects' }
+        auto_session_suppress_dirs = { '~/', '~/Projects' },
+        bypass_session_save_file_types = { 'aerial' },
       }
     end
-  }
-  -- Fix Buffer Deletion
-  use {
-    'famiu/bufdelete.nvim'
   }
   -- Clangd Extension
   use {

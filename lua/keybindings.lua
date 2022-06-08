@@ -57,8 +57,6 @@ map('', "<leader><leader>ftn", "<cmd>FloatermNext<CR>")
 map('', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 map('t', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 
-map('', "<leader>s", "<cmd>SymbolsOutline<CR>")
-
 -- Move Shortcuts
 map('n', '<A-j>', "<cmd>MoveLine(1)<CR>", { noremap = true, silent = true })
 map('n', '<A-k>', "<cmd>MoveLine(-1)<CR>", { noremap = true, silent = true })

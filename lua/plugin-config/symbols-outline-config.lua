@@ -1,3 +1,9 @@
+-- vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+-- vim.o.sessionoptions="aerial"
+
+-- Set current line highlight
+vim.cmd[[highlight AerialLine guifg=yellow]]
+
 require('aerial').setup({
   on_attach = function(bufnr)
     -- Toggle the aerial window with <leader>a
@@ -12,4 +18,7 @@ require('aerial').setup({
   highlight_mode = "full_width",
   highlight_on_hover = true,
   show_guides = true,
+  manage_folds = true,
+  close_behavior = "close",
+  -- link_folds_to_tree = true,
 })
