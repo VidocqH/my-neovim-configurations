@@ -40,7 +40,7 @@ return require('packer').startup(function()
   -- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
   use { 'romgrk/barbar.nvim', requires='kyazdani42/nvim-web-devicons' }
   -- Github Copilot
-  use { 'github/copilot.vim' }
+  -- use { 'github/copilot.vim' }
   -- LSP Server
   use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' }
   -- nvim-cmp

@@ -84,9 +84,9 @@ local pluginKeys = {}
 pluginKeys.cmp = function(cmp)
   return {
     -- previous item
-    ['<C-k>'] = cmp.mapping.select_prev_item(),
+    ['<Up>'] = cmp.mapping.select_prev_item(),
     -- next item
-    ['<C-j>'] = cmp.mapping.select_next_item(),
+    ['<Down>'] = cmp.mapping.select_next_item(),
     -- toggler completion
     ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     -- cancel
@@ -97,7 +97,7 @@ pluginKeys.cmp = function(cmp)
     -- select
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ['<CR>'] = cmp.mapping.confirm({
+    ['<Tab>'] = cmp.mapping.confirm({
       select = true ,
       behavior = cmp.ConfirmBehavior.Replace
     }),
