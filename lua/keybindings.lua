@@ -78,6 +78,11 @@ map('', '<leader>sl', '<cmd><C-u>SessionLoad<CR>')
 map('n', '<leader>tc', '<cmd>DashboardChangeColorscheme<CR>', { silent = true })
 map('n', '<leader>cn', '<cmd>DashboardNewFile<CR>', { silent = true })
 
+-- Trouble setting
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", {silent = true, noremap = true})
+
 local pluginKeys = {}
 
 -- nvim-cmp auto complete
@@ -110,15 +115,11 @@ end
 -- LSP related keybindings
 pluginKeys.maplsp = function(mapbuf)
   -- rename
-  -- mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
   mapbuf('n', '<leader>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>", opt)
   -- code action
-  -- mapbuf('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
   mapbuf('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>" , opt)
   mapbuf('v', '<leader>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>" , opt)
   -- go xx
-  -- mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
-  -- mapbuf('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
   mapbuf('n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opt)
   mapbuf('n', 'gh', "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opt)
   mapbuf('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>" , opt)
@@ -128,20 +129,12 @@ pluginKeys.maplsp = function(mapbuf)
   mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
   mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
   -- diagnostic
-  -- mapbuf('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', opt)
-  -- mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
-  -- mapbuf('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
   mapbuf("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", opt)
   mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
   mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-  -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
   -- leader + =
   mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
-  -- mapbuf('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt)
-  -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
-  -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-  -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
-  -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+  mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
 return pluginKeys
 

@@ -11,6 +11,13 @@ local servers = {
   tsserver = {},
   cmake = {},
   jsonls = {},
+  bashls = {},
+  html = {},
+  volar = {},
+  yamlls = {},
+  dockerls = {},
+  grammarly = {},
+  lemminx = {}
 }
 
 -- Auto Install LanguageServers
