@@ -36,13 +36,15 @@ return require('packer').startup(function()
   }
   -- Highlighting
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  -- Context
+  use { 'nvim-treesitter/nvim-treesitter-context' }
   -- Tab
   -- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
   use { 'romgrk/barbar.nvim', requires='kyazdani42/nvim-web-devicons' }
   -- Github Copilot
   -- use { 'github/copilot.vim' }
   -- LSP Server
-  use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' }
+  use { 'neovim/nvim-lspconfig'}
   -- nvim-cmp
   use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
   use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
@@ -83,7 +85,7 @@ return require('packer').startup(function()
     end
   }
   -- Dashboard
-  use "glepnir/dashboard-nvim"
+  use { "glepnir/dashboard-nvim" }
   -- Floating Terminal
   use "voldikss/vim-floaterm"
   -- Lines or paragraphs move up and down
@@ -121,9 +123,8 @@ return require('packer').startup(function()
     requires = "nvim-treesitter/nvim-treesitter"
   }
   -- Rainbow parentheses
-  use {
-    "p00f/nvim-ts-rainbow"
-  }
+  use { "p00f/nvim-ts-rainbow" }
+  -- Auto pairs
   use { "jiangmiao/auto-pairs" }
   -- Auto Session
   use {
@@ -156,12 +157,25 @@ return require('packer').startup(function()
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
+      require("trouble").setup {}
     end
+  }
+  -- Mason
+  use {
+    'williamboman/mason.nvim',
+    config = function()
+      require("mason").setup()
+    end
+  }
+  use {
+    'williamboman/mason-lspconfig.nvim',
+    config = function()
+      require("mason-lspconfig").setup()
+    end
+  }
+  -- Debugger
+  use {
+    'mfussenegger/nvim-dap'
   }
 end)
 
