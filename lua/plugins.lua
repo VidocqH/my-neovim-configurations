@@ -127,25 +127,11 @@ return require('packer').startup(function()
   -- Auto pairs
   use { "jiangmiao/auto-pairs" }
   -- Auto Session
-  use {
-    'rmagatti/auto-session',
-    config = function()
-      require('auto-session').setup {
-        log_level = 'info',
-        -- auto_session_enabled = false,
-        auto_session_suppress_dirs = { '~/', '~/Projects' },
-        bypass_session_save_file_types = { 'aerial' },
-      }
-    end
-  }
+  use { 'rmagatti/auto-session' }
   -- Clangd Extension
-  use {
-    'p00f/clangd_extensions.nvim'
-  }
+  use { 'p00f/clangd_extensions.nvim' }
   -- Discord Rich Presence
-  use {
-    'andweeb/presence.nvim'
-  }
+  use { 'andweeb/presence.nvim' }
   -- Lsp progress display
   use {
     'j-hui/fidget.nvim',
@@ -177,5 +163,29 @@ return require('packer').startup(function()
   use {
     'mfussenegger/nvim-dap'
   }
+  -- Debugger for Python
+  use {
+    'mfussenegger/nvim-dap-python',
+    config = function()
+      require('dap-python').setup()
+    end
+  }
+  -- Debugger UI
+  use {
+    "rcarriga/nvim-dap-ui",
+    requires = {"mfussenegger/nvim-dap"},
+    config = function ()
+      require('dapui').setup()
+    end
+  }
+  -- Debugger Virtual text
+  use {
+    'theHamsta/nvim-dap-virtual-text',
+    config = function ()
+      require('nvim-dap-virtual-text').setup()
+    end
+  }
+  -- Debugger telescope plugin
+  use { 'nvim-telescope/telescope-dap.nvim' }
 end)
 

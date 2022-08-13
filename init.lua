@@ -5,6 +5,7 @@ require('keybindings')
 if vim.fn.exists('g:vscode') == 0 then
   require('plugin-config/nvim-theme-config')
 end
+require('plugin-config/auto-session-config')
 require('plugin-config/lualine-config')
 require('plugin-config/nvim-gps-config')
 require('plugin-config/nvim-treesitter-config')

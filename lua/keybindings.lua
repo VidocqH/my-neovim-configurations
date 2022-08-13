@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Sidebar nvim-tree file explorer toggler
-map('n', '<leader>b', '<cmd>NvimTreeToggle<CR>')
+map('', '<leader>n', '<cmd>NvimTreeToggle<CR>')
 
 -- BufferLine Magic Picker
 map('n', '<leader>p', '<cmd>BufferPick<CR>')
@@ -82,6 +82,19 @@ map('n', '<leader>cn', '<cmd>DashboardNewFile<CR>', { silent = true })
 map("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
 map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", {silent = true, noremap = true})
 map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", {silent = true, noremap = true})
+
+-- Dap keybindings
+map("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>")
+map("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>")
+map("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>")
+map("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>")
+map("n", "<leader>b", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>")
+map("n", "<Leader>B", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+map("n", "<Leader>lp", "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+map("n", "<Leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>")
+map("n", "<Leader>dl", "<Cmd>lua require'dap'.run_last()<CR>")
+
+map("n", "<Leader>gui", "<cmd>lua require('dapui').toggle()<CR>")
 
 local pluginKeys = {}
 
