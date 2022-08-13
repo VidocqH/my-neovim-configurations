@@ -4,7 +4,7 @@ vim.lsp.set_log_level("debug")
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 -- { key: language value: config file }
 local servers = {
-  sumneko_lua = require "lua.lsp.lua", -- ./lua/lsp/lua.lua
+  sumneko_lua = require "lsp.lua-lsp-config", -- ./lua/lsp/lua-lsp-config.lua
   pyright = {},
   remark_ls = {},
   tsserver = {},
@@ -38,18 +38,18 @@ require("clangd_extensions").setup {
   server = {
     on_attach = on_attach,
     flags = { debounce_text_changes = 150, },
-    cmd = {
-      "clangd",
-      "-j=8",
-      "--background-index",
-      "--clang-tidy",
-      "--fallback-style=llvm",
-      "--all-scopes-completion",
-      "--completion-style=detailed",
-      "--header-insertion=iwyu",
-      "--header-insertion-decorators",
-      "--pch-storage=memory",
-    }
+    -- cmd = {
+    --   "clangd",
+    --   "-j=8",
+    --   "--background-index",
+    --   "--clang-tidy",
+    --   "--fallback-style=llvm",
+    --   "--all-scopes-completion",
+    --   "--completion-style=detailed",
+    --   "--header-insertion=iwyu",
+    --   "--header-insertion-decorators",
+    --   "--pch-storage=memory",
+    -- }
   },
 }
 
