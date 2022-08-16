@@ -35,6 +35,7 @@ map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
 map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
+map("n", "<leader>fc", "<CMD>Telescope command_center<CR>")
 
 -- Hop Shortcuts
 map("", "<leader><leader>w", "<cmd>HopWord<CR>", {})
@@ -85,9 +86,9 @@ map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", {silent = true, 
 
 -- Dap keybindings
 map("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>")
-map("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>")
-map("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>")
-map("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>")
+map("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>") -- N
+map("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>") -- S
+map("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>") -- F
 map("n", "<leader>b", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>")
 map("n", "<Leader>B", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 map("n", "<Leader>lp", "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")

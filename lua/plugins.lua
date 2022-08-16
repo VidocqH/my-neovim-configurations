@@ -187,5 +187,9 @@ return require('packer').startup(function()
   }
   -- Debugger telescope plugin
   use { 'nvim-telescope/telescope-dap.nvim' }
+  use {
+    "FeiyouG/command_center.nvim",
+    requires = { "nvim-telescope/telescope.nvim" }
+  }
 end)
 

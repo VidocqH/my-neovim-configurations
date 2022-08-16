@@ -30,7 +30,7 @@ onedarkpro.setup({
     }
   }, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugins highlight groups are loaded
-    all = true
+    all = true,
     -- lsp_saga = false
   },
   styles = {
@@ -49,6 +49,6 @@ onedarkpro.setup({
       transparency = false, -- Use a transparent background?
       terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
       window_unfocussed_color = true, -- When the window is out of focus, change the normal background?
-  }
+  },
 })
 onedarkpro.load()
