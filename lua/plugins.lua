@@ -39,12 +39,11 @@ return require('packer').startup(function()
   -- Context
   use { 'nvim-treesitter/nvim-treesitter-context' }
   -- Tab
-  -- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
   use { 'romgrk/barbar.nvim', requires='kyazdani42/nvim-web-devicons' }
   -- Github Copilot
-  -- use { 'github/copilot.vim' }
+  use { 'github/copilot.vim' }
   -- LSP Server
-  use { 'neovim/nvim-lspconfig'}
+  use { 'neovim/nvim-lspconfig' }
   -- nvim-cmp
   use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
   use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
@@ -137,7 +136,8 @@ return require('packer').startup(function()
     'j-hui/fidget.nvim',
     config = function()
       require"fidget".setup {}
-    end
+    end,
+    after = "nvim-lspconfig"
   }
   use {
     "folke/trouble.nvim",
@@ -153,12 +153,7 @@ return require('packer').startup(function()
       require("mason").setup()
     end
   }
-  use {
-    'williamboman/mason-lspconfig.nvim',
-    config = function()
-      require("mason-lspconfig").setup()
-    end
-  }
+  use { 'williamboman/mason-lspconfig.nvim' }
   -- Debugger
   use {
     'mfussenegger/nvim-dap'
@@ -187,6 +182,7 @@ return require('packer').startup(function()
   }
   -- Debugger telescope plugin
   use { 'nvim-telescope/telescope-dap.nvim' }
+  -- Telescope command center
   use {
     "FeiyouG/command_center.nvim",
     requires = { "nvim-telescope/telescope.nvim" }

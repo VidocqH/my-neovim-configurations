@@ -41,9 +41,6 @@ require'nvim-treesitter.configs'.setup {
 -- Foldding Module
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
--- Set dont fold as default
--- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
-vim.wo.foldlevel = 99
 
 -- Treesitter context config
 require'treesitter-context'.setup{

@@ -19,6 +19,19 @@ local servers = {
   lemminx = {}
 }
 
+local function get_keys(t)
+  local keys={}
+  for key,_ in pairs(t) do
+    table.insert(keys, key)
+  end
+  return keys
+end
+
+-- Auto Install servers
+require('mason-lspconfig').setup({
+  ensure_installed = get_keys(servers)
+})
+
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end

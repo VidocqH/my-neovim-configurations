@@ -1,16 +1,16 @@
  -- temporary fix file folding
-local telescope_actions = require("telescope.actions.set")
-local fixfolds = {
-	hidden = true,
-	attach_mappings = function(_)
-		telescope_actions.select:enhance({
-			post = function()
-				vim.cmd(":normal! zx")
-       end,
-     })
-     return true
-   end,
- }
+-- local telescope_actions = require("telescope.actions.set")
+-- local fixfolds = {
+-- 	hidden = true,
+-- 	attach_mappings = function(_)
+-- 		telescope_actions.select:enhance({
+-- 			post = function()
+-- 				vim.cmd(":normal! zx")
+--        end,
+--      })
+--      return true
+--    end,
+--  }
 
  require("telescope").load_extension("notify")
  require("telescope").load_extension('aerial')

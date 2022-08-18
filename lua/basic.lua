@@ -9,6 +9,10 @@ set.expandtab = true
 set.cursorline = true
 -- set.cursorcolumn = true
 
+-- Set dont fold as default
+-- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
+set.foldlevelstart = 99
+
 set.number = true
 set.relativenumber = true
 
