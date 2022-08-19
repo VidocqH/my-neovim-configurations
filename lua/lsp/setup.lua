@@ -1,9 +1,8 @@
 vim.lsp.set_log_level("debug")
 
 -- Installer List
--- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 -- { key: language value: config file }
-local servers = {
+local lsp_servers = {
   sumneko_lua = require "lsp.lua-lsp-config", -- ./lua/lsp/lua-lsp-config.lua
   pyright = {},
   remark_ls = {},
@@ -16,7 +15,13 @@ local servers = {
   yamlls = {},
   dockerls = {},
   grammarly = {},
-  lemminx = {}
+  lemminx = {},
+  clangd = {},
+}
+
+local dap_servers = {
+  "debugpy",
+  "vscode-node-debug"
 }
 
 local function get_keys(t)
@@ -29,7 +34,7 @@ end
 
 -- Auto Install servers
 require('mason-lspconfig').setup({
-  ensure_installed = get_keys(servers)
+  ensure_installed = get_keys(lsp_servers)
 })
 
 local on_attach = function(client, bufnr)
@@ -40,11 +45,14 @@ local on_attach = function(client, bufnr)
   require("aerial").on_attach(client, bufnr)    -- Aerial LSP Support
 end
 
-for lang, config in pairs(servers) do
-  require("lspconfig")[lang].setup {
-    on_attach = on_attach,
-    settings = config.settings
-  }
+for lang, config in pairs(lsp_servers) do
+  -- Clangd would be load by the clangd_extensions
+  if lang ~= 'clangd' then
+    require("lspconfig")[lang].setup {
+      on_attach = on_attach,
+      settings = config.settings
+    }
+  end
 end
 
 require("clangd_extensions").setup {
