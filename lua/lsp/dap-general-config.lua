@@ -7,11 +7,11 @@ if (vim.fn.has('osx') == 1) then
     command = '/usr/local/opt/llvm/bin/lldb-vscode',
     name = 'lldb'
   }
-  dap.adapters.node2 = {
-    type = 'executable',
-    command = 'node',
-    args = { vim.fn.stdpath('data') .. '/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' }
-  }
+  -- dap.adapters.node2 = {
+  --   type = 'executable',
+  --   command = 'node',
+  --   args = { vim.fn.stdpath('data') .. '/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' }
+  -- }
 end
 
 local function inproject_dap_config_file_exists()   -- Project ./.nvim/dap-config.lua
@@ -27,7 +27,7 @@ end
   dap.configurations.c = dap.configurations.cpp
   dap.configurations.rust = dap.configurations.cpp
 
-for _, language in ipairs({ "typescript", "javascript" }) do
-  require("dap").configurations[language] = require('lsp.ts-dap-config')
-end
+-- for _, language in ipairs({ "typescript", "javascript" }) do
+--   require("dap").configurations[language] = require('lsp.ts-dap-config')
+-- end
 

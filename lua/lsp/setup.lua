@@ -21,7 +21,7 @@ local lsp_servers = {
 
 local dap_servers = {
   "debugpy",
-  "vscode-node-debug"
+  "vscode-node-debug2"
 }
 
 local function get_keys(t)

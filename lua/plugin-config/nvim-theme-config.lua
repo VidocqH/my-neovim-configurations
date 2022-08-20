@@ -29,10 +29,6 @@ onedarkpro.setup({
       TSInclude = { fg = "${yellow}" }
     }
   }, -- Override default highlight groups for specific filetypes
-  plugins = { -- Override which plugins highlight groups are loaded
-    all = true,
-    -- lsp_saga = false
-  },
   styles = {
       strings = "NONE", -- Style that is applied to strings
       comments = "NONE", -- Style that is applied to comments
@@ -51,4 +47,5 @@ onedarkpro.setup({
       window_unfocussed_color = true, -- When the window is out of focus, change the normal background?
   },
 })
-onedarkpro.load()
+-- onedarkpro.load()
+vim.cmd("colorscheme onedarkpro")

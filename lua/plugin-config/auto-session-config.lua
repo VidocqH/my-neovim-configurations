@@ -1,4 +1,4 @@
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winpos,terminal"
 
 local ignore_file_type = {
   "aerial",

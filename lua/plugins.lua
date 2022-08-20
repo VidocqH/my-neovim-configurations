@@ -188,5 +188,6 @@ return require('packer').startup(function()
     requires = { "nvim-telescope/telescope.nvim" }
   }
   use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+  use { "jose-elias-alvarez/null-ls.nvim" }
 end)
 
