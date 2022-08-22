@@ -187,7 +187,7 @@ return require('packer').startup(function()
     "FeiyouG/command_center.nvim",
     requires = { "nvim-telescope/telescope.nvim" }
   }
-  use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
   use { "jose-elias-alvarez/null-ls.nvim" }
+  use { 'jbyuki/one-small-step-for-vimkind' }
 end)
 

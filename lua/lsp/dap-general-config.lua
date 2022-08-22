@@ -7,11 +7,14 @@ if (vim.fn.has('osx') == 1) then
     command = '/usr/local/opt/llvm/bin/lldb-vscode',
     name = 'lldb'
   }
-  -- dap.adapters.node2 = {
-  --   type = 'executable',
-  --   command = 'node',
-  --   args = { vim.fn.stdpath('data') .. '/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' }
-  -- }
+  dap.adapters.node2 = {
+    type = 'executable',
+    command = 'node',
+    args = { vim.fn.stdpath('data') .. '/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' }
+  }
+  dap.adapters.nlua = function(callback, config)
+    callback({ type = 'server', host = config.host, port = config.port })
+  end
 end
 
 local function inproject_dap_config_file_exists()   -- Project ./.nvim/dap-config.lua
@@ -27,7 +30,27 @@ end
   dap.configurations.c = dap.configurations.cpp
   dap.configurations.rust = dap.configurations.cpp
 
--- for _, language in ipairs({ "typescript", "javascript" }) do
---   require("dap").configurations[language] = require('lsp.ts-dap-config')
--- end
+dap.configurations.lua = {
+  {
+    type = 'nlua',
+    request = 'attach',
+    name = "Attach to running Neovim instance",
+    host = function()
+      local value = vim.fn.input('Host [127.0.0.1]: ')
+      if value ~= "" then
+        return value
+      end
+      return '127.0.0.1'
+    end,
+    port = function()
+      local val = tonumber(vim.fn.input('Port: '))
+      assert(val, "Please provide a port number")
+      return val
+    end,
+  }
+}
+
+for _, language in ipairs({ "typescript", "javascript" }) do
+  require("dap").configurations[language] = require('lsp.ts-dap-config')
+end
 

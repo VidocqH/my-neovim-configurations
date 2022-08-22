@@ -45,6 +45,7 @@ local on_attach = function(client, bufnr)
   require("aerial").on_attach(client, bufnr)    -- Aerial LSP Support
 end
 
+-- Load installed lsp server
 for lang, config in pairs(lsp_servers) do
   -- Clangd would be load by the clangd_extensions
   if lang ~= 'clangd' then
@@ -55,6 +56,7 @@ for lang, config in pairs(lsp_servers) do
   end
 end
 
+-- Load clangd lsp with extension
 require("clangd_extensions").setup {
   server = {
     on_attach = on_attach,

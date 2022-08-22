@@ -13,12 +13,12 @@ onedarkpro.setup({
     },
     cursorline = "#222222"
   }, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
-  hlgroups = {
+  highlights = {
     -- Temp Python Highlight
     TSConstructor = { fg = "#19adb9" },
     TSField = { fg = "${red}" }
   }, -- Override default highlight groups
-  filetype_hlgroups = {
+  ft_highlights = {
     yaml = { -- Use the filetype as per the `set filetype?` command
       TSField = { fg = "${red}" }
     },
@@ -44,7 +44,7 @@ onedarkpro.setup({
       cursorline = false, -- Use cursorline highlighting?
       transparency = false, -- Use a transparent background?
       terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-      window_unfocussed_color = true, -- When the window is out of focus, change the normal background?
+      window_unfocused_color = true, -- When the window is out of focus, change the normal background?
   },
 })
 -- onedarkpro.load()

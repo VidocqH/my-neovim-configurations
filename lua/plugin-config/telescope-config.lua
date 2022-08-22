@@ -1,17 +1,3 @@
- -- temporary fix file folding
--- local telescope_actions = require("telescope.actions.set")
--- local fixfolds = {
--- 	hidden = true,
--- 	attach_mappings = function(_)
--- 		telescope_actions.select:enhance({
--- 			post = function()
--- 				vim.cmd(":normal! zx")
---        end,
---      })
---      return true
---    end,
---  }
-
  require("telescope").load_extension("notify")
  require("telescope").load_extension('aerial')
  require('telescope').load_extension('dap')
@@ -83,6 +69,18 @@
    }, {
      desc = "dlp frames",
      cmd = "<CMD>Telescope dap frames<CR>"
+   }, {
+     desc = "delete current session",
+     cmd = "<CMD>DeleteSession<CR>"
+   }, {
+     desc = "notify telescope window",
+     cmd = "<CMD>Telescope notify<CR>"
+   }, {
+     desc = "nvim lua debugger start",
+     cmd = '<CMD>lua require"osv".launch()<CR>'
+   }, {
+     desc = "nvim lua debugger current file",
+     cmd = '<CMD>lua require"osv".run_this()<CR>'
    }
 })
 
@@ -93,14 +91,6 @@ telescope.setup {
       n = { ["<c-t>"] = trouble.open_with_trouble },
     },
   },
-   pickers = {
-     buffers = fixfolds,
-     find_files = fixfolds,
-     git_files = fixfolds,
-     grep_string = fixfolds,
-     live_grep = fixfolds,
-     oldfiles = fixfolds,
-   },
    extensions = {
     command_center = {
       components = {

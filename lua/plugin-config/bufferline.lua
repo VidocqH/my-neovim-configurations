@@ -1,5 +1,5 @@
 -- Set barbar's options
-vim.g.bufferline = {
+require'bufferline'.setup {
   -- Enable/disable animations
   animation = true,
 
@@ -18,7 +18,7 @@ vim.g.bufferline = {
   clickable = true,
 
   -- Excludes buffers from the tabline
-  exclude_ft = {'javascript'},
+  exclude_ft = {},
   exclude_name = {'package.json'},
 
   -- Enable/disable icons
@@ -65,3 +65,23 @@ vim.g.bufferline = {
   -- where X is the buffer number. But only a static string is accepted here.
   no_name_title = nil,
 }
+
+-- Deal with nvim-tree
+local nvim_tree_events = require('nvim-tree.events')
+local bufferline_state = require('bufferline.state')
+
+local function get_tree_size()
+  return require'nvim-tree.view'.View.width
+end
+
+nvim_tree_events.subscribe('TreeOpen', function()
+  bufferline_state.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe('Resize', function()
+  bufferline_state.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe('TreeClose', function()
+  bufferline_state.set_offset(0)
+end)
