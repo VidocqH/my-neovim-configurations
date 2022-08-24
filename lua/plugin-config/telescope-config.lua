@@ -81,6 +81,24 @@
    }, {
      desc = "nvim lua debugger current file",
      cmd = '<CMD>lua require"osv".run_this()<CR>'
+   }, {
+     desc = "trouble",
+     cmd = '<CMD>Trouble<CR>'
+   }, {
+     desc = "trouble workspace diagnostics",
+     cmd = '<CMD>Trouble workspace_diagnostics<CR>'
+   }, {
+     desc = "trouble document diagnostics",
+     cmd = '<CMD>Trouble document_diagnostics<CR>'
+   }, {
+     desc = "trouble loclist",
+     cmd = '<CMD>Trouble loclist<CR>'
+   }, {
+     desc = "trouble quickfix",
+     cmd = '<CMD>Trouble quickfix<CR>'
+   }, {
+     desc = "trouble lsp references",
+     cmd = '<CMD>Trouble lsp_references<CR>'
    }
 })
 
