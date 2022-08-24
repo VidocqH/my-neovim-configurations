@@ -51,8 +51,18 @@ require'nvim-tree'.setup {
   },
   renderer = {
     group_empty = true,
-    -- highlight_git = true,
+    highlight_git = true,
     highlight_opened_files = "name",
+    indent_markers = {
+      enable = true,
+      inline_arrows = true,
+      icons = {
+        corner = "└",
+        edge = "│",
+        item = "│",
+        none = " ",
+      },
+    }
   },
   trash = {
     cmd = "trash",

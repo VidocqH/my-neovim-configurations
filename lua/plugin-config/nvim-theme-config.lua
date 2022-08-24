@@ -16,15 +16,18 @@ onedarkpro.setup({
   highlights = {
     -- Temp Python Highlight
     TSConstructor = { fg = "#19adb9" },
-    TSField = { fg = "${red}" }
+    TSField = { fg = "${red}" },
+    GitSignsCurrentLineBlame = { fg = "#555555", bg = "${cursorline}" },
+    cursorcolumn = { bg = "${cursorline}" },
+    Visual = { bg="#163356" },
   }, -- Override default highlight groups
   ft_highlights = {
     yaml = { -- Use the filetype as per the `set filetype?` command
       TSField = { fg = "${red}" }
     },
     python = {
-      TSConstructor = { fg = "#19adb9" },
-      TSField = { fg = "${red}" },
+      -- TSConstructor = { fg = "#19adb9" },
+      -- TSField = { fg = "${red}" },
       TSMethod = { fg = "#579ad1" },
       TSInclude = { fg = "${yellow}" }
     }
@@ -41,7 +44,7 @@ onedarkpro.setup({
       italic = true, -- Use the themes opinionated italic styles?
       underline = true, -- Use the themes opinionated underline styles?
       undercurl = true, -- Use the themes opinionated undercurl styles?
-      cursorline = false, -- Use cursorline highlighting?
+      cursorline = true, -- Use cursorline highlighting?
       transparency = false, -- Use a transparent background?
       terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
       window_unfocused_color = true, -- When the window is out of focus, change the normal background?

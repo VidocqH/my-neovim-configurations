@@ -18,7 +18,7 @@ require('aerial').setup({
   highlight_mode = "full_width",
   highlight_on_hover = true,
   show_guides = true,
-  manage_folds = true,
+  manage_folds = false,
   close_behavior = "close",
-  -- link_folds_to_tree = true,
+  link_folds_to_tree = false,
 })

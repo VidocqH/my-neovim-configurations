@@ -187,7 +187,25 @@ return require('packer').startup(function()
     "FeiyouG/command_center.nvim",
     requires = { "nvim-telescope/telescope.nvim" }
   }
+  -- Linter and formatter
   use { "jose-elias-alvarez/null-ls.nvim" }
+  -- lua debugger for neovim plugin debugging
   use { 'jbyuki/one-small-step-for-vimkind' }
+  -- function's arguments highlight with treesitter
+  use {
+    'm-demare/hlargs.nvim',
+    requires = { 'nvim-treesitter/nvim-treesitter' },
+    -- config = function ()
+    --   require('hlargs').setup()
+    -- end
+  }
+  -- / search lens
+  use {'kevinhwang91/nvim-hlslens'}
+  use {
+    'mg979/vim-visual-multi',
+    config = function ()
+      vim.cmd("let g:VM_theme='codedark'")
+    end
+  }
 end)
 
