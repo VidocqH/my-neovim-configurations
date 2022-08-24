@@ -99,6 +99,9 @@
    }, {
      desc = "trouble lsp references",
      cmd = '<CMD>Trouble lsp_references<CR>'
+   }, {
+     desc = "telescope session lens search session",
+     cmd = '<CMD>Telescope session-lens search_session<CR>'
    }
 })
 

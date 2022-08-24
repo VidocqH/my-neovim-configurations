@@ -207,5 +207,12 @@ return require('packer').startup(function()
       vim.cmd("let g:VM_theme='codedark'")
     end
   }
+  use {
+    'rmagatti/session-lens',
+    requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
+    config = function()
+      require('session-lens').setup({})
+    end
+  }
 end)
 

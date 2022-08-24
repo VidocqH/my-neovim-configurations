@@ -3,23 +3,12 @@ onedarkpro.setup({
   -- Theme can be overwritten with 'onedark' or 'onelight' as a string
   -- theme = "onedark_vivid",
   theme = "onedark_dark",
-  colors = {
-    onedark = {
-      bg = "#161616",
-      red = "#ef596f",
-      green = "#89ca78",
-      cyan = "#2bbac5",
-      purple = "#d55fde",
-    },
-    cursorline = "#222222"
-  }, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   highlights = {
     -- Temp Python Highlight
     TSConstructor = { fg = "#19adb9" },
     TSField = { fg = "${red}" },
-    GitSignsCurrentLineBlame = { fg = "#555555", bg = "${cursorline}" },
+    GitSignsCurrentLineBlame = { fg = "#434852", bg = "${cursorline}" },
     cursorcolumn = { bg = "${cursorline}" },
-    Visual = { bg="#163356" },
   }, -- Override default highlight groups
   ft_highlights = {
     yaml = { -- Use the filetype as per the `set filetype?` command
