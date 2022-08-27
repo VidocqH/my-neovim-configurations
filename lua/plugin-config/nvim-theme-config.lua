@@ -7,7 +7,7 @@ onedarkpro.setup({
     -- Temp Python Highlight
     TSConstructor = { fg = "#19adb9" },
     TSField = { fg = "${red}" },
-    GitSignsCurrentLineBlame = { fg = "#434852", bg = "${cursorline}" },
+    GitSignsCurrentLineBlame = { fg = "#212630", bg = "${cursorline}" },
     cursorcolumn = { bg = "${cursorline}" },
   }, -- Override default highlight groups
   ft_highlights = {
