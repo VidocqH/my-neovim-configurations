@@ -27,6 +27,7 @@ require('plugin-config/mini-config')
 require('plugin-config/telescope-config')
 require('plugin-config/sniprun-config')
 require('plugin-config/discord-presence')
+require('plugins_with_default_start')
 require('plugins')
 require('autocmd')
 
