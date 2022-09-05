@@ -1,21 +1,20 @@
 local lspkind = require('lspkind')
 local cmp = require'cmp'
 
+-- nvim-autopairs work with nvim-cmp
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
+
 cmp.setup {
   -- snippet engine
   snippet = {
     expand = function(args)
       -- For `vsnip` users.
       vim.fn["vsnip#anonymous"](args.body)
-
-      -- For `luasnip` users.
-      -- require('luasnip').lsp_expand(args.body)
-
-      -- For `ultisnips` users.
-      -- vim.fn["UltiSnips#Anon"](args.body)
-
-      -- For `snippy` users.
-      -- require'snippy'.expand_snippet(args.body)
     end,
   },
   -- source
@@ -23,14 +22,8 @@ cmp.setup {
     { name = 'nvim_lsp' },
     -- For vsnip users.
     { name = 'vsnip' },
-    -- For luasnip users.
-    -- { name = 'luasnip' },
-    --For ultisnips users.
-    -- { name = 'ultisnips' },
-    -- -- For snippy users.
-    -- { name = 'snippy' },
   }, { { name = 'buffer' },
-       { name = 'path' }
+      { name = 'path' }
     }),
 
   -- shortcuts

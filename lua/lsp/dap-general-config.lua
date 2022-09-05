@@ -1,7 +1,7 @@
 local dap = require('dap')
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 
-if (vim.fn.has('osx') == 1) then
+if IS_OSX then
   -- For brew install llvm settings
   dap.adapters.lldb = {
     type = 'executable',

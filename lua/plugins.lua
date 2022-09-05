@@ -80,7 +80,7 @@ return require("packer").startup(function()
   -- Rainbow parentheses
   use "p00f/nvim-ts-rainbow"
   -- Auto pairs
-  use "jiangmiao/auto-pairs"
+  use "windwp/nvim-autopairs"
   -- Auto Session
   use "rmagatti/auto-session"
   -- Clangd Extension
