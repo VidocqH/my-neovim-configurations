@@ -17,11 +17,13 @@ return require("packer").startup(function()
   use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
+  -- Devicons
+  use "kyazdani42/nvim-web-devicons"
   -- Sidebar File Explorer
   use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
   -- Highlighting
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-  -- Context
+  -- Sticky Head
   use "nvim-treesitter/nvim-treesitter-context"
   -- Tabs
   use { "romgrk/barbar.nvim", requires="kyazdani42/nvim-web-devicons" }
@@ -75,8 +77,6 @@ return require("packer").startup(function()
   use "rcarriga/nvim-notify"
   -- Snippet Code Runner
   use { "michaelb/sniprun", run = "bash ./install.sh"}
-  -- LuaLine scope
-  use { "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" }
   -- Rainbow parentheses
   use "p00f/nvim-ts-rainbow"
   -- Auto pairs
@@ -118,5 +118,8 @@ return require("packer").startup(function()
   use "mg979/vim-visual-multi"
   -- Extension of telescope and auto-session
   use { "rmagatti/session-lens", requires = {"rmagatti/auto-session", "nvim-telescope/telescope.nvim"} }
+  -- Lsp Signature
+  use "ray-x/lsp_signature.nvim"
+  use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
 end)
 

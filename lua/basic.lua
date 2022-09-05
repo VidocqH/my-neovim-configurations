@@ -7,7 +7,9 @@ set.softtabstop = 2
 set.expandtab = true
 
 set.cursorline = true
-set.cursorcolumn = true
+if vim.fn.exists('g:vscode') == 0 then
+  set.cursorcolumn = true
+end
 
 -- Set dont fold as default
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file

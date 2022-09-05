@@ -50,59 +50,28 @@
      desc = "Run lua function",
      cmd = function() print("ANONYMOUS LUA FUNCTION") end,
      keys = {"n", "<leader>alf", noremap},
-   -- }, {
-   --   -- If no cmd is specified, then this entry will be ignored
-   --   desc = "lsp run linter",
-   --   keys = {"n", "<leader>sf", noremap},
-   }, {
-     desc = "dlp commands",
-     cmd = "<CMD>Telescope dap commands<CR>",
-   }, {
-     desc = "dlp configurations",
-     cmd = "<CMD>Telescope dap configurations<CR>",
-   }, {
-     desc = "dlp list_breakpoints",
-     cmd = "<CMD>Telescope dap list_breakpoints<CR>"
-   }, {
-     desc = "dlp variables",
-     cmd = "<CMD>Telescope dap variables<CR>"
-   }, {
-     desc = "dlp frames",
-     cmd = "<CMD>Telescope dap frames<CR>"
-   }, {
-     desc = "delete current session",
-     cmd = "<CMD>DeleteSession<CR>"
-   }, {
-     desc = "notify telescope window",
-     cmd = "<CMD>Telescope notify<CR>"
-   }, {
-     desc = "nvim lua debugger start",
-     cmd = '<CMD>lua require"osv".launch()<CR>'
-   }, {
-     desc = "nvim lua debugger current file",
-     cmd = '<CMD>lua require"osv".run_this()<CR>'
-   }, {
-     desc = "trouble",
-     cmd = '<CMD>Trouble<CR>'
-   }, {
-     desc = "trouble workspace diagnostics",
-     cmd = '<CMD>Trouble workspace_diagnostics<CR>'
-   }, {
-     desc = "trouble document diagnostics",
-     cmd = '<CMD>Trouble document_diagnostics<CR>'
-   }, {
-     desc = "trouble loclist",
-     cmd = '<CMD>Trouble loclist<CR>'
-   }, {
-     desc = "trouble quickfix",
-     cmd = '<CMD>Trouble quickfix<CR>'
-   }, {
-     desc = "trouble lsp references",
-     cmd = '<CMD>Trouble lsp_references<CR>'
-   }, {
-     desc = "telescope session lens search session",
-     cmd = '<CMD>Telescope session-lens search_session<CR>'
-   }
+     -- }, {
+     --   -- If no cmd is specified, then this entry will be ignored
+     --   desc = "lsp run linter",
+     --   keys = {"n", "<leader>sf", noremap
+   },
+   { desc = "dlp commands", cmd = "<CMD>Telescope dap commands<CR>", },
+   { desc = "dlp configurations", cmd = "<CMD>Telescope dap configurations<CR>", },
+   { desc = "dlp list_breakpoints", cmd = "<CMD>Telescope dap list_breakpoints<CR>" },
+   { desc = "dlp variables", cmd = "<CMD>Telescope dap variables<CR>" },
+   { desc = "dlp frames", cmd = "<CMD>Telescope dap frames<CR>" },
+   { desc = "delete current session", cmd = "<CMD>DeleteSession<CR>" },
+   { desc = "notify telescope window", cmd = "<CMD>Telescope notify<CR>" },
+   { desc = "nvim lua debugger start", cmd = '<CMD>lua require"osv".launch()<CR>' },
+   { desc = "nvim lua debugger current file", cmd = '<CMD>lua require"osv".run_this()<CR>' },
+   { desc = "trouble", cmd = '<CMD>Trouble<CR>' },
+   { desc = "trouble workspace diagnostics", cmd = '<CMD>Trouble workspace_diagnostics<CR>' },
+   { desc = "trouble document diagnostics", cmd = '<CMD>Trouble document_diagnostics<CR>' },
+   { desc = "trouble loclist", cmd = '<CMD>Trouble loclist<CR>' },
+   { desc = "trouble quickfix", cmd = '<CMD>Trouble quickfix<CR>' },
+   { desc = "trouble lsp references", cmd = '<CMD>Trouble lsp_references<CR>' },
+   { desc = "telescope session lens search session", cmd = '<CMD>Telescope session-lens search_session<CR>' },
+   { desc = "diff this file", cmd = "<CMD>require'gitsigns'.diffthis()<CR>" },
 })
 
 telescope.setup {
@@ -123,6 +92,7 @@ telescope.setup {
         command_center.component.KEYS,
       },
       auto_replace_desc_with_cmd = false,
-    }
+    },
+     aerial = { show_nesting = true }
   }
 }

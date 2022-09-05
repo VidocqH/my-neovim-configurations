@@ -1,4 +1,4 @@
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
 
 -- Installer List
 -- { key: language value: config file }
@@ -43,6 +43,7 @@ local on_attach = function(client, bufnr)
   -- Bind shortcut
   require('keybindings').maplsp(buf_set_keymap)
   require("aerial").on_attach(client, bufnr)    -- Aerial LSP Support
+  require('nvim-navic').attach(client, bufnr)
 end
 
 -- Load installed lsp server
