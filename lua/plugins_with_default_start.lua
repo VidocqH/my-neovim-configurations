@@ -1,6 +1,8 @@
 require"surround".setup { mappings_style = "surround" }
--- you can configure Hop the way you like here; see :h hop-config
-require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+if IS_VSCODE == false then
+  -- you can configure Hop the way you like here; see :h hop-config
+  require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+end
 require'nvim_comment'.setup()
 require'colorizer'.setup ()
 require'mini.cursorword'.setup {}
