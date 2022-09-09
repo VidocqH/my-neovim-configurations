@@ -39,8 +39,8 @@ map("n", "<leader>fc", "<CMD>Telescope command_center<CR>")
 
 -- Hop Shortcuts
 map("", "<leader><leader>w", "<cmd>HopWord<CR>", {})
-map("", "<leader><leader>j", "<cmd>HopLine<CR>", {})
-map("", "<leader><leader>k", "<cmd>HopLine<CR>", {})
+map("", "<leader><leader>j", "<cmd>HopLineAC<CR>", {})
+map("", "<leader><leader>k", "<cmd>HopLineBC<CR>", {})
 map('', '<leader><leader>l', "<cmd>HopWordCurrentLineAC<CR>", {})
 map('', '<leader><leader>h', "<cmd>HopWordCurrentLineBC<CR>", {})
 map('n', 'f', "<cmd>HopChar1CurrentLineAC<CR>", {})
@@ -59,14 +59,14 @@ map('', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 map('t', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 
 -- Move Shortcuts
-map('n', '<A-j>', "<cmd>MoveLine(1)<CR>", { noremap = true, silent = true })
-map('n', '<A-k>', "<cmd>MoveLine(-1)<CR>", { noremap = true, silent = true })
-map('v', '<A-j>', "<cmd>MoveBlock(1)<CR>", { noremap = true, silent = true })
-map('v', '<A-k>', "<cmd>MoveBlock(-1)<CR>", { noremap = true, silent = true })
-map('n', '<A-l>', "<cmd>MoveHChar(1)<CR>", { noremap = true, silent = true })
-map('n', '<A-h>', "<cmd>MoveHChar(-1)<CR>", { noremap = true, silent = true })
-map('v', '<A-l>', "<cmd>MoveHBlock(1)<CR>", { noremap = true, silent = true })
-map('v', '<A-h>', "<cmd>MoveHBlock(-1)<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-h>', ':MoveHChar(-1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-l>', ':MoveHChar(1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', { noremap = true, silent = true })
 
 -- SnipRun Shortcuts
 map('v', '<leader>rr', '<cmd>SnipRun<CR>', {silent = true})
@@ -78,11 +78,6 @@ map('', '<leader>ss', '<cmd><C-u>SessionSave<CR>')
 map('', '<leader>sl', '<cmd><C-u>SessionLoad<CR>')
 map('n', '<leader>tc', '<cmd>DashboardChangeColorscheme<CR>', { silent = true })
 map('n', '<leader>cn', '<cmd>DashboardNewFile<CR>', { silent = true })
-
--- Trouble setting
-map("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
-map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", {silent = true, noremap = true})
-map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", {silent = true, noremap = true})
 
 -- Dap keybindings
 map("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>")
@@ -99,19 +94,13 @@ map("n", "<Leader>dl", "<Cmd>lua require'dap'.run_last()<CR>")
 map("n", "<Leader>gui", "<cmd>lua require('dapui').toggle()<CR>")
 
 -- hlslens minimal configurations
-local kopts = {noremap = true, silent = true}
-vim.api.nvim_set_keymap('n', 'n',
-    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', 'N',
-    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-
-vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', kopts)
+map('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
+map('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
+map('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]])
+map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]])
+map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
+map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
+map('n', '<Leader>l', ':noh<CR>')
 
 local pluginKeys = {}
 
