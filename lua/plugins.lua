@@ -120,6 +120,9 @@ return require("packer").startup(function()
   use { "rmagatti/session-lens", requires = {"rmagatti/auto-session", "nvim-telescope/telescope.nvim"} }
   -- Lsp Signature
   use "ray-x/lsp_signature.nvim"
+  -- Navic
   use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
+  -- Git diffview
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 end)
 

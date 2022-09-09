@@ -72,6 +72,8 @@
    { desc = "trouble lsp references", cmd = '<CMD>Trouble lsp_references<CR>' },
    { desc = "telescope session lens search session", cmd = '<CMD>Telescope session-lens search_session<CR>' },
    { desc = "diff this file", cmd = "<CMD>require'gitsigns'.diffthis()<CR>" },
+   { desc = "open diffview", cmd = "<CMD>DiffviewOpen<CR>" },
+   { desc = "close diffview", cmd = "<CMD>DiffviewClose<CR>" },
 })
 
 telescope.setup {
