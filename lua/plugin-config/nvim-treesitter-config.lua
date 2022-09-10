@@ -82,3 +82,7 @@ require'treesitter-context'.setup{
     mode = 'topline',  -- Line used to calculate context. Choices: 'cursor', 'topline'
     separator = nil, -- Separator between context and content. Should be a single character string, like '-'.
 }
+
+vim.cmd("highlight TreesitterContext guibg=#101010")
+vim.cmd("highlight TreesitterContextLineNumber guibg=#101010 guifg=#434852")
+
