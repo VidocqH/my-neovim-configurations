@@ -1,4 +1,5 @@
 IS_VSCODE = vim.fn.exists('g:vscode') == 1 and true or false
+IS_NEOVIDE = vim.fn.exists('g:neovide') == 1 and true or false
 IS_WINDOWS = vim.fn.has('win32') == 1 and true or false
 IS_OSX = vim.fn.has('osx') == 1 and true or false
 
@@ -16,6 +17,9 @@ if IS_VSCODE == false then
   require('lsp/linter-formatter')
   require('plugin-config/indent-blankline-config')
   require('plugin-config/symbols-outline-config')
+end
+if IS_NEOVIDE then
+  require('neovide')
 end
 require('plugin-config/lualine-config')
 require('plugin-config/nvim-treesitter-config')
