@@ -1,45 +1,47 @@
 local lspsaga = require 'lspsaga'
-lspsaga.setup { -- defaults ...
-  debug = false,
-  use_saga_diagnostic_sign = true,
-  -- diagnostic sign
-  error_sign = "",
-  warn_sign = "",
-  hint_sign = "",
-  infor_sign = "",
-  diagnostic_header_icon = "   ",
-  -- code action title icon
-  code_action_icon = " ",
-  code_action_prompt = {
-    enable = true,
-    sign = true,
-    sign_priority = 40,
-    virtual_text = false,
-  },
-  finder_definition_icon = "  ",
-  finder_reference_icon = "  ",
-  max_preview_lines = 300,
+lspsaga.init_lsp_saga({
+  border_style = "rounded", -- "single" | "double" | "rounded" | "bold" | "plus"
+  -- when cursor in saga window you config these to move
+  move_in_saga = { prev = '<C-p>', next = '<C-n>' },
+  -- preview lines of lsp_finder and definition preview
+  max_preview_lines = 30,
+  -- same as nvim-lightbulb but async
+  code_action_lightbulb = { enable = false },
+  -- finder do lsp request timeout
+  -- if your project big enough or your server very slow
+  -- you may need to increase this value
+  finder_request_timeout = 150000,
   finder_action_keys = {
     open = "<CR>",
     vsplit = "s",
     split = "i",
+    tabe = "t",
     quit = "<Esc>",
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>",
   },
   code_action_keys = {
     quit = "<Esc>",
     exec = "<CR>",
   },
-  rename_action_keys = {
-    quit = "<Esc>",
-    exec = "<CR>",
+  definition_action_keys = {
+    edit = '<C-c>o',
+    vsplit = '<C-c>v',
+    split = '<C-c>i',
+    tabe = '<C-c>t',
+    quit = '<Esc>',
   },
-  definition_preview_icon = "  ",
-  border_style = "single",
-  rename_prompt_prefix = "➤",
-  server_filetype_map = {},
-  diagnostic_prefix_format = "%d. ",
-  diagnostic_message_format = "%m %c",
-  highlight_prefix = true,
-}
+  rename_action_quit = "<Esc>",
+  -- show outline
+  show_outline = {
+    win_position = 'right',
+    --set special filetype win that outline window split.like NvimTree neotree
+    -- defx, db_ui
+    win_with = '',
+    win_width = 30,
+    auto_enter = true,
+    auto_preview = true,
+    virt_text = '┃',
+    jump_key = '<CR>',
+    -- auto refresh when change buffer
+    auto_refresh = true,
+  },
+})

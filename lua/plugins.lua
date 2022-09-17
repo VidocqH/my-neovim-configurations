@@ -1,3 +1,17 @@
+-- Auto download Packer if there's no
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local PACKER_BOOTSTRAP = ensure_packer()
+
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -41,10 +55,8 @@ return require("packer").startup(function()
   use "hrsh7th/cmp-vsnip"    -- { name = "vsnip" }
   use "hrsh7th/vim-vsnip"
   use "rafamadriz/friendly-snippets"
-  -- lspkind
-  use "onsails/lspkind-nvim"
   -- lsp sage
-  use "tami5/lspsaga.nvim"
+  use { "glepnir/lspsaga.nvim" , branch = "main" }
   -- Telescope
   use { "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" }
   -- surround
@@ -124,5 +136,13 @@ return require("packer").startup(function()
   use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
   -- Git diffview
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  -- diagnostic highlight
+  use "Kasama/nvim-custom-diagnostic-highlight"
+
+  -- Automatically set up your configuration after cloing packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
 

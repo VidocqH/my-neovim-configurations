@@ -1,5 +1,3 @@
-local opt = {noremap = true, silent = true }
-
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true, silent = true}
   if opts then options = vim.tbl_extend('force', options, opts) end
@@ -131,22 +129,24 @@ pluginKeys.cmp = function(cmp)
   }
 end
 
+local opt = { silent = true }
 -- LSP related keybindings
 pluginKeys.maplsp = function(mapbuf)
   -- rename
-  mapbuf('n', '<leader>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>", opt)
+  mapbuf('n', '<leader>rn', "<cmd>Lspsaga rename<CR>", opt)
   -- code action
-  mapbuf('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>" , opt)
-  mapbuf('v', '<leader>ca', ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>" , opt)
+  mapbuf('n', '<leader>ca', "<cmd>Lspsaga code_action<CR>" , opt)
+  mapbuf('v', '<leader>ca', "<cmd>Lspsaga code_action<CR>" , opt)
   -- go xx
-  mapbuf('n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opt)
-  mapbuf('n', 'gh', "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opt)
-  mapbuf('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>" , opt)
-  mapbuf('n', '<C-n>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>" , opt)
-  mapbuf('n', '<C-p>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>" , opt)
+  -- mapbuf('n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", sagaopt)
+  mapbuf('n', 'gd', "<cmd>Lspsaga peek_definition<CR>", opt)
+  mapbuf('n', 'gh', "<cmd>Lspsaga lsp_finder<CR>", opt)
+  mapbuf('n', 'K', "<cmd>Lspsaga hover_doc<CR>" , opt)
   mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
   mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
   mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
+  -- Outline
+  mapbuf('n','<leader>S', "<cmd>LSoutlineToggle<CR>", opt)
   -- diagnostic
   mapbuf("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", opt)
   mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)

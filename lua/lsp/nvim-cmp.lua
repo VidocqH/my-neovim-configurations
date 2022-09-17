@@ -1,5 +1,39 @@
-local lspkind = require('lspkind')
 local cmp = require'cmp'
+
+local cmp_kinds = {
+  Text = '  ',
+  Method = '  ',
+  Function = '  ',
+  Constructor = '  ',
+  Field = '  ',
+  Variable = '  ',
+  Class = '  ',
+  Interface = '  ',
+  Module = '  ',
+  Property = '  ',
+  Unit = '  ',
+  Value = '  ',
+  Enum = '  ',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = '  ',
+  Struct = '  ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+}
+
+
+-- vim.cmd("highlight Pmenu guibg=#111111")
+-- vim.cmd("highlight PmenuSbar guibg=#111111")
+vim.cmd("highlight PmenuSel guibg=#181818")
+
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 -- nvim-autopairs work with nvim-cmp
 -- If you want insert `(` after select function or method item
@@ -30,16 +64,16 @@ cmp.setup {
   mapping = require'keybindings'.cmp(cmp),
   -- type icons
   formatting = {
-    format = lspkind.cmp_format({
-      with_text = true, -- do not show text alongside icons
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      before = function (entry, vim_item)
-        -- Source
-        vim_item.menu = "["..string.upper(entry.source.name).."]"
-        return vim_item
-      end
-    })
+    format = function(_, vim_item)
+      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+      return vim_item
+    end,
   },
+
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered()
+  }
 }
 
 -- Use buffer source for `/`.
@@ -57,3 +91,4 @@ cmp.setup.cmdline(':', {
       { name = 'cmdline' }
     })
 })
+

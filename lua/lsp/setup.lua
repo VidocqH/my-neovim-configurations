@@ -17,7 +17,9 @@ local lsp_servers = {
   grammarly = {},
   lemminx = {},
   clangd = {},
+  rust_analyzer = {},
 }
+
 
 local dap_servers = {
   "debugpy",

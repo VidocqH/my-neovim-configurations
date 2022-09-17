@@ -7,9 +7,9 @@ set.softtabstop = 2
 set.expandtab = true
 
 set.cursorline = true
-if IS_VSCODE == false then
-  set.cursorcolumn = true
-end
+-- if IS_VSCODE == false then
+--   set.cursorcolumn = true
+-- end
 
 -- Set dont fold as default
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
