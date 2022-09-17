@@ -136,8 +136,6 @@ return require("packer").startup(function()
   use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
   -- Git diffview
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  -- diagnostic highlight
-  use "Kasama/nvim-custom-diagnostic-highlight"
 
   -- Automatically set up your configuration after cloing packer.nvim
   -- Put this at the end after all plugins

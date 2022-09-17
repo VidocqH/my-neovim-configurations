@@ -17,7 +17,6 @@ require'nvim-dap-virtual-text'.setup{}
 -- require('hlargs').setup()  -- Performance severe
 require'session-lens'.setup({})
 require'lsp_signature'.setup()
-require('nvim-custom-diagnostic-highlight').setup {}
 
 vim.cmd("let g:VM_theme='codedark'")
 
