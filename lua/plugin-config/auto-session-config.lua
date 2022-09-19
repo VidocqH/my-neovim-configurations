@@ -30,5 +30,6 @@ require("auto-session").setup {
   log_level = "error",
   auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
   pre_save_cmds = { close_buffers },
+  auto_restore_enabled = false,
 }
 

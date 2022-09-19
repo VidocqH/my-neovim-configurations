@@ -11,6 +11,8 @@ set.cursorline = true
 --   set.cursorcolumn = true
 -- end
 
+set.wrap = false
+
 -- Set dont fold as default
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 set.foldlevelstart = 99

@@ -34,6 +34,7 @@ map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
 map("n", "<leader>fc", "<CMD>Telescope command_center<CR>")
+map("n", "<leader>fa", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 
 -- Hop Shortcuts
 map("", "<leader><leader>w", "<cmd>HopWord<CR>", {})

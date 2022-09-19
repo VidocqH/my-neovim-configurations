@@ -58,7 +58,7 @@ return require("packer").startup(function()
   -- lsp sage
   use { "glepnir/lspsaga.nvim" , branch = "main" }
   -- Telescope
-  use { "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" }
+  use { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" } }
   -- surround
   use "ur4ltz/surround.nvim"
   -- comment
