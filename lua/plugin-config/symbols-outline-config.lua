@@ -19,6 +19,6 @@ require('aerial').setup({
   highlight_on_hover = true,
   show_guides = true,
   manage_folds = false,
-  close_behavior = "close",
+  close_automatic_events = { "switch_buffer" },
   link_folds_to_tree = false,
 })
