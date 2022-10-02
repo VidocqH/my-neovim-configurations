@@ -18,6 +18,7 @@ local lsp_servers = {
   lemminx = {},
   clangd = {},
   rust_analyzer = {},
+  sqlls = {},
 }
 
 -- Diagnostics Sign
