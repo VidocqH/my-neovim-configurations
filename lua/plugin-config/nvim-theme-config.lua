@@ -7,19 +7,10 @@ onedarkpro.setup({
     -- Temp Python Highlight
     TSConstructor = { fg = "#19adb9" },
     TSField = { fg = "${red}" },
+    ["@method.python"] = { fg = "#579ad1" },
+    ["@include.python"] = { fg = "${yellow}" },
     GitSignsCurrentLineBlame = { fg = "#212630", bg = "${cursorline}" },
     cursorcolumn = { bg = "${cursorline}" },
-  }, -- Override default highlight groups
-  ft_highlights = {
-    yaml = { -- Use the filetype as per the `set filetype?` command
-      TSField = { fg = "${red}" }
-    },
-    python = {
-      -- TSConstructor = { fg = "#19adb9" },
-      -- TSField = { fg = "${red}" },
-      TSMethod = { fg = "#579ad1" },
-      TSInclude = { fg = "${yellow}" }
-    }
   }, -- Override default highlight groups for specific filetypes
   styles = {
       strings = "NONE", -- Style that is applied to strings
