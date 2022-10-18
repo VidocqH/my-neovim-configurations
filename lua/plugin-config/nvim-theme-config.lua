@@ -5,8 +5,9 @@ onedarkpro.setup({
   theme = "onedark_dark",
   highlights = {
     -- Temp Python Highlight
-    TSConstructor = { fg = "#19adb9" },
-    TSField = { fg = "${red}" },
+    ["@constructor"] = { fg = "#19adb9" },
+    ["@field"] = { fg = "${red}" },
+    ["@field.lua"] = { fg = "${red}" },
     ["@method.python"] = { fg = "#579ad1" },
     ["@include.python"] = { fg = "${yellow}" },
     GitSignsCurrentLineBlame = { fg = "#212630", bg = "${cursorline}" },
