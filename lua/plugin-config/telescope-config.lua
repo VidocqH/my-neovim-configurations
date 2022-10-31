@@ -75,6 +75,8 @@ command_center.add({
   { desc = "diff this file", cmd = "<CMD>require'gitsigns'.diffthis()<CR>" },
   { desc = "open diffview", cmd = "<CMD>DiffviewOpen<CR>" },
   { desc = "close diffview", cmd = "<CMD>DiffviewClose<CR>" },
+  { desc = "set indent to 2" , cmd = function() vim.opt.tabstop=2 vim.opt.shiftwidth=2 vim.opt.softtabstop=2 end},
+  { desc = "clangd AST", cmd = "<CMD>ClangdAST<CR>" },
 })
 
 telescope.setup {
