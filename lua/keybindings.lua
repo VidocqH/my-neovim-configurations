@@ -101,6 +101,16 @@ map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
 map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
 map('n', '<Leader>l', ':noh<CR>')
 
+
+-- Aerial symbols outline
+map('n', '<leader>s', '<cmd>AerialToggle!<CR>')
+-- Jump forwards/backwards with '{' and '}'
+map('n', '{', '<cmd>AerialPrev<CR>')
+map('n', '}', '<cmd>AerialNext<CR>')
+-- Jump up the tree with '[[' or ']]'
+map('n', '[[', '<cmd>AerialPrevUp<CR>')
+map('n', ']]', '<cmd>AerialNextUp<CR>')
+
 local pluginKeys = {}
 
 -- nvim-cmp auto complete
