@@ -36,6 +36,7 @@ require'nvim-tree'.setup {
     timeout = 500,
   },
   view = {
+    adaptive_size = true,
     width = 25,
     hide_root_folder = false,
     side = 'left',
@@ -44,9 +45,6 @@ require'nvim-tree'.setup {
       custom_only = false,
       list = {}
     },
-    number = false,
-    relativenumber = false,
-    signcolumn = "yes"
   },
   renderer = {
     group_empty = true,
