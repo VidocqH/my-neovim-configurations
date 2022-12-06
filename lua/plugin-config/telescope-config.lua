@@ -72,11 +72,14 @@ command_center.add({
   { desc = "trouble quickfix", cmd = '<CMD>Trouble quickfix<CR>' },
   { desc = "trouble lsp references", cmd = '<CMD>Trouble lsp_references<CR>' },
   { desc = "telescope session lens search session", cmd = '<CMD>Telescope session-lens search_session<CR>' },
-  { desc = "diff this file", cmd = "<CMD>require'gitsigns'.diffthis()<CR>" },
+  { desc = "diff this file", cmd = "<CMD>lua require'gitsigns'.diffthis()<CR>" },
   { desc = "open diffview", cmd = "<CMD>DiffviewOpen<CR>" },
   { desc = "close diffview", cmd = "<CMD>DiffviewClose<CR>" },
   { desc = "set indent to 2" , cmd = function() vim.opt.tabstop=2 vim.opt.shiftwidth=2 vim.opt.softtabstop=2 end},
   { desc = "clangd AST", cmd = "<CMD>ClangdAST<CR>" },
+  { desc = "run tests", cmd = "<CMD>lua require('neotest').run.run()<CR>" },
+  { desc = "run current file test", cmd = "<CMD>lua require('neotest').run.run(vim.fn.expand(\"%\"))<CR>" },
+  { desc = "tests structure", cmd = "<CMD>lua require('neotest').summary.open()<CR>" }
 })
 
 telescope.setup {

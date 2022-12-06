@@ -15,8 +15,10 @@ if IS_VSCODE == false then
   require('lsp/lsp-sage')
   require('lsp/dap-general-config')
   require('lsp/linter-formatter')
+  require('lsp/neotest')
   require('plugin-config/indent-blankline-config')
   require('plugin-config/symbols-outline-config')
+  require('plugin-config/nvim-ide-config')
 end
 if IS_NEOVIDE then
   require('neovide')

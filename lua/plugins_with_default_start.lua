@@ -5,7 +5,6 @@ if IS_VSCODE == false then
 end
 require'nvim_comment'.setup()
 require'colorizer'.setup ()
-require'mini.cursorword'.setup {}
 require'nvim-autopairs'.setup {}
 require"which-key".setup {}
 require"fidget".setup {}
@@ -19,4 +18,7 @@ require'session-lens'.setup({})
 require'lsp_signature'.setup()
 
 vim.cmd("let g:VM_theme='codedark'")
+vim.cmd("highlight IlluminatedWordText gui=None guibg=#333333")
+vim.cmd("highlight IlluminatedWordRead gui=None guibg=#333333")
+vim.cmd("highlight IlluminatedWordWrite gui=None guibg=#333333")
 

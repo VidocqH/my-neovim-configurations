@@ -10,7 +10,7 @@ lspsaga.init_lsp_saga({
   -- finder do lsp request timeout
   -- if your project big enough or your server very slow
   -- you may need to increase this value
-  finder_request_timeout = 150000,
+  finder_request_timeout = 15000,
   finder_action_keys = {
     open = "<CR>",
     vsplit = "s",
@@ -32,16 +32,7 @@ lspsaga.init_lsp_saga({
   rename_action_quit = "<Esc>",
   -- show outline
   show_outline = {
-    win_position = 'right',
-    --set special filetype win that outline window split.like NvimTree neotree
-    -- defx, db_ui
-    win_with = '',
-    win_width = 30,
-    auto_enter = true,
-    auto_preview = true,
-    virt_text = '┃',
     jump_key = '<CR>',
-    -- auto refresh when change buffer
     auto_refresh = true,
   },
   -- show symbols in winbar must nightly
@@ -50,7 +41,7 @@ lspsaga.init_lsp_saga({
   -- if in_cusomt = true you must set in_enable to false
   symbol_in_winbar = {
     in_custom = false,
-    enable = true,
+    enable = false,
     separator = ' ',
     show_file = true,
     -- define how to customize filename, eg: %:., %

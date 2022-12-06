@@ -83,8 +83,6 @@ return require("packer").startup(function()
   use "stevearc/aerial.nvim"
   -- Terminal tab
   use { "akinsho/toggleterm.nvim", tag = "v2.*" }
-  -- mini, multiple functionalities
-  use { "echasnovski/mini.nvim", branch = "stable" }
   -- Notify
   use "rcarriga/nvim-notify"
   -- Snippet Code Runner
@@ -136,8 +134,21 @@ return require("packer").startup(function()
   use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
   -- Git diffview
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  -- Minimap
-  use 'gorbit99/codewindow.nvim'
+  -- Unit test
+  use 'vim-test/vim-test'
+  use 'nvim-neotest/neotest-python'
+  use 'nvim-neotest/neotest-vim-test'
+  use { 'nvim-neotest/neotest',
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim"
+    }
+  }
+  -- VSCode layout
+  use 'ldelossa/nvim-ide'
+  -- cursor word highlight
+  use 'RRethy/vim-illuminate'
 
   -- Automatically set up your configuration after cloing packer.nvim
   -- Put this at the end after all plugins

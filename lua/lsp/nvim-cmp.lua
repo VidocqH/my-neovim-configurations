@@ -56,8 +56,9 @@ cmp.setup {
     { name = 'nvim_lsp' },
     -- For vsnip users.
     { name = 'vsnip' },
-  }, { { name = 'buffer' },
-      { name = 'path' }
+  }, {
+      { name = 'buffer' },
+      { name = 'path' },
     }),
 
   -- shortcuts

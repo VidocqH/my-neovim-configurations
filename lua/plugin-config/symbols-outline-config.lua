@@ -5,8 +5,10 @@
 vim.cmd[[highlight AerialLine guifg=yellow]]
 
 require('aerial').setup({
-  highlight_mode = "full_width",
+  -- highlight_mode = "full_width",
   highlight_on_hover = true,
+  backends = { "lsp", "treesitter", "markdown", "man" },
+  filter_kind = false,
   show_guides = true,
   manage_folds = false,
   close_automatic_events = { "switch_buffer" },
