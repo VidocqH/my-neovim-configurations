@@ -2,7 +2,6 @@ local onedarkpro = require("onedarkpro")
 onedarkpro.setup({
   -- Theme can be overwritten with 'onedark' or 'onelight' as a string
   -- theme = "onedark_vivid",
-  theme = "onedark_dark",
   highlights = {
     -- Temp Python Highlight
     ["@constructor"] = { fg = "#19adb9" },
@@ -32,4 +31,4 @@ onedarkpro.setup({
   },
 })
 -- onedarkpro.load()
-vim.cmd("colorscheme onedarkpro")
+vim.cmd("colorscheme onedark_dark")
