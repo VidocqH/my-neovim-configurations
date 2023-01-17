@@ -104,6 +104,7 @@ map('n', '<Leader>l', ':noh<CR>')
 
 -- Aerial symbols outline
 map('n', '<leader>s', '<cmd>AerialToggle!<CR>')
+map('n', '<leader>S', '<cmd>Lspsaga outline<CR>')
 -- Jump forwards/backwards with '{' and '}'
 map('n', '{', '<cmd>AerialPrev<CR>')
 map('n', '}', '<cmd>AerialNext<CR>')
