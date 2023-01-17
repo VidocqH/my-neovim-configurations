@@ -1,159 +1,141 @@
--- Auto download Packer if there's no
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local PACKER_BOOTSTRAP = ensure_packer()
-
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
-
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
--- vim.cmd [[packadd packer.nvim]]
-
-return require("packer").startup(function()
+require("lazy").setup({
   -- OneDarkPro Theme
-  use "olimorris/onedarkpro.nvim"
+  "olimorris/onedarkpro.nvim",
   -- Bottom Line
-  use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
+  { "nvim-lualine/lualine.nvim", dependencies = { "kyazdani42/nvim-web-devicons" } },
   -- Packer can manage itself
-  use "wbthomason/packer.nvim"
+  "wbthomason/packer.nvim",
   -- Devicons
-  use "kyazdani42/nvim-web-devicons"
+  "kyazdani42/nvim-web-devicons",
   -- Sidebar File Explorer
-  use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
+  { "kyazdani42/nvim-tree.lua", dependencies = "kyazdani42/nvim-web-devicons" },
   -- Highlighting
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   -- Sticky Head
-  use "nvim-treesitter/nvim-treesitter-context"
+  "nvim-treesitter/nvim-treesitter-context",
   -- Tabs
-  use { "romgrk/barbar.nvim", requires="kyazdani42/nvim-web-devicons" }
+  { "romgrk/barbar.nvim", dependencies="kyazdani42/nvim-web-devicons" },
   -- Github Copilot
-  use "github/copilot.vim"
+  "github/copilot.vim",
   -- LSP Server
-  use "neovim/nvim-lspconfig"
+  "neovim/nvim-lspconfig",
   -- nvim-cmp
-  use "hrsh7th/cmp-nvim-lsp" -- { name = nvim_lsp }
-  use "hrsh7th/cmp-buffer"   -- { name = "buffer" },
-  use "hrsh7th/cmp-path"     -- { name = "path" }
-  use "hrsh7th/cmp-cmdline"  -- { name = "cmdline" }
-  use "hrsh7th/nvim-cmp"
+  "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
+  "hrsh7th/cmp-buffer",   -- { name = "buffer" }
+  "hrsh7th/cmp-path",     -- { name = "path" }
+  "hrsh7th/cmp-cmdline",  -- { name = "cmdline" }
+  "hrsh7th/nvim-cmp",
   -- vsnip
-  use "hrsh7th/cmp-vsnip"    -- { name = "vsnip" }
-  use "hrsh7th/vim-vsnip"
-  use "rafamadriz/friendly-snippets"
+  "hrsh7th/cmp-vsnip",    -- { name = "vsnip" }
+  "hrsh7th/vim-vsnip",
+  "rafamadriz/friendly-snippets",
   -- lsp sage
-  use { "glepnir/lspsaga.nvim" , branch = "main" }
+  { "glepnir/lspsaga.nvim" , event = "BufRead" },
   -- Telescope
-  use { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" } }
+  { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" } },
   -- surround
-  use "ur4ltz/surround.nvim"
+  "ur4ltz/surround.nvim",
   -- comment
-  use "terrortylor/nvim-comment"
+  "terrortylor/nvim-comment",
   -- colorizer
-  use "norcalli/nvim-colorizer.lua"
+  "norcalli/nvim-colorizer.lua",
   -- Hop - EasyMotion
-  use { "phaazon/hop.nvim", branch = "v2" }
+  { "phaazon/hop.nvim", branch = "v2" },
   -- Dashboard
-  use "glepnir/dashboard-nvim"
+  "glepnir/dashboard-nvim",
   -- Floating Terminal
-  use "voldikss/vim-floaterm"
+  "voldikss/vim-floaterm",
   -- Lines or paragraphs move up and down
-  use "fedepujol/move.nvim"
+  -- "fedepujol/move.nvim",
   -- Gitsigns
-  use "lewis6991/gitsigns.nvim"
+  "lewis6991/gitsigns.nvim",
   -- Indent Colorful Lines
-  use "lukas-reineke/indent-blankline.nvim"
+  "lukas-reineke/indent-blankline.nvim",
   -- Which key
-  use "folke/which-key.nvim"
+  "folke/which-key.nvim",
   -- Symbols Outline
-  use "stevearc/aerial.nvim"
+  "stevearc/aerial.nvim",
   -- Terminal tab
-  use { "akinsho/toggleterm.nvim", tag = "v2.*" }
+  { "akinsho/toggleterm.nvim", version = "v2.*" },
   -- Notify
-  use "rcarriga/nvim-notify"
+  "rcarriga/nvim-notify",
   -- Snippet Code Runner
-  use { "michaelb/sniprun", run = "bash ./install.sh"}
+  { "michaelb/sniprun", build = "bash ./install.sh"},
   -- Rainbow parentheses
-  use "p00f/nvim-ts-rainbow"
+  "p00f/nvim-ts-rainbow",
   -- Auto pairs
-  use "windwp/nvim-autopairs"
+  "windwp/nvim-autopairs",
   -- Auto Session
-  use "rmagatti/auto-session"
+  "rmagatti/auto-session",
   -- Clangd Extension
-  use "p00f/clangd_extensions.nvim"
+  "p00f/clangd_extensions.nvim",
   -- Discord Rich Presence
-  use "andweeb/presence.nvim"
+  "andweeb/presence.nvim",
   -- Lsp progress display
-  use "j-hui/fidget.nvim"
+  "j-hui/fidget.nvim",
   -- Trouble Plane
-  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  { "folke/trouble.nvim", dependencies = "kyazdani42/nvim-web-devicons" },
   -- Mason
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
   -- Debugger
-  use "mfussenegger/nvim-dap"
+  "mfussenegger/nvim-dap",
   -- Debugger for Python
-  use "mfussenegger/nvim-dap-python"
+  "mfussenegger/nvim-dap-python",
   -- Debugger UI
-  use { "rcarriga/nvim-dap-ui", requires = "mfussenegger/nvim-dap" }
+  { "rcarriga/nvim-dap-ui", dependencies = "mfussenegger/nvim-dap" },
   -- Debugger Virtual text
-  use "theHamsta/nvim-dap-virtual-text"
+  "theHamsta/nvim-dap-virtual-text",
   -- Debugger telescope plugin
-  use "nvim-telescope/telescope-dap.nvim"
+  "nvim-telescope/telescope-dap.nvim",
   -- Telescope command center
-  use { "FeiyouG/command_center.nvim", requires = "nvim-telescope/telescope.nvim" }
+  { "FeiyouG/command_center.nvim", dependencies = "nvim-telescope/telescope.nvim" },
   -- Linter and formatter
-  use "jose-elias-alvarez/null-ls.nvim"
+  "jose-elias-alvarez/null-ls.nvim",
   -- lua debugger for neovim plugin debugging
-  use "jbyuki/one-small-step-for-vimkind"
+  "jbyuki/one-small-step-for-vimkind",
   -- function"s arguments highlight with treesitter
-  use { "m-demare/hlargs.nvim", requires = "nvim-treesitter/nvim-treesitter" }
+  { "m-demare/hlargs.nvim", dependencies = "nvim-treesitter/nvim-treesitter" },
   -- / search lens
-  use "kevinhwang91/nvim-hlslens"
+  "kevinhwang91/nvim-hlslens",
   -- Visual Multi -- <VIM plugin>
-  use "mg979/vim-visual-multi"
+  "mg979/vim-visual-multi",
   -- Extension of telescope and auto-session
-  use { "rmagatti/session-lens", requires = {"rmagatti/auto-session", "nvim-telescope/telescope.nvim"} }
+  { "rmagatti/session-lens", dependencies = {"rmagatti/auto-session", "nvim-telescope/telescope.nvim"} },
   -- Lsp Signature
-  use "ray-x/lsp_signature.nvim"
+  "ray-x/lsp_signature.nvim",
   -- Navic
-  use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
+  { "SmiteshP/nvim-navic", dependencies = "neovim/nvim-lspconfig" },
   -- Git diffview
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
   -- Unit test
-  use 'vim-test/vim-test'
-  use 'nvim-neotest/neotest-python'
-  use 'nvim-neotest/neotest-vim-test'
-  use { 'nvim-neotest/neotest',
-    requires = {
+  'vim-test/vim-test',
+  'nvim-neotest/neotest-python',
+  'nvim-neotest/neotest-vim-test',
+  { 'nvim-neotest/neotest',
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim"
-    }
-  }
+      "antoinemadec/FixCursorHold.nvim",
+    },
+  },
   -- VSCode layout
-  use 'ldelossa/nvim-ide'
+  'ldelossa/nvim-ide',
   -- cursor word highlight
-  use 'RRethy/vim-illuminate'
+  'RRethy/vim-illuminate',
 
-  -- Automatically set up your configuration after cloing packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+})
 

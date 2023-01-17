@@ -5,6 +5,7 @@ IS_OSX = vim.fn.has('osx') == 1 and true or false
 
 require('basic')
 require('keybindings')
+require('plugins')
 -- Currently doesn't have a beautiful solution for vscode checking. 'cond' option
 -- plugins that mess vscode with nvim plugins
 if IS_VSCODE == false then
@@ -35,6 +36,5 @@ require('plugin-config/sniprun-config')
 require('plugin-config/discord-presence')
 require('plugin-config/navic-config')
 require('plugins_with_default_start')
-require('plugins')
 require('autocmd')
 
