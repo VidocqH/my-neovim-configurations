@@ -1,6 +1,5 @@
 local lspsaga = require 'lspsaga'
 lspsaga.setup({
-  -- border_style = "rounded", -- "single" | "double" | "rounded" | "bold" | "plus"
   preview = {
     lines_above = 10,
     lines_below = 20,
@@ -17,7 +16,6 @@ lspsaga.setup({
       exec = "<CR>",
     }
   },
-  -- show outline
   outline = {
     keys = {
       jump = '<CR>',
@@ -26,4 +24,11 @@ lspsaga.setup({
   symbol_in_winbar = {
     enable = false,
   },
+  ui = {
+    border = 'rounded',
+    colors = {
+      --float window normal background color
+      normal_bg = '#000000',
+    }
+  }
 })
