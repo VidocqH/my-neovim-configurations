@@ -58,14 +58,14 @@ map('', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 map('t', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 
 -- Move Shortcuts
-vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>', { noremap = true, silent = true })
-vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', { noremap = true, silent = true })
-vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<A-h>', ':MoveHChar(-1)<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<A-l>', ':MoveHChar(1)<CR>', { noremap = true, silent = true })
-vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', { noremap = true, silent = true })
-vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', { noremap = true, silent = true })
+map("n", "<A-h>", "<Plug>GoNSMLeft", {})
+map("n", "<A-j>", "<Plug>GoNSMDown", {})
+map("n", "<A-k>", "<Plug>GoNSMUp", {})
+map("n", "<A-l>", "<Plug>GoNSMRight", {})
+map("x", "<A-h>", "<Plug>GoVSMLeft", {})
+map("x", "<A-j>", "<Plug>GoVSMDown", {})
+map("x", "<A-k>", "<Plug>GoVSMUp", {})
+map("x", "<A-l>", "<Plug>GoVSMRight", {})
 
 -- SnipRun Shortcuts
 map('v', '<leader>rr', '<cmd>SnipRun<CR>', {silent = true})
@@ -104,7 +104,6 @@ map('n', '<Leader>l', ':noh<CR>')
 
 -- Aerial symbols outline
 map('n', '<leader>s', '<cmd>AerialToggle!<CR>')
-map('n', '<leader>S', '<cmd>Lspsaga outline<CR>')
 -- Jump forwards/backwards with '{' and '}'
 map('n', '{', '<cmd>AerialPrev<CR>')
 map('n', '}', '<cmd>AerialNext<CR>')
@@ -158,7 +157,7 @@ pluginKeys.maplsp = function(mapbuf)
   mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
   mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
   -- Outline
-  mapbuf('n','<leader>S', "<cmd>LSoutlineToggle<CR>", opt)
+  mapbuf('n','<leader>S', "<cmd>Lspsaga outline<CR>", opt)
   -- diagnostic
   mapbuf("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", opt)
   mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)

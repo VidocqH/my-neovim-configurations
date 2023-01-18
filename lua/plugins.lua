@@ -58,8 +58,8 @@ require("lazy").setup({
   "glepnir/dashboard-nvim",
   -- Floating Terminal
   "voldikss/vim-floaterm",
-  -- Lines or paragraphs move up and down
-  -- "fedepujol/move.nvim",
+  -- Lines ans blocks move
+  "booperlv/nvim-gomove",
   -- Gitsigns
   "lewis6991/gitsigns.nvim",
   -- Indent Colorful Lines

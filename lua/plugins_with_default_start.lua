@@ -16,6 +16,7 @@ require'nvim-dap-virtual-text'.setup{}
 -- require('hlargs').setup()  -- Performance severe
 require'session-lens'.setup({})
 require'lsp_signature'.setup()
+require'gomove'.setup({ map_defaults = false })
 
 vim.cmd("let g:VM_theme='codedark'")
 vim.cmd("highlight IlluminatedWordText gui=None guibg=#333333")
