@@ -3,7 +3,7 @@
 -- Installer List
 -- { key: language value: config file }
 local lsp_servers = {
-  sumneko_lua = require "lsp.lua-lsp-config", -- ./lua/lsp/lua-lsp-config.lua
+  lua_ls = require "lsp.lua-lsp-config", -- ./lua/lsp/lua-lsp-config.lua
   pyright = {},
   remark_ls = {},
   tsserver = {},
@@ -19,6 +19,7 @@ local lsp_servers = {
   clangd = {},
   rust_analyzer = {},
   sqlls = {},
+  cssls = {},
 }
 
 -- Diagnostics Sign
@@ -43,9 +44,9 @@ local function get_keys(t)
 end
 
 -- Auto Install servers
-require('mason-lspconfig').setup({
-  ensure_installed = get_keys(lsp_servers)
-})
+-- require('mason-lspconfig').setup({
+--   ensure_installed = get_keys(lsp_servers)
+-- })
 
 local navic = require('nvim-navic')
 local on_attach = function(client, bufnr)

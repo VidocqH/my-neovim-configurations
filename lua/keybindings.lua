@@ -153,7 +153,7 @@ pluginKeys.maplsp = function(mapbuf)
   mapbuf('n', 'gd', "<cmd>Lspsaga peek_definition<CR>", opt)
   mapbuf('n', 'gh', "<cmd>Lspsaga lsp_finder<CR>", opt)
   mapbuf('n', 'K', "<cmd>Lspsaga hover_doc<CR>" , opt)
-  mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
+  mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
   mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
   mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
   -- Outline
@@ -165,6 +165,9 @@ pluginKeys.maplsp = function(mapbuf)
   -- leader + =
   mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
   mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+  -- Call hierarchy
+  -- mapbuf('n', "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
+  -- mapbuf('n', "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 end
 return pluginKeys
 

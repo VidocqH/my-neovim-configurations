@@ -47,7 +47,7 @@ require("lazy").setup({
   -- Telescope
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" } },
   -- surround
-  "ur4ltz/surround.nvim",
+  { "kylechui/nvim-surround", branch = "*" },
   -- comment
   "terrortylor/nvim-comment",
   -- colorizer
@@ -55,7 +55,7 @@ require("lazy").setup({
   -- Hop - EasyMotion
   { "phaazon/hop.nvim", branch = "v2" },
   -- Dashboard
-  "glepnir/dashboard-nvim",
+  {"glepnir/dashboard-nvim", event = "VimEnter"},
   -- Floating Terminal
   "voldikss/vim-floaterm",
   -- Lines ans blocks move
@@ -129,7 +129,6 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
     },
   },
   -- VSCode layout
@@ -137,5 +136,6 @@ require("lazy").setup({
   -- cursor word highlight
   'RRethy/vim-illuminate',
 
+  { dir = '/Users/vidocq/nvim_plugs/lens-nvim', dev = true}--, config = function() require('lens').setup() end }
 })
 

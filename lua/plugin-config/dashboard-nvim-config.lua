@@ -1,50 +1,43 @@
-local db = require('dashboard')
-vim.cmd("highlight DashboardHeader guifg=#77ff77")
-
-db.custom_header = {
-  "",
-  "/\\   /(_) __| | ___   ___ __ _ ",
-  "\\ \\ / / |/ _` |/ _ \\ / __/ _` |",
-  " \\ V /| | (_| | (_) | (_| (_| |",
-  "  \\_/ |_|\\__,_|\\___/ \\___\\__, |",
-  "                            |_|",
-  ""
+local db = require('dashboard').setup {
+  theme = "hyper",
+  config = {
+    header = {
+      "",
+      "/\\   /(_) __| | ___   ___ __ _ ",
+      "\\ \\ / / |/ _` |/ _ \\ / __/ _` |",
+      " \\ V /| | (_| | (_) | (_| (_| |",
+      "  \\_/ |_|\\__,_|\\___/ \\___\\__, |",
+      "                            |_|",
+      ""
+    },
+    week_header = {
+      enable = true
+    },
+    shortcut = {
+      { desc = ' Update', group = '@property', action = 'Lazy update', key = 'u' },
+      {
+        icon = ' ',
+        icon_hl = '@variable',
+        desc = 'Files',
+        group = 'Label',
+        action = 'Telescope find_files',
+        key = 'f',
+      },
+      {
+        desc = ' Apps',
+        group = 'DiagnosticHint',
+        action = 'Telescope app',
+        key = 'a',
+      },
+      {
+        desc = ' dotfiles',
+        group = 'Number',
+        action = 'Telescope find_files hidden=true',
+        key = 'd',
+      },
+    },
+    footer = {"Carpe Diem"},
+  }
 }
-db.custom_center = {
-  {
-    icon = '  ',
-    desc = 'Recently latest session                  ',
-    shortcut = 'SPC s l',
-    action ='RestoreSession'
-  },
-  {
-    icon = '  ',
-    desc = 'Recently opened files                   ',
-    action =  'DashboardFindHistory',
-    shortcut = 'SPC f h'
-  },
-  {
-    icon = '  ',
-    desc = 'Find  File                              ',
-    action = 'Telescope find_files find_command=rg,--hidden,--files',
-    shortcut = 'SPC f f'
-  },
-  {icon = '  ',
-    desc ='File Browser                            ',
-    action =  'Telescope file_browser',
-    shortcut = 'SPC f b'
-  },
-  {
-    icon = '  ',
-    desc = 'Find  word                              ',
-    action = 'Telescope live_grep',
-    shortcut = 'SPC f w'
-  },
-  {
-    icon = '  ',
-    desc = 'Open Command Center                     ',
-    action = 'Telescope command_center',
-    shortcut = 'SPC f c'
-  },
-}
+vim.cmd("highlight DashboardHeader guifg=#E5C07B")
 
