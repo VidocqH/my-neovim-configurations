@@ -22,7 +22,8 @@ lspsaga.setup({
     }
   },
   symbol_in_winbar = {
-    enable = false,
+    enable = true,
+    show_file = false,
   },
   ui = {
     border = 'rounded',

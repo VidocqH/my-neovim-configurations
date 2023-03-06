@@ -18,13 +18,10 @@ if IS_VSCODE == false then
   require"which-key".setup {}
   require'lsp_lens'.setup({})
   require'nvim-autopairs'.setup {}
+  require('hlargs').setup()  -- Performance severe
+  require('hlslens').setup()
 
   vim.cmd("let g:VM_theme='codedark'")
 end
 require'nvim_comment'.setup()
--- require('hlargs').setup()  -- Performance severe
-
-vim.cmd("highlight IlluminatedWordText gui=None guibg=#333333")
-vim.cmd("highlight IlluminatedWordRead gui=None guibg=#333333")
-vim.cmd("highlight IlluminatedWordWrite gui=None guibg=#333333")
 

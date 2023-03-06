@@ -8,6 +8,7 @@ require('plugins')
 -- Currently doesn't have a beautiful solution for vscode checking. 'cond' option
 -- plugins that mess vscode with nvim plugins
 if IS_VSCODE == false then
+  require('highlight')
   require('keybindings')
   require('plugin-config/nvim-theme-config')
   require('plugin-config/auto-session-config')
@@ -27,7 +28,6 @@ if IS_VSCODE == false then
   require('plugin-config/toggleterm-config')
   require('plugin-config/telescope-config')
   require('plugin-config/sniprun-config')
-  require('plugin-config/navic-config')
   require('plugin-config/dashboard-nvim-config')
   require('plugin-config/lualine-config')
 end

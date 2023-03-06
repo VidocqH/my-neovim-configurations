@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   -- OneDarkPro Theme
-  "olimorris/onedarkpro.nvim",
+  { "olimorris/onedarkpro.nvim", priority = 1000 },
   -- Bottom Line
   { "nvim-lualine/lualine.nvim", dependencies = { "kyazdani42/nvim-web-devicons" } },
   -- Packer can manage itself
@@ -117,8 +117,6 @@ require("lazy").setup({
   { "rmagatti/session-lens", dependencies = {"rmagatti/auto-session", "nvim-telescope/telescope.nvim"} },
   -- Lsp Signature
   "ray-x/lsp_signature.nvim",
-  -- Navic
-  { "SmiteshP/nvim-navic", dependencies = "neovim/nvim-lspconfig" },
   -- Git diffview
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
   -- Unit test

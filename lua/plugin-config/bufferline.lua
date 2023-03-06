@@ -11,7 +11,7 @@ require'bufferline'.setup {
   icon_custom_colors = true,
 
   -- Configure icons on the bufferline.
-  icon_separator_active = '',
+  icon_separator_active = '▎',
   icon_separator_inactive = '',
 
   -- Sets the maximum padding width with which to surround each tab

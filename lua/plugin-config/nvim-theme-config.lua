@@ -32,3 +32,8 @@ onedarkpro.setup({
 })
 -- onedarkpro.load()
 vim.cmd("colorscheme onedark_dark")
+-- if vim.o.background == "dark" then
+--   vim.cmd("colorscheme onelight")
+-- else
+--   vim.cmd("colorscheme onedark_dark")
+-- end

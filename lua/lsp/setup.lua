@@ -48,14 +48,10 @@ end
 --   ensure_installed = get_keys(lsp_servers)
 -- })
 
-local navic = require('nvim-navic')
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   require('keybindings').maplsp(buf_set_keymap) -- Bind shortcut
-  if client.server_capabilities.documentSymbolProvider then
-    navic.attach(client, bufnr)
-  end
 end
 
 -- cmp-nvim lsp setup

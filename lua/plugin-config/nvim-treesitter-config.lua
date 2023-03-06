@@ -83,6 +83,3 @@ require'treesitter-context'.setup{
     separator = nil, -- Separator between context and content. Should be a single character string, like '-'.
 }
 
-vim.cmd("highlight TreesitterContext guibg=#101010")
-vim.cmd("highlight TreesitterContextLineNumber guibg=#101010 guifg=#434852")
-
