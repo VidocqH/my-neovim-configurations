@@ -17,7 +17,7 @@ if IS_VSCODE == false then
   require'gomove'.setup({ map_defaults = false })
   require"which-key".setup {}
   require'lsp_lens'.setup({})
-  require'nvim-autopairs'.setup {}
+  require'nvim-autopairs'.setup({ check_ts = true })
   require('hlargs').setup()  -- Performance severe
   require('hlslens').setup()
 

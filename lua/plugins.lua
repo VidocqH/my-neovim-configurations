@@ -16,8 +16,6 @@ require("lazy").setup({
   { "olimorris/onedarkpro.nvim", priority = 1000 },
   -- Bottom Line
   { "nvim-lualine/lualine.nvim", dependencies = { "kyazdani42/nvim-web-devicons" } },
-  -- Packer can manage itself
-  "wbthomason/packer.nvim",
   -- Devicons
   "kyazdani42/nvim-web-devicons",
   -- Sidebar File Explorer
