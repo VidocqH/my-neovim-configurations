@@ -131,6 +131,8 @@ require("lazy").setup({
   'ldelossa/nvim-ide',
   -- cursor word highlight
   'RRethy/vim-illuminate',
+  -- Inlay Hint
+  { 'lvimuser/lsp-inlayhints.nvim', event = 'LspAttach' },
 
   -- 'VidocqH/lsp-lens.nvim'
 

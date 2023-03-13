@@ -10,16 +10,17 @@ if IS_VSCODE == false then
   require'session-lens'.setup({})
   require"trouble".setup {}
   require"mason".setup { log_level = vim.log.levels.DEBUG }
+  require"mason-lspconfig".setup()
   require'dap-python'.setup()
   require'dapui'.setup()
   require'nvim-dap-virtual-text'.setup{}
-  -- Use vscode move
   require'gomove'.setup({ map_defaults = false })
   require"which-key".setup {}
   require'lsp-lens'.setup({sections = {definition = false}})
   require'nvim-autopairs'.setup({ check_ts = true })
   require('hlargs').setup()  -- Performance severe
   require('hlslens').setup()
+  require("lsp-inlayhints").setup({ inlay_hints = { highlight = "Comment" } })
 
   vim.cmd("let g:VM_theme='codedark'")
 end
