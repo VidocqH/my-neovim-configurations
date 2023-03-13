@@ -16,7 +16,7 @@ if IS_VSCODE == false then
   -- Use vscode move
   require'gomove'.setup({ map_defaults = false })
   require"which-key".setup {}
-  require'lsp_lens'.setup({})
+  require'lsp-lens'.setup({sections = {definition = false}})
   require'nvim-autopairs'.setup({ check_ts = true })
   require('hlargs').setup()  -- Performance severe
   require('hlslens').setup()

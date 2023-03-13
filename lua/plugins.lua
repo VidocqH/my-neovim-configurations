@@ -132,6 +132,8 @@ require("lazy").setup({
   -- cursor word highlight
   'RRethy/vim-illuminate',
 
+  -- 'VidocqH/lsp-lens.nvim'
+
   { dir = '/Users/vidocq/nvim_plugs/lens-nvim', dev = true}--, config = function() require('lens').setup() end }
 })
 
