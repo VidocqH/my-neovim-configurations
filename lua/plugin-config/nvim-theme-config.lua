@@ -9,7 +9,6 @@ onedarkpro.setup({
     ["@field.lua"] = { fg = "${red}" },
     ["@method.python"] = { fg = "#579ad1" },
     ["@include.python"] = { fg = "${yellow}" },
-    GitSignsCurrentLineBlame = { fg = "#212630", bg = "${cursorline}" },
     cursorcolumn = { bg = "${cursorline}" },
   }, -- Override default highlight groups for specific filetypes
   styles = {
@@ -31,9 +30,9 @@ onedarkpro.setup({
   },
 })
 -- onedarkpro.load()
-vim.cmd("colorscheme onedark_dark")
--- if vim.o.background == "dark" then
---   vim.cmd("colorscheme onelight")
--- else
---   vim.cmd("colorscheme onedark_dark")
--- end
+-- vim.cmd("colorscheme onedark_dark")
+if vim.o.background == "dark" then
+  vim.cmd("colorscheme onelight")
+else
+  vim.cmd("colorscheme onedark_dark")
+end
