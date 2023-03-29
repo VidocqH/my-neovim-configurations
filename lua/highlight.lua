@@ -1,3 +1,6 @@
+-- Global
+vim.cmd("highlight MiniIndentscopeSymbol guifg=#e5c07b")
+
 if vim.o.background == "dark" then
   vim.cmd("highlight IlluminatedWordText gui=None guibg=#333333")
   vim.cmd("highlight IlluminatedWordRead gui=None guibg=#333333")

@@ -2,7 +2,7 @@
 require'bufferline'.setup {
   -- Excludes buffers from the tabline
   exclude_ft = {'dap-repl'},
-  exclude_name = {'package.json'},
+  -- exclude_name = {'package.json'},
 
   -- If set, the icon color will follow its corresponding buffer
   -- highlight group. By default, the Buffer*Icon group is linked to the

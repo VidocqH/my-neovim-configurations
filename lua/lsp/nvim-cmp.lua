@@ -1,37 +1,39 @@
 local cmp = require'cmp'
 
 local cmp_kinds = {
-  Text = '  ',
-  Method = '  ',
-  Function = '  ',
-  Constructor = '  ',
-  Field = '  ',
-  Variable = '  ',
-  Class = '  ',
-  Interface = '  ',
-  Module = '  ',
-  Property = '  ',
-  Unit = '  ',
-  Value = '  ',
-  Enum = '  ',
-  Keyword = '  ',
-  Snippet = '  ',
-  Color = '  ',
-  File = '  ',
-  Reference = '  ',
-  Folder = '  ',
-  EnumMember = '  ',
-  Constant = '  ',
-  Struct = '  ',
-  Event = '  ',
-  Operator = '  ',
-  TypeParameter = '  ',
+  Text = ' ',
+  Method = ' ',
+  Function = ' ',
+  Constructor = ' ',
+  Field = ' ',
+  Variable = ' ',
+  Class = ' ',
+  Interface = ' ',
+  Module = ' ',
+  Property = ' ',
+  Unit = ' ',
+  Value = ' ',
+  Enum = ' ',
+  Keyword = ' ',
+  Snippet = ' ',
+  Color = ' ',
+  File = ' ',
+  Reference = ' ',
+  Folder = ' ',
+  EnumMember = ' ',
+  Constant = ' ',
+  Struct = ' ',
+  Event = ' ',
+  Operator = ' ',
+  TypeParameter = ' ',
+  Copilot = ' ',
 }
 
 
 -- vim.cmd("highlight Pmenu guibg=#111111")
 -- vim.cmd("highlight PmenuSbar guibg=#111111")
 vim.cmd("highlight PmenuSel guibg=#181818")
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
 
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
@@ -52,14 +54,13 @@ cmp.setup {
     end,
   },
   -- source
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    -- For vsnip users.
-    { name = 'vsnip' },
-  }, {
-      { name = 'buffer' },
-      { name = 'path' },
-    }),
+  sources = {
+    { name = "copilot" },
+    { name = "nvim_lsp" },
+    { name = "vsnip" },
+    { name = "buffer" },
+    { name = "path" },
+  },
 
   -- shortcuts
   mapping = require'keybindings'.cmp(cmp),

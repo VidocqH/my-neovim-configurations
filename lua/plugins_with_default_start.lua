@@ -16,7 +16,7 @@ if IS_VSCODE == false then
   require'nvim-dap-virtual-text'.setup{}
   require'gomove'.setup({ map_defaults = false })
   require"which-key".setup {}
-  require'lsp-lens'.setup({sections = {definition = false}})
+  require'lsp-lens'.setup({})
   require'nvim-autopairs'.setup({ check_ts = true })
   require('hlargs').setup()  -- Performance severe
   require('hlslens').setup()

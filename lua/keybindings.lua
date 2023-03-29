@@ -29,7 +29,7 @@ map("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
 map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 
 -- Telescope Shortcuts
-map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
+map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({hidden = true})<CR>")
 map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
@@ -38,8 +38,10 @@ map("n", "<leader>fa", "<cmd>lua require('telescope').extensions.live_grep_args.
 
 -- Hop Shortcuts
 map("", "<leader><leader>w", "<cmd>HopWord<CR>", {})
-map("", "<leader><leader>j", "<cmd>HopLineAC<CR>", {})
-map("", "<leader><leader>k", "<cmd>HopLineBC<CR>", {})
+-- map("", "<leader><leader>j", "<cmd>HopLineAC<CR>", {})
+-- map("", "<leader><leader>k", "<cmd>HopLineBC<CR>", {})
+map("", "<leader><leader>j", "<cmd>HopLine<CR>", {})
+map("", "<leader><leader>k", "<cmd>HopLine<CR>", {})
 map('', '<leader><leader>l', "<cmd>HopWordCurrentLineAC<CR>", {})
 map('', '<leader><leader>h', "<cmd>HopWordCurrentLineBC<CR>", {})
 map('n', 'f', "<cmd>HopChar1CurrentLineAC<CR>", {})
@@ -57,6 +59,9 @@ map('', "<leader><leader>ftn", "<cmd>FloatermNext<CR>")
 map('', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 map('t', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 
+-- Trouble Toggle
+map('', "<leader><leader>t", "<cmd>TroubleToggle<CR>")
+
 -- Move Shortcuts
 map("n", "<A-h>", "<Plug>GoNSMLeft", {})
 map("n", "<A-j>", "<Plug>GoNSMDown", {})
@@ -66,11 +71,6 @@ map("x", "<A-h>", "<Plug>GoVSMLeft", {})
 map("x", "<A-j>", "<Plug>GoVSMDown", {})
 map("x", "<A-k>", "<Plug>GoVSMUp", {})
 map("x", "<A-l>", "<Plug>GoVSMRight", {})
-
--- SnipRun Shortcuts
-map('v', '<leader>rr', '<cmd>SnipRun<CR>', {silent = true})
-map('n', '<leader>rr', '<cmd>SnipRunOperator<CR>', {silent = true})
-map('n', '<leader>rrr', '<cmd>SnipRun<CR>', {silent = true})
 
 -- Dashboard Shortcuts
 map('', '<leader>ss', '<cmd><C-u>SessionSave<CR>')
@@ -112,6 +112,12 @@ map('n', '[[', '<cmd>AerialPrevUp<CR>')
 map('n', ']]', '<cmd>AerialNextUp<CR>')
 
 local pluginKeys = {}
+
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+end
 
 -- nvim-cmp auto complete
 pluginKeys.cmp = function(cmp)

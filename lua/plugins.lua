@@ -24,10 +24,15 @@ require("lazy").setup({
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   -- Sticky Head
   "nvim-treesitter/nvim-treesitter-context",
+  -- Commenting with ts
+  'JoosepAlviste/nvim-ts-context-commentstring',
   -- Tabs
   { "romgrk/barbar.nvim", dependencies="kyazdani42/nvim-web-devicons" },
   -- Github Copilot
-  "github/copilot.vim",
+  "zbirenbaum/copilot.lua",
+  { "zbirenbaum/copilot-cmp", dependencies="zbirenbaum/copilot.lua" },
+  -- "github/copilot.vim",
+  -- "Exafunction/codeium.vim",
   -- LSP Server
   "neovim/nvim-lspconfig",
   -- nvim-cmp
@@ -62,6 +67,8 @@ require("lazy").setup({
   "lewis6991/gitsigns.nvim",
   -- Indent Colorful Lines
   "lukas-reineke/indent-blankline.nvim",
+  -- Indent Current Scope
+  { 'echasnovski/mini.indentscope', version = '*' },
   -- Which key
   "folke/which-key.nvim",
   -- Symbols Outline
@@ -70,8 +77,6 @@ require("lazy").setup({
   { "akinsho/toggleterm.nvim", version = "v2.*" },
   -- Notify
   "rcarriga/nvim-notify",
-  -- Snippet Code Runner
-  { "michaelb/sniprun", build = "bash ./install.sh"},
   -- Rainbow parentheses
   "p00f/nvim-ts-rainbow",
   -- Auto pairs
@@ -115,6 +120,8 @@ require("lazy").setup({
   { "rmagatti/session-lens", dependencies = {"rmagatti/auto-session", "nvim-telescope/telescope.nvim"} },
   -- Lsp Signature
   "ray-x/lsp_signature.nvim",
+  -- Nvim lua dev utils
+  "folke/neodev.nvim",
   -- Git diffview
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
   -- Unit test
@@ -133,6 +140,9 @@ require("lazy").setup({
   'RRethy/vim-illuminate',
   -- Inlay Hint
   { 'lvimuser/lsp-inlayhints.nvim', event = 'LspAttach' },
+
+  -- Project specific conf
+  "folke/neoconf.nvim",
 
   -- 'VidocqH/lsp-lens.nvim'
 
