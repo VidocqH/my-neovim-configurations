@@ -30,11 +30,22 @@ require'nvim-treesitter.configs'.setup {
   -- Rainbow parentheses
   rainbow = {
     enable = true,
-    -- disable = { "jsx", "cpp" }
-    extended_mode = true,
-    max_file_lines = nil,
-    -- colors = {},
-    -- termcolors = {}
+    hlgroups = {
+      'TSRainbowYellow',
+      'TSRainbowBlue',
+      'TSRainbowOrange',
+      'TSRainbowGreen',
+      'TSRainbowViolet',
+      'TSRainbowCyan',
+      'TSRainbowRed'
+    },
+    query = {
+      html = 'rainbow-tags',
+      latex = 'rainbow-blocks',
+      javascript = 'rainbow-parens-react',
+      tsx = 'rainbow-parens-react',
+      vue = 'rainbow-parens',
+    }
   },
 
   -- Context Comment

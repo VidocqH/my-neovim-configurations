@@ -4,15 +4,13 @@ require'bufferline'.setup {
   exclude_ft = {'dap-repl'},
   -- exclude_name = {'package.json'},
 
-  -- If set, the icon color will follow its corresponding buffer
-  -- highlight group. By default, the Buffer*Icon group is linked to the
-  -- Buffer* group (see Highlighting below). Otherwise, it will take its
-  -- default value as defined by devicons.
-  icon_custom_colors = true,
-
   -- Configure icons on the bufferline.
-  icon_separator_active = '▎',
-  icon_separator_inactive = '',
+  icons = {
+    separator = {left = '▎', right = ''},
+    inactive = {
+      separator = {left = ''}
+    }
+  },
 
   -- Sets the maximum padding width with which to surround each tab
   maximum_padding = 0.5,

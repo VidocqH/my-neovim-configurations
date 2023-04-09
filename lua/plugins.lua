@@ -49,6 +49,8 @@ require("lazy").setup({
   { "glepnir/lspsaga.nvim" , event = "BufRead" },
   -- Telescope
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-live-grep-args.nvim" } },
+  -- Telescope fzf
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   -- surround
   { "kylechui/nvim-surround", branch = "*" },
   -- comment
@@ -78,9 +80,10 @@ require("lazy").setup({
   -- Notify
   "rcarriga/nvim-notify",
   -- Rainbow parentheses
-  "p00f/nvim-ts-rainbow",
+  "HiPhish/nvim-ts-rainbow2",
   -- Auto pairs
   "windwp/nvim-autopairs",
+  "windwp/nvim-ts-autotag",
   -- Auto Session
   "rmagatti/auto-session",
   -- Clangd Extension

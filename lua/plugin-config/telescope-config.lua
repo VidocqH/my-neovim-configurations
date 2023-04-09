@@ -1,3 +1,4 @@
+require('telescope').load_extension('fzf')
 require("telescope").load_extension("notify")
 require("telescope").load_extension('aerial')
 require('telescope').load_extension('dap')
@@ -105,6 +106,7 @@ telescope.setup {
     live_grep_args = {
       -- override default mappings
       default_mappings = {},
-    }
+    },
+    fzf = {},
   }
 }

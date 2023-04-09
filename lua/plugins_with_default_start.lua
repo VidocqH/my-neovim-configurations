@@ -18,6 +18,7 @@ if IS_VSCODE == false then
   require"which-key".setup {}
   require'lsp-lens'.setup({})
   require'nvim-autopairs'.setup({ check_ts = true })
+  require'nvim-ts-autotag'.setup()
   require('hlargs').setup()  -- Performance severe
   require('hlslens').setup()
   require("lsp-inlayhints").setup({ inlay_hints = { highlight = "Comment" } })
