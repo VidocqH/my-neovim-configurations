@@ -146,6 +146,8 @@ require("lazy").setup({
 
   -- Project specific conf
   "folke/neoconf.nvim",
+  -- Import cost of JS/TS
+  { 'barrett-ruth/import-cost.nvim', build = 'sh install.sh yarn', config = true },
 
   -- 'VidocqH/lsp-lens.nvim'
 

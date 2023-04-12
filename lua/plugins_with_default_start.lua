@@ -22,6 +22,7 @@ if IS_VSCODE == false then
   require('hlargs').setup()  -- Performance severe
   require('hlslens').setup()
   require("lsp-inlayhints").setup({ inlay_hints = { highlight = "Comment" } })
+  require('import-cost').setup()
 
   vim.cmd("let g:VM_theme='codedark'")
 end
