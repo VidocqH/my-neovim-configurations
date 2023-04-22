@@ -21,7 +21,7 @@ local function close_buffers()
     local buf = vim.api.nvim_win_get_buf(idx)
     local buf_ft = vim.api.nvim_buf_get_option(buf, "filetype")
     if has_val(ignore_file_type, buf_ft) then
-      vim.api.nvim_win_close(val)
+      vim.api.nvim_win_close(val, true)
     end
   end
 end
