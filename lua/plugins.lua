@@ -107,8 +107,6 @@ require("lazy").setup({
   "theHamsta/nvim-dap-virtual-text",
   -- Debugger telescope plugin
   "nvim-telescope/telescope-dap.nvim",
-  -- Telescope command center
-  { "FeiyouG/command_center.nvim", dependencies = "nvim-telescope/telescope.nvim" },
   -- Linter and formatter
   "jose-elias-alvarez/null-ls.nvim",
   -- lua debugger for neovim plugin debugging
