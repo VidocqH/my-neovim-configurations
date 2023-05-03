@@ -33,6 +33,7 @@ if IS_VSCODE == false then
   require('plugin-config/telescope-config')
   require('plugin-config/dashboard-nvim-config')
   require('plugin-config/lualine-config')
+  require('plugin-config/mini-animate')
   require('highlight')
 end
 if IS_NEOVIDE then

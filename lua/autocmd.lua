@@ -10,3 +10,11 @@ autocmd("BufEnter", {
   group = general,
   desc = "Disable New Line Comment"
 })
+
+autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({higroup='IncSearch', timeout=300})
+  end,
+  group = general,
+  desc = "Highlight yanked text"
+})
