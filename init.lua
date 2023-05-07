@@ -22,7 +22,6 @@ if IS_VSCODE == false then
   require('lsp/dap-general-config')
   require('lsp/linter-formatter')
   require('lsp/neotest')
-  require('lsp/copilot')
   require('plugin-config/indent-blankline-config')
   require('plugin-config/symbols-outline-config')
   require('plugin-config/nvim-ide-config')

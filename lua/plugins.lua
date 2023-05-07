@@ -29,10 +29,9 @@ require("lazy").setup({
   -- Tabs
   { "romgrk/barbar.nvim", dependencies="kyazdani42/nvim-web-devicons" },
   -- Github Copilot
-  "zbirenbaum/copilot.lua",
-  { "zbirenbaum/copilot-cmp", dependencies="zbirenbaum/copilot.lua" },
-  -- "github/copilot.vim",
-  -- "Exafunction/codeium.vim",
+  -- "zbirenbaum/copilot.lua",
+  -- { "zbirenbaum/copilot-cmp", dependencies="zbirenbaum/copilot.lua" },
+  { "jcdickinson/codeium.nvim", dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" } },
   -- LSP Server
   "neovim/nvim-lspconfig",
   -- nvim-cmp

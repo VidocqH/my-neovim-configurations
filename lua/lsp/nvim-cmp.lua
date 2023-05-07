@@ -27,6 +27,7 @@ local cmp_kinds = {
   Operator = ' ',
   TypeParameter = ' ',
   Copilot = ' ',
+  Codeium = ' ',
 }
 
 
@@ -55,7 +56,7 @@ cmp.setup {
   },
   -- source
   sources = {
-    { name = "copilot" },
+    { name = "codeium" },
     { name = "nvim_lsp" },
     { name = "vsnip" },
     { name = "buffer" },
