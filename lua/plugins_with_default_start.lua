@@ -4,7 +4,7 @@ if IS_VSCODE == false then
   -- you can configure Hop the way you like here; see :h hop-config
   require"nvim-surround".setup {}
   require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-  require'lsp_signature'.setup()
+  -- require'lsp_signature'.setup({floating_window = false})
   require'colorizer'.setup ()
   require"fidget".setup {}
   require'session-lens'.setup({})

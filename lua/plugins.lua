@@ -134,8 +134,6 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter",
     },
   },
-  -- VSCode layout
-  'ldelossa/nvim-ide',
   -- cursor word highlight
   'RRethy/vim-illuminate',
   -- Inlay Hint
@@ -149,6 +147,8 @@ require("lazy").setup({
   {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
   -- Animation
   { 'echasnovski/mini.animate', version = '*' },
+  -- Js/ts template literal comment highlight
+  { 'bennypowers/template-literal-comments.nvim', opts=true, ft={'javascript', 'typescript', 'typescriptreact'} },
 
   -- 'VidocqH/lsp-lens.nvim'
 

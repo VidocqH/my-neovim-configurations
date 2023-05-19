@@ -5,7 +5,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Sidebar nvim-tree file explorer toggler
-map('', '<leader>n', '<cmd>NvimTreeToggle<CR>')
+map('', '<leader>n', '<cmd>NvimTreeFindFileToggle<CR>')
 
 -- BufferLine Magic Picker
 map('n', '<leader>p', '<cmd>BufferPick<CR>')
