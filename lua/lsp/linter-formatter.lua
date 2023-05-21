@@ -45,7 +45,7 @@ null_ls.setup({
   sources = {
     -- Typescript & Javascript
     null_ls.builtins.code_actions.eslint_d,
-    null_ls.builtins.diagnostics.eslint_d,
+    -- null_ls.builtins.diagnostics.eslint_d,
     null_ls.builtins.formatting.eslint_d,
     null_ls.builtins.formatting.prettierd,
     -- Git
@@ -64,6 +64,8 @@ null_ls.setup({
     null_ls.builtins.diagnostics.cpplint.with ({
       args = { "--linelength=120", "$FILENAME" }
     }),
+    -- Prisma
+    null_ls.builtins.formatting.prismaFmt,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
