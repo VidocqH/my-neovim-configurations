@@ -14,5 +14,8 @@ require("neo-tree").setup({
       { source = "document_symbols" },
       { source = "git_status" },
     },
+  },
+  filesystem = {
+    follow_current_file = true,
   }
 })

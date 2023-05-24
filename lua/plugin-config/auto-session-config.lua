@@ -1,4 +1,5 @@
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winpos,terminal"
+-- vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winpos,terminal"
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 local ignore_file_type = {
   "aerial",
@@ -15,21 +16,15 @@ local function has_val(arr, val1)
   return false
 end
 
-local function close_buffers()
-  local windows = vim.api.nvim_list_wins()
-  for idx, val in ipairs(windows) do
-    local buf = vim.api.nvim_win_get_buf(idx)
-    local buf_ft = vim.api.nvim_buf_get_option(buf, "filetype")
-    if has_val(ignore_file_type, buf_ft) then
-      vim.api.nvim_win_close(val, true)
-    end
-  end
-end
-
 require("auto-session").setup {
   log_level = "error",
   auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
-  pre_save_cmds = { close_buffers },
   -- auto_restore_enabled = false,
+  pre_cwd_changed_hook = function()
+    vim.api.nvim_exec_autocmds('User', {pattern = 'SessionSavePre'})
+  end,
+  post_cwd_changed_hook = function() -- example refreshing the lualine status line _after_ the cwd changes
+    require("lualine").refresh() -- refresh lualine so the new session name is displayed in the status bar
+  end,
 }
 
