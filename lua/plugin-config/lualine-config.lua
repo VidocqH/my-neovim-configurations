@@ -28,5 +28,5 @@ require('lualine').setup {
       dap_repl = {}
     },
   },
-  extensions = { 'nvim-tree' , 'toggleterm', 'aerial', 'nvim-dap-ui' },
+  extensions = { 'toggleterm', 'aerial', 'nvim-dap-ui', 'neo-tree' },
 }

@@ -5,7 +5,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Sidebar nvim-tree file explorer toggler
-map('', '<leader>n', '<cmd>NvimTreeFindFileToggle<CR>')
+-- map('', '<leader>n', '<cmd>NvimTreeFindFileToggle<CR>')
+map('', '<leader>n', '<cmd>Neotree toggle reveal<CR>')
 
 -- BufferLine Magic Picker
 map('n', '<leader>p', '<cmd>BufferPick<CR>')
@@ -27,6 +28,10 @@ map("n", "<leader>6", "<cmd>BufferGoto 6<CR>")
 map("n", "<leader>7", "<cmd>BufferGoto 7<CR>")
 map("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
 map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
+
+-- bufferline tab mover
+map("n", "<A-[>", "<cmd>BufferMovePrevious<CR>")
+map("n", "<A-]>", "<cmd>BufferMoveNext<CR>")
 
 -- Telescope Shortcuts
 map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({hidden = true})<CR>")
@@ -91,16 +96,6 @@ map("n", "<Leader>dl", "<Cmd>lua require'dap'.run_last()<CR>")
 
 -- dap-ui
 map("n", "<Leader>gui", "<cmd>lua require('dapui').toggle()<CR>")
-
--- hlslens minimal configurations
-map('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
-map('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
-map('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]])
-map('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]])
-map('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
-map('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
-map('n', '<Leader>l', ':noh<CR>')
-
 
 -- Aerial symbols outline
 map('n', '<leader>s', '<cmd>AerialToggle!<CR>')

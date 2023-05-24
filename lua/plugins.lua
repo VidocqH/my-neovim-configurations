@@ -19,7 +19,12 @@ require("lazy").setup({
   -- Devicons
   "kyazdani42/nvim-web-devicons",
   -- Sidebar File Explorer
-  { "kyazdani42/nvim-tree.lua", dependencies = "kyazdani42/nvim-web-devicons" },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim"}
+  },
   -- Highlighting
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   -- Sticky Head
