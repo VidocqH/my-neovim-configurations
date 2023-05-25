@@ -32,6 +32,8 @@ if IS_VSCODE == false then
   require('plugin-config/dashboard-nvim-config')
   require('plugin-config/lualine-config')
   require('plugin-config/mini-animate')
+  require('plugin-config/ufo-config')
+  require('plugin-config/statuscol-config')
   require('highlight')
 end
 if IS_NEOVIDE then

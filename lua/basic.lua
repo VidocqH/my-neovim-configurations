@@ -1,3 +1,4 @@
+vim.loader.enable()
 vim.g.mapleader = ' '
 
 local set = vim.opt
@@ -13,9 +14,11 @@ set.cursorline = true
 
 set.wrap = false
 
--- Set dont fold as default
--- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
+set.foldcolumn = '1' -- '0' is not bad
+set.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 set.foldlevelstart = 99
+set.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 set.number = true
 set.relativenumber = true

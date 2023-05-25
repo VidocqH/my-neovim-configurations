@@ -33,6 +33,9 @@ map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 map("n", "<A-[>", "<cmd>BufferMovePrevious<CR>")
 map("n", "<A-]>", "<cmd>BufferMoveNext<CR>")
 
+-- hls keybindings
+map("", "<leader>l", "<cmd>noh<CR>")
+
 -- Telescope Shortcuts
 map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({hidden = true})<CR>")
 map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")

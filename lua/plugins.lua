@@ -155,6 +155,8 @@ require("lazy").setup({
   -- Js/ts template literal comment highlight
   { 'bennypowers/template-literal-comments.nvim', opts=true, ft={'javascript', 'typescript', 'typescriptreact'} },
 
+  { 'kevinhwang91/nvim-ufo', dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" }, event = "BufReadPost" },
+
   -- 'VidocqH/lsp-lens.nvim'
 
   { dir = '/Users/vidocq/nvim_plugs/lens-nvim', dev = true}--, config = function() require('lens').setup() end }
