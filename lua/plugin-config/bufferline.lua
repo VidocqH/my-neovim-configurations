@@ -16,7 +16,7 @@ require'bufferline'.setup {
   maximum_padding = 0.5,
 
   sidebar_filetypes = {
-    ['neo-tree'] = {event = 'BufWipeout', text = 'File System'},
+    ['neo-tree'] = {event = 'BufWipeout', text = 'Explorer'},
     Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
   },
 }

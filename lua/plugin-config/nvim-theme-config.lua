@@ -19,15 +19,15 @@ onedarkpro.setup({
       variables = "NONE", -- Style that is applied to variables
   },
   options = {
-      bold = true, -- Use the themes opinionated bold styles?
-      italic = true, -- Use the themes opinionated italic styles?
-      underline = true, -- Use the themes opinionated underline styles?
-      undercurl = true, -- Use the themes opinionated undercurl styles?
-      cursorline = true, -- Use cursorline highlighting?
-      transparency = false, -- Use a transparent background?
-      terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-      window_unfocused_color = true, -- When the window is out of focus, change the normal background?
-      highlight_inactive_windows = true,
+    bold = true, -- Use the themes opinionated bold styles?
+    italic = true, -- Use the themes opinionated italic styles?
+    underline = true, -- Use the themes opinionated underline styles?
+    undercurl = true, -- Use the themes opinionated undercurl styles?
+    cursorline = true, -- Use cursorline highlighting?
+    transparency = false, -- Use a transparent background?
+    terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+    window_unfocused_color = true, -- When the window is out of focus, change the normal background?
+    highlight_inactive_windows = false,
   },
 })
 -- onedarkpro.load()
@@ -35,5 +35,5 @@ onedarkpro.setup({
 -- if vim.o.background ~= "dark" then
 --   vim.cmd("colorscheme onelight")
 -- else
-  vim.cmd("colorscheme onedark_dark")
+vim.cmd("colorscheme onedark_dark")
 -- end
