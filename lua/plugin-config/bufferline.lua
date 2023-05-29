@@ -1,8 +1,6 @@
 -- Set barbar's options
 require'bufferline'.setup {
-  -- Excludes buffers from the tabline
   exclude_ft = {'dap-repl'},
-  -- exclude_name = {'package.json'},
 
   -- Configure icons on the bufferline.
   icons = {
@@ -16,8 +14,8 @@ require'bufferline'.setup {
   maximum_padding = 0.5,
 
   sidebar_filetypes = {
-    ['neo-tree'] = {event = 'BufWipeout', text = 'Explorer'},
-    Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
+    ['neo-tree'] = {event = 'BufWipeout', text = "Explorer"},
+    -- Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
   },
 }
 

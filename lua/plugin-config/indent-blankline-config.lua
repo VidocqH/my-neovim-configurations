@@ -8,10 +8,10 @@ require("indent_blankline").setup {
   show_current_context = false,
   show_current_context_start = false,
   buftype_exclude = { "terminal" },
-  filetype_exclude = { "dashboard", "mason", "NvimTree", "lazy" },
+  filetype_exclude = { "dashboard", "mason", "lazy", "neo-tree", "lspsagaoutline", "aerial" },
 }
 
 require('mini.indentscope').setup({
-    symbol = '│',
+  symbol = '│',
 })
 
