@@ -27,7 +27,7 @@ onedarkpro.setup({
     transparency = false, -- Use a transparent background?
     terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
     window_unfocused_color = true, -- When the window is out of focus, change the normal background?
-    highlight_inactive_windows = false,
+    highlight_inactive_windows = true,
   },
 })
 -- onedarkpro.load()

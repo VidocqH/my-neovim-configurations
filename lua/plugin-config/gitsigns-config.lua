@@ -1,12 +1,13 @@
 require('gitsigns').setup {
   signs = {
-    add          = { text = '▌' },
-    change       = { text = '▌' },
-    delete       = { text = '▌' },
-    topdelete    = { text = '▌' },
-    changedelete = { text = '▌' },
-    untracked    = { text = '▌' },
+    add          = { text = '█' },
+    change       = { text = '█' },
+    delete       = { text = '█' },
+    topdelete    = { text = '█' },
+    changedelete = { text = '█' },
+    untracked    = { text = '█' },
   },
+-- '█' 
   signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
   current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
   current_line_blame_opts = {
@@ -18,5 +19,5 @@ require('gitsigns').setup {
   current_line_blame_formatter_opts = {
     relative_time = true
   },
-  sign_priority = 6,
+  sign_priority = 0,
 }

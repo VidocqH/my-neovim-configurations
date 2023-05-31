@@ -20,10 +20,11 @@ if vim.o.background == "dark" then
   vim.cmd("highlight StatusLine guibg = #0d0d0d")
   vim.cmd("highlight GitSignsCurrentLineBlame guifg=#212630 guibg=CursorLine")
 
-  vim.cmd("highlight LineNrAbove guifg=#495162 guibg=#000000")
-  vim.cmd("highlight LineNrBelow guifg=#495162 guibg=#000000")
-  vim.cmd("highlight SignColumnNC guifg=#434852 guibg=#000000")
+  -- vim.cmd("highlight LineNrAbove guifg=#495162 guibg=#000000")
+  -- vim.cmd("highlight LineNrBelow guifg=#495162 guibg=#000000")
+  -- vim.cmd("highlight SignColumnNC guifg=#434852 guibg=#000000")
   vim.cmd("highlight CursorLineSign guibg=#171717")
+  vim.cmd("highlight CursorLineFold guibg=#171717")
 else
   vim.cmd("highlight IlluminatedWordText gui=None guibg=#dddddd")
   vim.cmd("highlight IlluminatedWordRead gui=None guibg=#dddddd")
