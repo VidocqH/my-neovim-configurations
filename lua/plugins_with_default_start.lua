@@ -7,7 +7,6 @@ if IS_VSCODE == false then
   -- require'lsp_signature'.setup({floating_window = false})
   require'colorizer'.setup ()
   require"fidget".setup {}
-  require'session-lens'.setup({})
   require"trouble".setup {}
   require"mason".setup { log_level = vim.log.levels.DEBUG }
   require"mason-lspconfig".setup()
@@ -27,5 +26,7 @@ if IS_VSCODE == false then
 
   vim.cmd("let g:VM_theme='codedark'")
 end
-require'nvim_comment'.setup()
+require'nvim_comment'.setup({
+  hook = function() require('ts_context_commentstring.internal').update_commentstring() end,
+})
 

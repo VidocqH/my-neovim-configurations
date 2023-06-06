@@ -121,8 +121,6 @@ require("lazy").setup({
   "kevinhwang91/nvim-hlslens",
   -- Visual Multi -- <VIM plugin>
   "mg979/vim-visual-multi",
-  -- Extension of telescope and auto-session
-  { "rmagatti/session-lens", dependencies = {"rmagatti/auto-session", "nvim-telescope/telescope.nvim"} },
   -- Lsp Signature
   "ray-x/lsp_signature.nvim",
   -- Nvim lua dev utils

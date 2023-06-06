@@ -50,8 +50,9 @@ require'nvim-treesitter.configs'.setup {
 
   -- Context Comment
   context_commentstring = {
-    enable = true
-  }
+    enable = true,
+    enable_autocmd = false,
+  },
 }
 
 -- Foldding Module
