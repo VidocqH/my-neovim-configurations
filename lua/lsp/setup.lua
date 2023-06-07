@@ -51,5 +51,24 @@ require("clangd_extensions").setup {
     capabilities = capabilities,
     flags = { debounce_text_changes = 150, },
   },
+  ast = {
+    role_icons = {
+      type = "",
+      declaration = "",
+      expression = "",
+      specifier = "",
+      statement = "",
+      ["template argument"] = "",
+    },
+    kind_icons = {
+      Compound = "",
+      Recovery = "",
+      TranslationUnit = "",
+      PackExpansion = "",
+      TemplateTypeParm = "",
+      TemplateTemplateParm = "",
+      TemplateParamObject = "",
+    },
+        },
 }
 

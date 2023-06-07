@@ -34,7 +34,7 @@ local cmp_kinds = {
 -- vim.cmd("highlight Pmenu guibg=#111111")
 -- vim.cmd("highlight PmenuSbar guibg=#111111")
 vim.cmd("highlight PmenuSel guibg=#181818")
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+-- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
 
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
