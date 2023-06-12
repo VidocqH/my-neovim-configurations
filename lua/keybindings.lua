@@ -53,13 +53,10 @@ map("", "<leader><leader>j", "<cmd>HopLine<CR>", {})
 map("", "<leader><leader>k", "<cmd>HopLine<CR>", {})
 map('', '<leader><leader>l', "<cmd>HopWordCurrentLineAC<CR>", {})
 map('', '<leader><leader>h', "<cmd>HopWordCurrentLineBC<CR>", {})
-map('n', 'f', "<cmd>HopChar1CurrentLineAC<CR>", {})
-map('n', 'F', "<cmd>HopChar1CurrentLineBC<CR>", {})
+map('', 'f', "<cmd>HopChar1CurrentLineAC<CR>", {})
+map('', 'F', "<cmd>HopChar1CurrentLineBC<CR>", {})
 map('o', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
 map('o', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
-map('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
-map('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
-
 
 -- Floating Terminal Shortcuts
 map('', "<leader><leader>ftc", "<cmd>FloatermNew<CR>")
