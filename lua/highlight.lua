@@ -25,6 +25,11 @@ if vim.o.background == "dark" then
   -- vim.cmd("highlight SignColumnNC guifg=#434852 guibg=#000000")
   vim.cmd("highlight CursorLineSign guibg=#171717")
   vim.cmd("highlight CursorLineFold guibg=#171717")
+
+  vim.cmd("highlight SpellBad guifg=NONE guisp=#e5c07b")
+  vim.cmd("highlight SpellCap guifg=NONE guisp=#e5c07b")
+  vim.cmd("highlight SpellRare guifg=NONE guisp=#e5c07b")
+  vim.cmd("highlight SpellLocal guifg=NONE guisp=#e5c07b")
 else
   vim.cmd("highlight IlluminatedWordText gui=None guibg=#dddddd")
   vim.cmd("highlight IlluminatedWordRead gui=None guibg=#dddddd")
