@@ -152,8 +152,10 @@ require("lazy").setup({
   { 'echasnovski/mini.animate', version = '*' },
   -- Js/ts template literal comment highlight
   { 'bennypowers/template-literal-comments.nvim', opts=true, ft={'javascript', 'typescript', 'typescriptreact'} },
-
+  -- Fold Extension
   { 'kevinhwang91/nvim-ufo', dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" }, event = "BufReadPost" },
+  -- Scroll Bar
+  { 'dstein64/nvim-scrollview' },
 
   -- 'VidocqH/lsp-lens.nvim'
 

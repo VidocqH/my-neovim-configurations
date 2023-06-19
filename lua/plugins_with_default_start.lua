@@ -23,6 +23,7 @@ if IS_VSCODE == false then
   require("lsp-inlayhints").setup({ inlay_hints = { highlight = "Comment" } })
   require('import-cost').setup()
   require("codeium").setup({})
+  require('scrollview').setup({ excluded_filetypes = {'neo-tree'} })
 
   vim.cmd("let g:VM_theme='codedark'")
 end
