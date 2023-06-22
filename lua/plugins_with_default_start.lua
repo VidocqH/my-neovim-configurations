@@ -5,7 +5,7 @@ if IS_VSCODE == false then
   require"nvim-surround".setup {}
   require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
   -- require'lsp_signature'.setup({floating_window = false})
-  require'colorizer'.setup ()
+  require('ccc').setup({ highlighter = { auto_enable = true, lsp = true } })
   require"fidget".setup {}
   require"trouble".setup {}
   require"mason".setup { log_level = vim.log.levels.DEBUG }

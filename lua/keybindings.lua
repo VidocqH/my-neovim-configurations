@@ -68,6 +68,9 @@ map('t', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
 -- Trouble Toggle
 map('', "<leader><leader>t", "<cmd>TroubleToggle<CR>")
 
+-- Color Picker
+map('n', "<leader><leader>c", "<cmd>CccPick<CR>")
+
 -- Move Shortcuts
 map("n", "<A-h>", "<Plug>GoNSMLeft", {})
 map("n", "<A-j>", "<Plug>GoNSMDown", {})

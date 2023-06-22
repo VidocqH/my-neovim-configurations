@@ -59,8 +59,8 @@ require("lazy").setup({
   { "kylechui/nvim-surround", branch = "*" },
   -- comment
   "terrortylor/nvim-comment",
-  -- colorizer
-  "norcalli/nvim-colorizer.lua",
+  -- colorizer and color picker
+  'uga-rosa/ccc.nvim',
   -- Hop - EasyMotion
   { "phaazon/hop.nvim", branch = "v2" },
   -- Dashboard
