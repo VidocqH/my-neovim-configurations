@@ -156,6 +156,8 @@ require("lazy").setup({
   { 'kevinhwang91/nvim-ufo', dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" }, event = "BufReadPost" },
   -- Scroll Bar
   { 'dstein64/nvim-scrollview' },
+  -- Flash, navigate between words
+  { 'folke/flash.nvim', event = 'VeryLazy' },
 
   -- 'VidocqH/lsp-lens.nvim'
 
