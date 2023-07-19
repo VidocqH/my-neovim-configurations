@@ -42,7 +42,7 @@ require'nvim-treesitter.configs'.setup {
     query = {
       html = 'rainbow-tags',
       latex = 'rainbow-blocks',
-      javascript = 'rainbow-parens-react',
+      -- javascript = 'rainbow-parens-react',
       tsx = 'rainbow-parens-react',
       vue = 'rainbow-parens',
     }
