@@ -158,6 +158,8 @@ require("lazy").setup({
   { 'dstein64/nvim-scrollview' },
   -- Flash, navigate between words
   { 'folke/flash.nvim', event = 'VeryLazy' },
+  -- todo comments
+  { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts={} },
 
   -- 'VidocqH/lsp-lens.nvim'
 
