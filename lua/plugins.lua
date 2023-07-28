@@ -61,8 +61,6 @@ require("lazy").setup({
   "terrortylor/nvim-comment",
   -- colorizer and color picker
   'uga-rosa/ccc.nvim',
-  -- Hop - EasyMotion
-  { "phaazon/hop.nvim", branch = "v2" },
   -- Dashboard
   {"glepnir/dashboard-nvim", event = "VimEnter"},
   -- Floating Terminal

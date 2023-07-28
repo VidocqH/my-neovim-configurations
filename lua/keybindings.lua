@@ -1,7 +1,11 @@
+---@param mode string | table<string>
+---@param lhs string
+---@param rhs string
+---@param opts? table<string, any>
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true, silent = true}
   if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- Sidebar nvim-tree file explorer toggler
@@ -45,18 +49,11 @@ map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
 map("n", "<leader>fc", "<CMD>Telescope commands<CR>")
 map("n", "<leader>fa", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 
--- Hop Shortcuts
-map("", "<leader><leader>w", "<cmd>HopWord<CR>", {})
--- map("", "<leader><leader>j", "<cmd>HopLineAC<CR>", {})
--- map("", "<leader><leader>k", "<cmd>HopLineBC<CR>", {})
-map("", "<leader><leader>j", "<cmd>HopLine<CR>", {})
-map("", "<leader><leader>k", "<cmd>HopLine<CR>", {})
-map('', '<leader><leader>l', "<cmd>HopWordCurrentLineAC<CR>", {})
-map('', '<leader><leader>h', "<cmd>HopWordCurrentLineBC<CR>", {})
-map('', 'f', "<cmd>HopChar1CurrentLineAC<CR>", {})
-map('', 'F', "<cmd>HopChar1CurrentLineBC<CR>", {})
-map('o', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
-map('o', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
+-- Flash
+map("", "<leader><leader>j", "<CMD>FlashLine<CR>", {})
+map("", "<leader><leader>k", "<CMD>FlashLine<CR>", {})
+map("", "<leader><leader>w", "<CMD>FlashWord<CR>", {})
+map({ "n", "o", "x" }, "<CR>", "<CMD>lua require('flash').treesitter()<CR>", {})
 
 -- Floating Terminal Shortcuts
 map('', "<leader><leader>ftc", "<cmd>FloatermNew<CR>")
@@ -149,7 +146,7 @@ pluginKeys.maplsp = function(mapbuf)
   -- go xx
   -- mapbuf('n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", sagaopt)
   mapbuf('n', 'gd', "<cmd>Lspsaga peek_definition<CR>", opt)
-  mapbuf('n', 'gh', "<cmd>Lspsaga lsp_finder<CR>", opt)
+  mapbuf('n', 'gh', "<cmd>Lspsaga finder<CR>", opt)
   mapbuf('n', 'K', "<cmd>Lspsaga hover_doc<CR>" , opt)
   mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
   mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)

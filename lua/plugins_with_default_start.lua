@@ -3,7 +3,6 @@ IS_VSCODE = vim.fn.exists('g:vscode') == 1 and true or false
 if IS_VSCODE == false then
   -- you can configure Hop the way you like here; see :h hop-config
   require"nvim-surround".setup {}
-  require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
   -- require'lsp_signature'.setup({floating_window = false})
   require('ccc').setup({ highlighter = { auto_enable = true, lsp = true } })
   require"fidget".setup {}
@@ -24,7 +23,6 @@ if IS_VSCODE == false then
   require('import-cost').setup()
   require("codeium").setup({})
   require('scrollview').setup({ excluded_filetypes = {'neo-tree'} })
-  -- require('flash').setup({modes= {char = {jump={register=true}}}})
 
   vim.cmd("let g:VM_theme='codedark'")
 end

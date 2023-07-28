@@ -34,6 +34,7 @@ if IS_VSCODE == false then
   require('plugin-config/mini-animate')
   require('plugin-config/ufo-config')
   require('plugin-config/statuscol-config')
+  require('plugin-config/flash-config')
   require('highlight')
 end
 if IS_NEOVIDE then
