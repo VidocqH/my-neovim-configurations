@@ -11,8 +11,9 @@ end
 
 Flash.setup({
   modes = {
-    char = { jump_labels = true }
-  }
+    char = { jump_labels = true },
+    search = { enabled = false },
+  },
 })
 
 -- Jump To Line
