@@ -34,23 +34,16 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require("mason-lspconfig").setup_handlers {
   function (server_name)
-    if server_name ~= "clangd" then
-      require("lspconfig")[server_name].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = lsp_settings(server_name)
-      }
-    end
+    require("lspconfig")[server_name].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = lsp_settings(server_name)
+    }
   end
 }
 
 -- Load clangd lsp with extension
 require("clangd_extensions").setup {
-  server = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = { debounce_text_changes = 150, },
-  },
   ast = {
     role_icons = {
       type = "",
@@ -69,6 +62,6 @@ require("clangd_extensions").setup {
       TemplateTemplateParm = "",
       TemplateParamObject = "",
     },
-        },
+  },
 }
 
