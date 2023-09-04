@@ -63,8 +63,6 @@ require("lazy").setup({
   'uga-rosa/ccc.nvim',
   -- Dashboard
   {"glepnir/dashboard-nvim", event = "VimEnter"},
-  -- Floating Terminal
-  "voldikss/vim-floaterm",
   -- Lines ans blocks move
   "booperlv/nvim-gomove",
   -- Gitsigns
