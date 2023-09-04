@@ -31,22 +31,6 @@ require'nvim-treesitter.configs'.setup {
   -- Rainbow parentheses
   rainbow = {
     enable = true,
-    hlgroups = {
-      'TSRainbowYellow',
-      'TSRainbowBlue',
-      'TSRainbowOrange',
-      'TSRainbowGreen',
-      'TSRainbowViolet',
-      'TSRainbowCyan',
-      'TSRainbowRed'
-    },
-    query = {
-      html = 'rainbow-tags',
-      latex = 'rainbow-blocks',
-      -- javascript = 'rainbow-parens-react',
-      tsx = 'rainbow-parens-react',
-      vue = 'rainbow-parens',
-    }
   },
 
   -- Context Comment
@@ -66,3 +50,23 @@ require'treesitter-context'.setup{
   mode = 'topline',  -- Line used to calculate context. Choices: 'cursor', 'topline'
 }
 
+require 'rainbow-delimiters.setup' {
+  query = {
+    [''] = 'rainbow-delimiters',
+    latex = 'rainbow-blocks',
+    html = 'rainbow-delimiters',
+    jsx = 'rainbow-delimiters-react',
+    tsx = 'rainbow-delimiters-react',
+    vue = 'rainbow-delimiters'
+  },
+  highlight = {
+    'RainbowDelimiterYellow',
+    'RainbowDelimiterBlue',
+    'RainbowDelimiterOrange',
+    'RainbowDelimiterGreen',
+    'RainbowDelimiterViolet',
+    'RainbowDelimiterCyan',
+    'RainbowDelimiterRed',
+  },
+  -- blacklist = {'c', 'cpp'},
+}
