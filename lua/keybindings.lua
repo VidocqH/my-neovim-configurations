@@ -55,13 +55,6 @@ map("", "<leader><leader>k", "<CMD>FlashLine<CR>", {})
 map("", "<leader><leader>w", "<CMD>FlashWord<CR>", {})
 map({ "n", "o", "x" }, "<CR>", "<CMD>lua require('flash').treesitter()<CR>", {})
 
--- Floating Terminal Shortcuts
-map('', "<leader><leader>ftc", "<cmd>FloatermNew<CR>")
-map('', "<leader><leader>ftp", "<cmd>FloatermPrev<CR>")
-map('', "<leader><leader>ftn", "<cmd>FloatermNext<CR>")
-map('', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
-map('t', "<leader><leader>ftt", "<cmd>FloatermToggle<CR>")
-
 -- Trouble Toggle
 map('', "<leader><leader>t", "<cmd>TroubleToggle<CR>")
 

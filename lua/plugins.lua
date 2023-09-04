@@ -80,7 +80,7 @@ require("lazy").setup({
   -- Notify
   "rcarriga/nvim-notify",
   -- Rainbow parentheses
-  "HiPhish/nvim-ts-rainbow2",
+  "HiPhish/rainbow-delimiters.nvim",
   -- Auto pairs
   "windwp/nvim-autopairs",
   "windwp/nvim-ts-autotag",
