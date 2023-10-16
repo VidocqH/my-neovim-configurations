@@ -3,10 +3,22 @@
 ---@param rhs string
 ---@param opts? table<string, any>
 local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true, silent = true}
+  local options = { noremap = true, silent = true }
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.keymap.set(mode, lhs, rhs, options)
 end
+
+local function checkTab()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  local row, col = pos[1], pos[2]
+  local indents = require("nvim-treesitter.indent").get_indent(row)
+  local putChars = (col == 0 and indents > 0) and string.rep(" ", indents)
+      or vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
+
+  vim.api.nvim_put({ putChars }, "c", true, true)
+end
+
+vim.keymap.set("i", "<Tab>", checkTab, nil)
 
 -- Sidebar nvim-tree file explorer toggler
 -- map('', '<leader>n', '<cmd>NvimTreeFindFileToggle<CR>')
@@ -81,7 +93,7 @@ map('n', '<leader>cn', '<cmd>DashboardNewFile<CR>', { silent = true })
 map("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>")
 map("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>") -- N
 map("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>") -- S
-map("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>") -- F
+map("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>")  -- F
 map("n", "<leader>b", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>")
 map("n", "<Leader>B", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 map("n", "<Leader>lp", "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
@@ -119,7 +131,7 @@ pluginKeys.cmp = function(cmp)
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ['<Tab>'] = cmp.mapping.confirm({
-      select = true ,
+      select = true,
       behavior = cmp.ConfirmBehavior.Replace
     }),
     -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
@@ -134,19 +146,19 @@ pluginKeys.maplsp = function(mapbuf)
   -- rename
   mapbuf('n', '<leader>rn', "<cmd>Lspsaga rename<CR>", opt)
   -- code action
-  mapbuf('n', '<leader>ca', "<cmd>Lspsaga code_action<CR>" , opt)
-  mapbuf('v', '<leader>ca', "<cmd>Lspsaga code_action<CR>" , opt)
+  mapbuf('n', '<leader>ca', "<cmd>Lspsaga code_action<CR>", opt)
+  mapbuf('v', '<leader>ca', "<cmd>Lspsaga code_action<CR>", opt)
   -- go xx
   -- mapbuf('n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", sagaopt)
   mapbuf('n', 'gd', "<cmd>Lspsaga peek_definition<CR>", opt)
   mapbuf('n', 'gh', "<cmd>Lspsaga finder<CR>", opt)
-  mapbuf('n', 'K', "<cmd>Lspsaga hover_doc<CR>" , opt)
+  mapbuf('n', 'K', "<cmd>Lspsaga hover_doc<CR>", opt)
   -- mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
   mapbuf('n', 'gD', '<cmd>Lspsaga goto_definition<CR>', opt)
   mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
   mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
   -- Outline
-  mapbuf('n','<leader>S', "<cmd>Lspsaga outline<CR>", opt)
+  mapbuf('n', '<leader>S', "<cmd>Lspsaga outline<CR>", opt)
   -- diagnostic
   mapbuf("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", opt)
   mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
@@ -159,5 +171,3 @@ pluginKeys.maplsp = function(mapbuf)
   -- mapbuf('n', "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 end
 return pluginKeys
-
-
