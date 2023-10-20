@@ -7,7 +7,7 @@ require('lualine').setup {
       { 'filename', file_status = false, path = 1, color = { fg = '#7f848e' } },
     },
     lualine_x = {'encoding', 'filetype', 'progress'},
-    lualine_y = {},
+    lualine_y = { { 'datetime', style='%I:%M:%S %p' } },
     lualine_z = {
       { 'location', separator = { right = '' }, left_padding = 2 },
     },
