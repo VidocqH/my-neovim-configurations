@@ -3,7 +3,9 @@ vim.opt.list = true
 -- vim.cmd [[highlight IndentBlankLineContextChar guifg=#e5c07b]]
 
 require("ibl").setup({
-  indent = { char = "▎" },
+	indent = { char = "▏" },
+	scope = { enabled = false },
+	exclude = { filetypes = { "dashboard", "mason", "lazy", "neo-tree", "lspsagaoutline", "aerial" } },
 })
 -- require("indent_blankline").setup {
 -- use_treesitter = true,
@@ -15,5 +17,5 @@ require("ibl").setup({
 -- }
 
 require("mini.indentscope").setup({
-  symbol = "│",
+	symbol = "│",
 })
