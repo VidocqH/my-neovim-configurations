@@ -43,9 +43,9 @@ require("lazy").setup({
   "neovim/nvim-lspconfig",
   -- nvim-cmp
   "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
-  "hrsh7th/cmp-buffer",  -- { name = "buffer" }
-  "hrsh7th/cmp-path",    -- { name = "path" }
-  "hrsh7th/cmp-cmdline", -- { name = "cmdline" }
+  "hrsh7th/cmp-buffer",   -- { name = "buffer" }
+  "hrsh7th/cmp-path",     -- { name = "path" }
+  "hrsh7th/cmp-cmdline",  -- { name = "cmdline" }
   "hrsh7th/nvim-cmp",
   -- vsnip
   "hrsh7th/cmp-vsnip", -- { name = "vsnip" }
@@ -206,13 +206,17 @@ require("lazy").setup({
   },
   {
     "VidocqH/lsp-lens.nvim",
-    -- dir = "/Users/vidocq/nvim_plugs/lens-nvim",
+    dev = true,
+    opts = {},
+  },
+  {
+    "VidocqH/auto-indent.nvim",
     dev = true,
     opts = {},
   },
 }, {
   dev = {
     path = "~/nvim_plugs",
-    pattern = { "data-viewer", "lsp-lens" },
+    pattern = { "data-viewer", "lsp-lens", "auto-indent" },
   },
 })

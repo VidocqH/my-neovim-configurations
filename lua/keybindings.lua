@@ -4,31 +4,41 @@
 ---@param opts? table<string, any>
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
-  if opts then options = vim.tbl_extend('force', options, opts) end
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
-local function checkTab()
-  local pos = vim.api.nvim_win_get_cursor(0)
-  local row, col = pos[1], pos[2]
-  local indents = require("nvim-treesitter.indent").get_indent(row)
-  local putChars = (col == 0 and indents > 0) and string.rep(" ", indents)
-      or vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
-
-  vim.api.nvim_put({ putChars }, "c", true, true)
-end
-
-vim.keymap.set("i", "<Tab>", checkTab, nil)
+-- local function checkTab()
+--   -- local tabStr = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
+--   local win = vim.api.nvim_get_current_win()
+--   local buf = vim.api.nvim_get_current_buf()
+--   local pos = vim.api.nvim_win_get_cursor(win)
+--   local row, col = pos[1], pos[2]
+--   local indentChar = vim.api.nvim_buf_get_option(buf, "expandtab") and " " or "\t"
+--   local indentNum = vim.api.nvim_buf_get_option(buf, "tabstop")
+--   if col ~= 0 then
+--     vim.api.nvim_put({ string.rep(indentChar, indentNum) }, "c", false, true)
+--     return
+--   end
+--   local indents = require("nvim-treesitter.indent").get_indent(row)
+--   local putChars = indents > 0 and string.rep(indentChar, indents) or string.rep(indentChar, indentNum)
+--
+--   vim.api.nvim_put({ putChars }, "c", false, true)
+-- end
+--
+-- vim.keymap.set("i", "<Tab>", checkTab, nil)
 
 -- Sidebar nvim-tree file explorer toggler
 -- map('', '<leader>n', '<cmd>NvimTreeFindFileToggle<CR>')
-map('', '<leader>n', '<cmd>Neotree toggle reveal<CR>')
+map("", "<leader>n", "<cmd>Neotree toggle reveal<CR>")
 
 -- BufferLine Magic Picker
-map('n', '<leader>p', '<cmd>BufferPick<CR>')
+map("n", "<leader>p", "<cmd>BufferPick<CR>")
 
 -- Bufferline Closer
-map('n', '<leader>w', '<cmd>BufferClose<CR>')
+map("n", "<leader>w", "<cmd>BufferClose<CR>")
 
 -- bufferline tab switcher
 map("n", "<C-h>", "<cmd>BufferPrevious<CR>")
@@ -68,10 +78,10 @@ map("", "<leader><leader>w", "<CMD>FlashWord<CR>", {})
 map({ "n", "o", "x" }, "<CR>", "<CMD>lua require('flash').treesitter()<CR>", {})
 
 -- Trouble Toggle
-map('', "<leader><leader>t", "<cmd>TroubleToggle<CR>")
+map("", "<leader><leader>t", "<cmd>TroubleToggle<CR>")
 
 -- Color Picker
-map('n', "<leader><leader>c", "<cmd>CccPick<CR>")
+map("n", "<leader><leader>c", "<cmd>CccPick<CR>")
 
 -- Move Shortcuts
 map("n", "<A-h>", "<Plug>GoNSMLeft", {})
@@ -84,10 +94,10 @@ map("x", "<A-k>", "<Plug>GoVSMUp", {})
 map("x", "<A-l>", "<Plug>GoVSMRight", {})
 
 -- Dashboard Shortcuts
-map('', '<leader>ss', '<cmd><C-u>SessionSave<CR>')
-map('', '<leader>sl', '<cmd><C-u>SessionLoad<CR>')
-map('n', '<leader>tc', '<cmd>DashboardChangeColorscheme<CR>', { silent = true })
-map('n', '<leader>cn', '<cmd>DashboardNewFile<CR>', { silent = true })
+map("", "<leader>ss", "<cmd><C-u>SessionSave<CR>")
+map("", "<leader>sl", "<cmd><C-u>SessionLoad<CR>")
+map("n", "<leader>tc", "<cmd>DashboardChangeColorscheme<CR>", { silent = true })
+map("n", "<leader>cn", "<cmd>DashboardNewFile<CR>", { silent = true })
 
 -- Dap keybindings
 map("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>")
@@ -104,39 +114,39 @@ map("n", "<Leader>dl", "<Cmd>lua require'dap'.run_last()<CR>")
 map("n", "<Leader>gui", "<cmd>lua require('dapui').toggle()<CR>")
 
 -- Aerial symbols outline
-map('n', '<leader>s', '<cmd>AerialToggle!<CR>')
+map("n", "<leader>s", "<cmd>AerialToggle!<CR>")
 -- Jump forwards/backwards with '{' and '}'
-map('n', '{', '<cmd>AerialPrev<CR>')
-map('n', '}', '<cmd>AerialNext<CR>')
+map("n", "{", "<cmd>AerialPrev<CR>")
+map("n", "}", "<cmd>AerialNext<CR>")
 -- Jump up the tree with '[[' or ']]'
-map('n', '[[', '<cmd>AerialPrevUp<CR>')
-map('n', ']]', '<cmd>AerialNextUp<CR>')
+map("n", "[[", "<cmd>AerialPrevUp<CR>")
+map("n", "]]", "<cmd>AerialNextUp<CR>")
 
 local pluginKeys = {}
 -- nvim-cmp auto complete
 pluginKeys.cmp = function(cmp)
   return {
     -- previous item
-    ['<Up>'] = cmp.mapping.select_prev_item(),
+    ["<Up>"] = cmp.mapping.select_prev_item(),
     -- next item
-    ['<Down>'] = cmp.mapping.select_next_item(),
+    ["<Down>"] = cmp.mapping.select_next_item(),
     -- toggler completion
-    ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     -- cancel
-    ['<A-,>'] = cmp.mapping({
+    ["<A-,>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
     -- select
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ['<Tab>'] = cmp.mapping.confirm({
+    ["<Tab>"] = cmp.mapping.confirm({
       select = true,
-      behavior = cmp.ConfirmBehavior.Replace
+      behavior = cmp.ConfirmBehavior.Replace,
     }),
     -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
   }
 end
 
@@ -144,30 +154,31 @@ local opt = { silent = true }
 -- LSP related keybindings
 pluginKeys.maplsp = function(mapbuf)
   -- rename
-  mapbuf('n', '<leader>rn', "<cmd>Lspsaga rename<CR>", opt)
+  mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
   -- code action
-  mapbuf('n', '<leader>ca', "<cmd>Lspsaga code_action<CR>", opt)
-  mapbuf('v', '<leader>ca', "<cmd>Lspsaga code_action<CR>", opt)
+  mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
+  mapbuf("v", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
   -- go xx
   -- mapbuf('n', 'gd', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", sagaopt)
-  mapbuf('n', 'gd', "<cmd>Lspsaga peek_definition<CR>", opt)
-  mapbuf('n', 'gh', "<cmd>Lspsaga finder<CR>", opt)
-  mapbuf('n', 'K', "<cmd>Lspsaga hover_doc<CR>", opt)
+  mapbuf("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opt)
+  mapbuf("n", "gh", "<cmd>Lspsaga finder<CR>", opt)
+  mapbuf("n", "K", "<cmd>Lspsaga hover_doc<CR>", opt)
   -- mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
-  mapbuf('n', 'gD', '<cmd>Lspsaga goto_definition<CR>', opt)
-  mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
-  mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
+  mapbuf("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opt)
+  mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+  mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
   -- Outline
-  mapbuf('n', '<leader>S', "<cmd>Lspsaga outline<CR>", opt)
+  mapbuf("n", "<leader>S", "<cmd>Lspsaga outline<CR>", opt)
   -- diagnostic
   mapbuf("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", opt)
   mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
   mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
   -- leader + =
-  mapbuf('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
-  mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+  mapbuf("n", "<leader>=", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+  mapbuf("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opt)
   -- Call hierarchy
   -- mapbuf('n', "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
   -- mapbuf('n', "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 end
+
 return pluginKeys
