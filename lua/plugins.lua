@@ -212,7 +212,11 @@ require("lazy").setup({
   {
     "VidocqH/auto-indent.nvim",
     dev = true,
-    opts = {},
+    opts = {
+      indentexpr = function(lnum)
+        return require("nvim-treesitter.indent").get_indent(lnum)
+      end,
+    },
   },
 }, {
   dev = {
