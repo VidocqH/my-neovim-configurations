@@ -110,6 +110,9 @@ map("n", "<Leader>lp", "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.in
 map("n", "<Leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>")
 map("n", "<Leader>dl", "<Cmd>lua require'dap'.run_last()<CR>")
 
+-- Toggle Term
+map({ "n", "t" }, "<C-\\>", "<CMD>ToggleTerm<CR>")
+
 -- dap-ui
 map("n", "<Leader>gui", "<cmd>lua require('dapui').toggle()<CR>")
 

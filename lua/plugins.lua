@@ -85,7 +85,7 @@ require("lazy").setup({
   -- Symbols Outline
   "stevearc/aerial.nvim",
   -- Terminal tab
-  { "akinsho/toggleterm.nvim", version = "v2.*" },
+  { "akinsho/toggleterm.nvim", version = "*",                                opts = { direction = 'tab' } },
   -- Notify
   "rcarriga/nvim-notify",
   -- Rainbow parentheses
@@ -156,12 +156,6 @@ require("lazy").setup({
   { "ellisonleao/glow.nvim",         config = true,                cmd = "Glow" },
   -- Animation
   { "echasnovski/mini.animate",      version = "*" },
-  -- Js/ts template literal comment highlight
-  {
-    "bennypowers/template-literal-comments.nvim",
-    opts = true,
-    ft = { "javascript", "typescript", "typescriptreact" },
-  },
   -- Fold Extension
   {
     "kevinhwang91/nvim-ufo",
