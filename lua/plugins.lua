@@ -34,25 +34,25 @@ require("lazy").setup({
   -- Commenting with ts
   "JoosepAlviste/nvim-ts-context-commentstring",
   -- Tabs
-  { "romgrk/barbar.nvim",              dependencies = "kyazdani42/nvim-web-devicons" },
+  { "romgrk/barbar.nvim", dependencies = "kyazdani42/nvim-web-devicons" },
   -- Github Copilot
   -- "zbirenbaum/copilot.lua",
   -- { "zbirenbaum/copilot-cmp", dependencies="zbirenbaum/copilot.lua" },
-  { "jcdickinson/codeium.nvim",        dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" } },
+  { "jcdickinson/codeium.nvim", dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" } },
   -- LSP Server
   "neovim/nvim-lspconfig",
   -- nvim-cmp
   "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
-  "hrsh7th/cmp-buffer",   -- { name = "buffer" }
-  "hrsh7th/cmp-path",     -- { name = "path" }
-  "hrsh7th/cmp-cmdline",  -- { name = "cmdline" }
+  "hrsh7th/cmp-buffer", -- { name = "buffer" }
+  "hrsh7th/cmp-path", -- { name = "path" }
+  "hrsh7th/cmp-cmdline", -- { name = "cmdline" }
   "hrsh7th/nvim-cmp",
   -- vsnip
   "hrsh7th/cmp-vsnip", -- { name = "vsnip" }
   "hrsh7th/vim-vsnip",
   "rafamadriz/friendly-snippets",
   -- lsp sage
-  { "glepnir/lspsaga.nvim",   event = "BufRead" },
+  { "glepnir/lspsaga.nvim", event = "BufRead" },
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
@@ -61,8 +61,7 @@ require("lazy").setup({
   -- Telescope fzf
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build =
-    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   -- surround
   { "kylechui/nvim-surround", branch = "*" },
@@ -71,7 +70,7 @@ require("lazy").setup({
   -- colorizer and color picker
   "uga-rosa/ccc.nvim",
   -- Dashboard
-  { "glepnir/dashboard-nvim",       event = "VimEnter" },
+  { "glepnir/dashboard-nvim", event = "VimEnter" },
   -- Lines ans blocks move
   "booperlv/nvim-gomove",
   -- Gitsigns
@@ -85,7 +84,7 @@ require("lazy").setup({
   -- Symbols Outline
   "stevearc/aerial.nvim",
   -- Terminal tab
-  { "akinsho/toggleterm.nvim", version = "*",                                opts = { direction = 'tab' } },
+  { "akinsho/toggleterm.nvim", version = "*", opts = { direction = "tab" } },
   -- Notify
   "rcarriga/nvim-notify",
   -- Rainbow parentheses
@@ -102,7 +101,7 @@ require("lazy").setup({
   -- Lsp progress display
   "j-hui/fidget.nvim",
   -- Trouble Plane
-  { "folke/trouble.nvim",      dependencies = "kyazdani42/nvim-web-devicons" },
+  { "folke/trouble.nvim", dependencies = "kyazdani42/nvim-web-devicons" },
   -- Mason
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
@@ -117,7 +116,7 @@ require("lazy").setup({
   -- Debugger telescope plugin
   "nvim-telescope/telescope-dap.nvim",
   -- Linter and formatter
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   -- lua debugger for neovim plugin debugging
   "jbyuki/one-small-step-for-vimkind",
   -- function"s arguments highlight with treesitter
@@ -131,7 +130,7 @@ require("lazy").setup({
   -- Nvim lua dev utils
   "folke/neodev.nvim",
   -- Git diffview
-  { "sindrets/diffview.nvim",       dependencies = "nvim-lua/plenary.nvim" },
+  { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
   -- Unit test
   "vim-test/vim-test",
   "nvim-neotest/neotest-python",
@@ -153,9 +152,9 @@ require("lazy").setup({
   -- Import cost of JS/TS
   { "barrett-ruth/import-cost.nvim", build = "sh install.sh yarn", config = true },
   -- Markdown Renderer
-  { "ellisonleao/glow.nvim",         config = true,                cmd = "Glow" },
+  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   -- Animation
-  { "echasnovski/mini.animate",      version = "*" },
+  { "echasnovski/mini.animate", version = "*" },
   -- Fold Extension
   {
     "kevinhwang91/nvim-ufo",
@@ -166,7 +165,7 @@ require("lazy").setup({
   { "dstein64/nvim-scrollview" },
   -- { "lewis6991/satellite.nvim", opts = {} },
   -- Flash, navigate between words
-  { "folke/flash.nvim",         event = "VeryLazy" },
+  { "folke/flash.nvim", event = "VeryLazy" },
   -- todo comments
   { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
   -- Time Record
@@ -177,10 +176,10 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     keys = {
       { "<leader>lq", "<cmd>LBQuestions<cr>", desc = "List Questions" },
-      { "<leader>ll", "<cmd>LBQuestion<cr>",  desc = "View Question" },
-      { "<leader>lr", "<cmd>LBReset<cr>",     desc = "Reset Code" },
-      { "<leader>lt", "<cmd>LBTest<cr>",      desc = "Run Code" },
-      { "<leader>ls", "<cmd>LBSubmit<cr>",    desc = "Submit Code" },
+      { "<leader>ll", "<cmd>LBQuestion<cr>", desc = "View Question" },
+      { "<leader>lr", "<cmd>LBReset<cr>", desc = "Reset Code" },
+      { "<leader>lt", "<cmd>LBTest<cr>", desc = "Run Code" },
+      { "<leader>ls", "<cmd>LBSubmit<cr>", desc = "Submit Code" },
     },
   },
 
