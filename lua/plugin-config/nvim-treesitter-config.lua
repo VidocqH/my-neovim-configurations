@@ -1,3 +1,5 @@
+IS_VSCODE = vim.fn.exists("g:vscode") == 1 and true or false
+
 require("nvim-treesitter.configs").setup({
   ensure_installed = { "vim", "lua", "javascript", "json", "typescript", "python", "cpp", "c" },
 
@@ -30,13 +32,7 @@ require("nvim-treesitter.configs").setup({
 
   -- Rainbow parentheses
   rainbow = {
-    enable = true,
-  },
-
-  -- Context Comment
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
+    enable = IS_VSCODE == false,
   },
 })
 
