@@ -24,9 +24,15 @@ if IS_VSCODE == false then
   require("scrollview").setup({ excluded_filetypes = { "neo-tree" } })
   require("leetbuddy").setup({ domain = "cn", language = "cpp" })
   require("package-info").setup()
+  require("illuminate").configure({
+    should_enable = function(bufnr)
+      return IS_VSCODE == false
+    end,
+  })
 
   vim.cmd("let g:VM_theme='codedark'")
 end
+
 require("nvim_comment").setup({
   hook = function()
     require("ts_context_commentstring.internal").update_commentstring()
