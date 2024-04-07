@@ -39,9 +39,9 @@ local null_ls = require("null-ls")
 null_ls.setup({
   sources = {
     -- Typescript & Javascript
-    null_ls.builtins.code_actions.eslint_d,
+    -- null_ls.builtins.code_actions.eslint_d,
     -- null_ls.builtins.diagnostics.eslint_d,
-    null_ls.builtins.formatting.eslint_d,
+    -- null_ls.builtins.formatting.eslint_d,
     null_ls.builtins.formatting.prettierd,
     -- Git
     null_ls.builtins.diagnostics.gitlint,
@@ -53,12 +53,12 @@ null_ls.setup({
     --   end,
     -- }),
     null_ls.builtins.diagnostics.mypy,
-    null_ls.builtins.formatting.autopep8,
+    -- null_ls.builtins.formatting.autopep8,
     -- C & C++
     -- null_ls.builtins.formatting.clang_format,
-    null_ls.builtins.diagnostics.cpplint.with({
-      args = { "--linelength=120", "$FILENAME" },
-    }),
+    -- null_ls.builtins.diagnostics.cpplint.with({
+    --   args = { "--linelength=120", "$FILENAME" },
+    -- }),
     -- Prisma
     null_ls.builtins.formatting.prismaFmt,
     -- Lua
@@ -67,11 +67,11 @@ null_ls.setup({
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd("BufWritePost", {
+      vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         buffer = bufnr,
         callback = function()
-          async_formatting(bufnr)
+          vim.lsp.buf.format({ bufnr = bufnr })
         end,
       })
     end
