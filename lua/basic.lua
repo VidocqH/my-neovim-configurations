@@ -34,6 +34,11 @@ set.conceallevel = 3
 vim.opt_local.spell = true
 vim.opt_local.spelllang = "en"
 
+-- After upgrades in early 2024, neovim disables react native's hot reload, disable swapping files to fix it
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.writebackup = false
+
 -- Windows Shell Setting
 if IS_WINDOWS then
   set.shell = "powershell"
