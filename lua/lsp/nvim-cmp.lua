@@ -35,6 +35,7 @@ local cmp_kinds = {
 -- vim.cmd("highlight PmenuSbar guibg=#111111")
 vim.cmd("highlight PmenuSel guibg=#181818")
 -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { fg ="#aa1111" })
 
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
@@ -45,6 +46,13 @@ cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()
 )
+-- cmp.mapping(function()
+--   if cmp.get_active_entry() then
+--     cmp.confirm()
+--   else
+--     require'ultimate-autopair.maps.cr'.cmpnewline()
+--   end
+-- end)
 
 cmp.setup {
   -- snippet engine
