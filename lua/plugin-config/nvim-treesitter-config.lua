@@ -47,14 +47,14 @@ require("treesitter-context").setup({
   multiline_threshold = 10,
 })
 
-require("rainbow-delimiters.setup")({
+require("rainbow-delimiters.setup").setup({
   query = {
     [""] = "rainbow-delimiters",
-    latex = "rainbow-blocks",
-    html = "rainbow-delimiters",
-    jsx = "rainbow-delimiters-react",
-    tsx = "rainbow-delimiters-react",
-    vue = "rainbow-delimiters",
+    -- latex = "rainbow-blocks",
+    -- html = "rainbow-delimiters",
+    -- jsx = "rainbow-delimiters-react",
+    -- tsx = "rainbow-delimiters-react",
+    -- vue = "rainbow-delimiters",
   },
   highlight = {
     "RainbowDelimiterYellow",
