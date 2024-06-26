@@ -1,4 +1,5 @@
 -- vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("off")
 
 local function lsp_settings(server_name)
   if server_name == "lua_ls" then
