@@ -28,7 +28,6 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
   -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-  require("lsp-inlayhints").on_attach(client, bufnr)
   require("keybindings").maplsp(buf_set_keymap) -- Bind shortcut
 end
 

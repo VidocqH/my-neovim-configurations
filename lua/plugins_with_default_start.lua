@@ -18,7 +18,7 @@ if IS_VSCODE == false then
   require("nvim-ts-autotag").setup()
   -- require('hlargs').setup()  -- Performance severe
   require("hlslens").setup()
-  require("lsp-inlayhints").setup({ inlay_hints = { highlight = "Comment" } })
+  require("inlay-hints").setup()
   -- require("import-cost").setup()
   require("codeium").setup({})
   require("scrollview").setup({ excluded_filetypes = { "neo-tree" } })

@@ -146,12 +146,16 @@ require("lazy").setup({
   -- cursor word highlight
   "RRethy/vim-illuminate",
   -- Inlay Hint
-  { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach" },
+  {
+    "MysticalDevil/inlay-hints.nvim",
+    event = "LspAttach",
+    dependencies = { "neovim/nvim-lspconfig" },
+  },
 
   -- Project specific conf
   "folke/neoconf.nvim",
   -- Import cost of JS/TS
-  { "barrett-ruth/import-cost.nvim", build = "sh install.sh yarn", config = true },
+  -- { "barrett-ruth/import-cost.nvim", build = "sh install.sh yarn", config = true },
   -- Markdown Renderer
   { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   -- Animation
