@@ -60,7 +60,7 @@ null_ls.setup({
     --   args = { "--linelength=120", "$FILENAME" },
     -- }),
     -- Prisma
-    null_ls.builtins.formatting.prismaFmt,
+    null_ls.builtins.formatting.prisma_format,
     -- Lua
     null_ls.builtins.formatting.stylua,
   },

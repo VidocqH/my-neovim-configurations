@@ -4,7 +4,7 @@ require("telescope").load_extension('aerial')
 require('telescope').load_extension('dap')
 require("telescope").load_extension("live_grep_args")
 
-local trouble = require("trouble.providers.telescope")
+local trouble = require("trouble.sources.telescope")
 local telescope = require("telescope")
 
 telescope.setup {
