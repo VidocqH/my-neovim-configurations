@@ -29,4 +29,4 @@ require('lualine').setup {
     },
   },
   extensions = { "toggleterm", "aerial", "nvim-dap-ui", "neo-tree" },
-})
+}
