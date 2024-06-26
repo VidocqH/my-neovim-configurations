@@ -19,7 +19,7 @@ if IS_VSCODE == false then
   -- require('hlargs').setup()  -- Performance severe
   require("hlslens").setup()
   require("lsp-inlayhints").setup({ inlay_hints = { highlight = "Comment" } })
-  require("import-cost").setup()
+  -- require("import-cost").setup()
   require("codeium").setup({})
   require("scrollview").setup({ excluded_filetypes = { "neo-tree" } })
   require("leetbuddy").setup({ domain = "cn", language = "cpp" })
