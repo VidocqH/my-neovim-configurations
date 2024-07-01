@@ -64,7 +64,7 @@ require("lazy").setup({
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   -- surround
-  { "kylechui/nvim-surround", branch = "*" },
+  { "kylechui/nvim-surround", version = "*" },
   -- comment
   "terrortylor/nvim-comment",
   -- colorizer and color picker
