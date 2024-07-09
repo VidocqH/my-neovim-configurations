@@ -2,6 +2,8 @@
 vim.g.neovide_remember_window_size = true
 vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_cursor_vfx_particle_density = 14.0
+vim.g.neovide_cursor_vfx_particle_phase = 15.0
+vim.g.neovide_cursor_vfx_particle_curl = 0.0
 -- vim.opt.guifont = { "RobotoMono Nerd Font", ":h14" }
 vim.opt.guifont = { "Lilex Nerd Font", ":h14" }
 vim.g.neovide_input_option_alt_is_meta = true
