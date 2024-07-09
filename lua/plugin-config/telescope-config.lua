@@ -1,6 +1,5 @@
 require('telescope').load_extension('fzf')
 require("telescope").load_extension("notify")
-require("telescope").load_extension('aerial')
 require('telescope').load_extension('dap')
 require("telescope").load_extension("live_grep_args")
 

@@ -82,7 +82,7 @@ require("lazy").setup({
   -- Which key
   "folke/which-key.nvim",
   -- Symbols Outline
-  "stevearc/aerial.nvim",
+  "hedyhli/outline.nvim",
   -- Terminal tab
   { "akinsho/toggleterm.nvim", version = "*", opts = { direction = "tab" } },
   -- Notify

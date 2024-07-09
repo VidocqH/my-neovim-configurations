@@ -23,7 +23,7 @@ if IS_VSCODE == false then
   require("lsp/linter-formatter")
   require("lsp/neotest")
   require("plugin-config/indent-blankline-config")
-  require("plugin-config/symbols-outline-config")
+  require("plugin-config/outline-config")
   require("plugin-config/neotree-config")
   require("plugin-config/bufferline")
   require("plugin-config/gitsigns-config")
