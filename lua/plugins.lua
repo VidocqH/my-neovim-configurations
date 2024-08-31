@@ -188,6 +188,13 @@ require("lazy").setup({
     },
   },
 
+  {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({ color = { suggestion_color = "#00ff00" } })
+    end,
+  },
+
   -- npm package info
   { "vuki656/package-info.nvim", dependencies = "MunifTanjim/nui.nvim" },
 

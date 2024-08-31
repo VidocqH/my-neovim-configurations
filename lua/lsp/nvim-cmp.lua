@@ -1,51 +1,49 @@
-local cmp = require'cmp'
+local cmp = require("cmp")
 
 local cmp_kinds = {
-  Text = ' ',
-  Method = ' ',
-  Function = ' ',
-  Constructor = ' ',
-  Field = ' ',
-  Variable = ' ',
-  Class = ' ',
-  Interface = ' ',
-  Module = ' ',
-  Property = ' ',
-  Unit = ' ',
-  Value = ' ',
-  Enum = ' ',
-  Keyword = ' ',
-  Snippet = ' ',
-  Color = ' ',
-  File = ' ',
-  Reference = ' ',
-  Folder = ' ',
-  EnumMember = ' ',
-  Constant = ' ',
-  Struct = ' ',
-  Event = ' ',
-  Operator = ' ',
-  TypeParameter = ' ',
-  Copilot = ' ',
-  Codeium = ' ',
+  Text = " ",
+  Method = " ",
+  Function = " ",
+  Constructor = " ",
+  Field = " ",
+  Variable = " ",
+  Class = " ",
+  Interface = " ",
+  Module = " ",
+  Property = " ",
+  Unit = " ",
+  Value = " ",
+  Enum = " ",
+  Keyword = " ",
+  Snippet = " ",
+  Color = " ",
+  File = " ",
+  Reference = " ",
+  Folder = " ",
+  EnumMember = " ",
+  Constant = " ",
+  Struct = " ",
+  Event = " ",
+  Operator = " ",
+  TypeParameter = " ",
+  Copilot = " ",
+  Codeium = " ",
+  Supermaven = "",
 }
-
 
 -- vim.cmd("highlight Pmenu guibg=#111111")
 -- vim.cmd("highlight PmenuSbar guibg=#111111")
 vim.cmd("highlight PmenuSel guibg=#181818")
 -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
-vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { fg ="#aa1111" })
+vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { fg = "#aa1111" })
+vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
 
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- nvim-autopairs work with nvim-cmp
 -- If you want insert `(` after select function or method item
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 -- cmp.mapping(function()
 --   if cmp.get_active_entry() then
 --     cmp.confirm()
@@ -54,7 +52,7 @@ cmp.event:on(
 --   end
 -- end)
 
-cmp.setup {
+cmp.setup({
   -- snippet engine
   snippet = {
     expand = function(args)
@@ -64,7 +62,8 @@ cmp.setup {
   },
   -- source
   sources = {
-    { name = "codeium" },
+    -- { name = "codeium" },
+    { name = "supermaven" },
     { name = "nvim_lsp" },
     { name = "vsnip" },
     { name = "buffer" },
@@ -72,34 +71,33 @@ cmp.setup {
   },
 
   -- shortcuts
-  mapping = require'keybindings'.cmp(cmp),
+  mapping = require("keybindings").cmp(cmp),
   -- type icons
   formatting = {
     format = function(_, vim_item)
-      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+      vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
       return vim_item
     end,
   },
 
   window = {
     -- completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered()
-  }
-}
+    documentation = cmp.config.window.bordered(),
+  },
+})
 
 -- Use buffer source for `/`.
-cmp.setup.cmdline('/', {
+cmp.setup.cmdline("/", {
   sources = {
-    { name = 'buffer' }
-  }
+    { name = "buffer" },
+  },
 })
 
 -- Use cmdline & path source for ':'.
-cmp.setup.cmdline(':', {
+cmp.setup.cmdline(":", {
   sources = cmp.config.sources({
-    { name = 'path' }
+    { name = "path" },
   }, {
-      { name = 'cmdline' }
-    })
+    { name = "cmdline" },
+  }),
 })
-
