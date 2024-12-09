@@ -4,7 +4,6 @@ if IS_VSCODE == false then
   -- you can configure Hop the way you like here; see :h hop-config
   require("nvim-surround").setup({})
   -- require'lsp_signature'.setup({floating_window = false})
-  require("ccc").setup({ highlighter = { auto_enable = true, lsp = true } })
   require("fidget").setup({})
   require("trouble").setup({})
   require("mason").setup({ log_level = vim.log.levels.DEBUG })
