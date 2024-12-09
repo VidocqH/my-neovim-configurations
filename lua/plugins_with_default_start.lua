@@ -12,7 +12,7 @@ if IS_VSCODE == false then
   require("dapui").setup()
   require("nvim-dap-virtual-text").setup({})
   require("gomove").setup({ map_defaults = false })
-  require("which-key").setup({ keys = { scroll_up = "", scroll_down = "" } })
+  require("which-key").setup({ preset = "modern", keys = { scroll_up = "", scroll_down = "" } })
   require("nvim-autopairs").setup({ check_ts = true })
   require("nvim-ts-autotag").setup()
   -- require('hlargs').setup()  -- Performance severe
