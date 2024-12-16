@@ -64,6 +64,7 @@
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "c097f728a409d9923a3c70c1507e8389978a9b85" },
+  "render-markdown.nvim": { "branch": "main", "commit": "0022a579ac7355966be5ade77699b88c76b6a549" },
   "sqlite.lua": { "branch": "master", "commit": "d0ffd703b56d090d213b497ed4eb840495f14a11" },
   "statuscol.nvim": { "branch": "main", "commit": "93d8bcda516fc86e11c03f9ef577bae9a72fba0e" },
   "supermaven-nvim": { "branch": "main", "commit": "d71257f431e190d9236d7f30da4c2d659389e91f" },

@@ -65,6 +65,7 @@ cmp.setup({
     -- { name = "codeium" },
     { name = "supermaven" },
     { name = "nvim_lsp" },
+    { name = "render-markdown" },
     { name = "vsnip" },
     { name = "buffer" },
     { name = "path" },
