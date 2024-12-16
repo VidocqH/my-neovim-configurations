@@ -210,6 +210,29 @@ require("lazy").setup({
   },
 
   {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false, -- set this if you want to always pull the latest change
+    build = "make",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-tree/nvim-web-devicons",
+      { "HakonHarnes/img-clip.nvim", event = "VeryLazy" },
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
+
+  {
     "VidocqH/data-viewer.nvim",
     dev = true,
     opts = { autoDisplayWhenOpenFile = true, view = { float = false } },
@@ -218,11 +241,11 @@ require("lazy").setup({
       "kkharji/sqlite.lua",
     },
   },
-  {
-    "VidocqH/lsp-lens.nvim",
-    dev = true,
-    -- opts = {},
-  },
+  -- {
+  --   "VidocqH/lsp-lens.nvim",
+  --   dev = true,
+  --   -- opts = {},
+  -- },
   {
     "VidocqH/auto-indent.nvim",
     dev = true,
