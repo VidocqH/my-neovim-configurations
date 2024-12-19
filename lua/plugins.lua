@@ -167,7 +167,7 @@ require("lazy").setup({
     event = "BufReadPost",
   },
   -- Scroll Bar
-  { "dstein64/nvim-scrollview" },
+  -- { "dstein64/nvim-scrollview" },
   -- { "lewis6991/satellite.nvim", opts = {} },
   -- Flash, navigate between words
   { "folke/flash.nvim", event = "VeryLazy" },
@@ -230,6 +230,14 @@ require("lazy").setup({
         ft = { "markdown", "Avante" },
       },
     },
+  },
+  {
+    "Isrothy/neominimap.nvim",
+    version = "v3.*.*",
+    lazy = false,
+    init = function()
+      require("plugin-config/neominimap-config")
+    end,
   },
 
   {
