@@ -1,3 +1,18 @@
+local CONSTANTS = require("../constant_template")
+if pcall(require, "../constant") then
+  CONSTANTS = require("../constant")
+end
+
+local function is_ignored(bufnr)
+  local buffer_name = vim.api.nvim_buf_get_name(bufnr)
+  for i = 1, #CONSTANTS.AUTO_FORMAT_IGNORE do
+    if string.find(buffer_name, CONSTANTS.AUTO_FORMAT_IGNORE[i]) then
+      return true
+    end
+  end
+  return false
+end
+
 -- Suppress warning
 local notify = vim.notify
 notify = function(msg, ...)
@@ -65,7 +80,7 @@ null_ls.setup({
     null_ls.builtins.formatting.stylua,
   },
   on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
+    if is_ignored(bufnr) == false and client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
