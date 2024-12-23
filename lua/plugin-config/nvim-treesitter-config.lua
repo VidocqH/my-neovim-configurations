@@ -42,7 +42,7 @@ vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Treesitter context config
 require("treesitter-context").setup({
-  zindex = 2000, -- The Z-index of the context window
+  zindex = 10, -- The Z-index of the context window
   mode = "topline", -- Line used to calculate context. Choices: 'cursor', 'topline'
   multiline_threshold = 10,
 })

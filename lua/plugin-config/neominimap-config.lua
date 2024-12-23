@@ -90,7 +90,7 @@ end
 ---@type Neominimap.UserConfig
 vim.g.neominimap = {
   auto_enable = true,
-  float = { z_index = 9999 },
+  float = { z_index = 20 },
   click = { enabled = true, auto_switch_focus = false },
   search = { enabled = true, mode = "icon" },
   mark = { enabled = false },
