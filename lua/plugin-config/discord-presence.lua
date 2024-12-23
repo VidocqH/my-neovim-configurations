@@ -1,4 +1,4 @@
-local CONSTANTS = {}
+local CONSTANTS = require("../constant_template")
 if pcall(require, "../constant") then
   CONSTANTS = require("../constant")
 end
