@@ -119,6 +119,10 @@ map("n", "<Leader>gui", "<cmd>lua require('dapui').toggle()<CR>")
 -- Symbols Outline
 map("n", "<leader>s", "<cmd>Outline!<CR>")
 
+-- Dfifview
+map("n", "<leader>dfo", "<cmd>DiffviewFileHistory %<CR>") -- Current file history
+map("n", "<leader>dfc", "<cmd>DiffviewClose<CR>")
+
 local pluginKeys = {}
 -- nvim-cmp auto complete
 pluginKeys.cmp = function(cmp)
