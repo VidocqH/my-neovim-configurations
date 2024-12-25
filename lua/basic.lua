@@ -7,8 +7,6 @@ set.shiftwidth = 2
 set.softtabstop = 0
 set.expandtab = true
 
-vim.g.python3_host_prog = "/Users/vidocq/.pyenv/versions/3.10.13/envs/nvim/bin/python3"
-
 set.cursorline = true
 -- if IS_VSCODE == false then
 --   set.cursorcolumn = true

@@ -7,7 +7,7 @@ local function lsp_settings(server_name)
   elseif server_name == "tsserver" then
     return require("lsp.lsp_settings.tsserver")
   end
-  return {}
+  return nil
 end
 
 -- Diagnostics Sign

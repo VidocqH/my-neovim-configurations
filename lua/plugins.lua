@@ -41,6 +41,7 @@ require("lazy").setup({
   { "jcdickinson/codeium.nvim", dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" } },
   -- LSP Server
   "neovim/nvim-lspconfig",
+
   -- nvim-cmp
   "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
   "hrsh7th/cmp-buffer", -- { name = "buffer" }
@@ -62,6 +63,18 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+  },
+  {
+    "linux-cultist/venv-selector.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-dap",
+      "mfussenegger/nvim-dap-python", --optional
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+    },
+    lazy = false,
+    branch = "regexp",
+    opts = {},
   },
   -- surround
   { "kylechui/nvim-surround", version = "*" },
