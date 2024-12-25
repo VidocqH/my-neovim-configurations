@@ -6,6 +6,8 @@ local function lsp_settings(server_name)
     return require("lsp.lsp_settings.lua_ls")
   elseif server_name == "tsserver" then
     return require("lsp.lsp_settings.tsserver")
+  elseif server_name == "basedpyright" then
+    return require("lsp.lsp_settings.basedpyright")
   end
   return nil
 end
