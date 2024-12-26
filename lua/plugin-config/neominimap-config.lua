@@ -95,6 +95,7 @@ vim.g.neominimap = {
   search = { enabled = true, mode = "icon" },
   mark = { enabled = false },
   handlers = { todo_comments_handler },
+  exclude_filetypes = { "dashboard" },
   buf_filter = function(bufnr)
     local line_count = vim.api.nvim_buf_line_count(bufnr)
     return line_count <= 8192 --- disable minimap for large files

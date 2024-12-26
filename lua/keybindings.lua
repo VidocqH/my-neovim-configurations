@@ -124,7 +124,7 @@ map("n", "<leader>dfo", "<cmd>DiffviewFileHistory %<CR>") -- Current file histor
 map("n", "<leader>dfc", "<cmd>DiffviewClose<CR>")
 
 -- Python Environment Selector
-map("n", "<leader>pv", "<cmd>VenvSelect<cr>")
+map("n", "<leader>v", "<cmd>VenvSelect<cr>")
 
 local pluginKeys = {}
 -- nvim-cmp auto complete
