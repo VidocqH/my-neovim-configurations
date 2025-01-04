@@ -39,6 +39,11 @@ vim.o.swapfile = false
 vim.o.backup = false
 vim.o.writebackup = false
 
+if IS_NEOVIDE then
+  set.winblend = 50
+  set.pumblend = 50
+end
+
 -- Windows Shell Setting
 if IS_WINDOWS then
   set.shell = "powershell"

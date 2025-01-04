@@ -56,8 +56,10 @@ map("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
 map("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 
 -- bufferline tab mover
-map("n", "<C-[>", "<cmd>BufferMovePrevious<CR>")
-map("n", "<C-]>", "<cmd>BufferMoveNext<CR>")
+map("n", "<M-[>", "<cmd>BufferMovePrevious<CR>")
+map("n", "<M-]>", "<cmd>BufferMoveNext<CR>")
+map("n", "<A-[>", "<cmd>BufferMovePrevious<CR>")
+map("n", "<A-]>", "<cmd>BufferMoveNext<CR>")
 
 -- hls keybindings
 map("", "<leader>l", "<cmd>noh<CR>")
