@@ -1,3 +1,6 @@
+local function is_not_outline(arg)
+  return vim.bo[arg.buf].filetype ~= "Outline"
+end
 local function is_neominimap(arg)
   return vim.bo[arg.buf].filetype == "neominimap"
 end
@@ -12,17 +15,17 @@ require("statuscol").setup({
     {
       click = "v:lua.ScSa",
       sign = { name = { ".*" } },
-      condition = { is_not_neominimap },
+      condition = { is_not_neominimap, is_not_outline },
     },
     {
       -- click = "v:lua.ScSa",
       sign = { name = { "dap*", "neotest*" }, maxwidth = 1, auto = true },
-      condition = { is_not_neominimap },
+      condition = { is_not_neominimap, is_not_outline },
     },
     {
       click = "v:lua.ScSa",
       sign = { namespace = { "gitsigns*" }, colwidth = 1, maxwidth = 1, auto = false },
-      condition = { is_not_neominimap },
+      condition = { is_not_neominimap, is_not_outline },
     },
     { click = "v:lua.ScFa", text = { builtin.foldfunc }, condition = { is_not_neominimap } },
     { click = "v:lua.ScLa", text = { builtin.lnumfunc, " " }, condition = { is_not_neominimap } },
