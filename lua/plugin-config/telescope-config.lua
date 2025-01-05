@@ -6,11 +6,9 @@ require("telescope").load_extension("live_grep_args")
 local trouble = require("trouble.sources.telescope")
 local telescope = require("telescope")
 
-if IS_NEOVIDE then
-  local builtin = require("telescope.builtin")
-  local themes = require("telescope.themes")
-  builtin.find_files(themes.get_dropdown({ winblend = 50 }))
-end
+local builtin = require("telescope.builtin")
+local themes = require("telescope.themes")
+builtin.find_files(themes.get_dropdown({ winblend = vim.o.winblend }))
 
 telescope.setup({
   defaults = {

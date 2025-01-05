@@ -96,8 +96,8 @@ map("x", "<A-k>", "<Plug>GoVSMUp", {})
 map("x", "<A-l>", "<Plug>GoVSMRight", {})
 
 -- Dashboard Shortcuts
-map("", "<leader>ss", "<cmd><C-u>SessionSave<CR>")
-map("", "<leader>sl", "<cmd><C-u>SessionLoad<CR>")
+-- map("", "<leader>ss", "<cmd><C-u>SessionSave<CR>")
+-- map("", "<leader>sl", "<cmd><C-u>SessionLoad<CR>")
 map("n", "<leader>tc", "<cmd>DashboardChangeColorscheme<CR>", { silent = true })
 map("n", "<leader>cn", "<cmd>DashboardNewFile<CR>", { silent = true })
 

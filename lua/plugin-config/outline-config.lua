@@ -4,5 +4,7 @@ require("outline").setup({
   },
   preview_window = {
     auto_preview = true,
+    winblend = vim.o.winblend,
+    live = true,
   },
 })
