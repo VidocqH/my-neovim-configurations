@@ -110,7 +110,8 @@ require("lazy").setup({
   -- Clangd Extension
   "p00f/clangd_extensions.nvim",
   -- Discord Rich Presence
-  "andweeb/presence.nvim",
+  -- "andweeb/presence.nvim",
+  { "vyfor/cord.nvim", build = "./build || .\\build", event = "VeryLazy" },
   -- Lsp progress display
   "j-hui/fidget.nvim",
   -- Trouble Plane
