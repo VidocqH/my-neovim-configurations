@@ -75,4 +75,24 @@ require("cord").setup({
   },
   text = displaySettings.text,
   buttons = displaySettings.buttons,
+  assets = {
+    Outline = {
+      name = "Outline",
+      tooltip = "Outline.nvim",
+      type = "file_browser",
+      icon = "https://github.com/vyfor/cord.nvim/blob/master/assets/file_browser/default.png?raw=true",
+    },
+    sagafinder = {
+      name = "LspSagaFinder",
+      tooltip = "lspsaga.nvim",
+      type = "file_browser",
+      icon = "https://nvimdev.github.io/lspsaga/logo.png",
+    },
+    DiffviewFileHistory = {
+      name = "DiffviewFileHistory",
+      tooltip = "diffview.nvim",
+      type = "vcs",
+      icon = "https://github.com/vyfor/cord.nvim/blob/master/assets/vcs/default.png?raw=true",
+    },
+  },
 })
