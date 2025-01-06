@@ -128,6 +128,9 @@ map("n", "<leader>dfc", "<cmd>DiffviewClose<CR>")
 -- Python Environment Selector
 map("n", "<leader>v", "<cmd>VenvSelect<cr>")
 
+-- Lazygit
+map("n", "<leader>lg", "<cmd>LazyGit<cr>")
+
 local pluginKeys = {}
 -- nvim-cmp auto complete
 pluginKeys.cmp = function(cmp)

@@ -180,9 +180,13 @@ require("lazy").setup({
     dependencies = { "kevinhwang91/promise-async", "luukvbaal/statuscol.nvim" },
     event = "BufReadPost",
   },
-  -- Scroll Bar
-  -- { "dstein64/nvim-scrollview" },
-  -- { "lewis6991/satellite.nvim", opts = {} },
+  -- Lazygit
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = true,
+    cmd = { "LazyGit", "LazyGitConfig", "LazyGitCurrentFile", "LazyGitFilter", "LazyGitFilterCurrentFile" },
+  },
   -- Flash, navigate between words
   { "folke/flash.nvim", event = "VeryLazy" },
   -- todo comments
