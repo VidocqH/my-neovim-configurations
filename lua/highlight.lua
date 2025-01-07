@@ -17,6 +17,10 @@ if vim.o.background == "dark" then
   vim.cmd("highlight TreesitterContext guibg=#101010")
   vim.cmd("highlight TreesitterContextLineNumber guibg=#101010 guifg=#434852")
 
+  vim.cmd("highlight StatusColumnNC guibg=#000")
+  vim.cmd("highlight SignColumnNC guibg=#000")
+  vim.cmd("highlight LineNrNC guibg=#000")
+
   vim.cmd("highlight StatusLine guibg = #0d0d0d")
   vim.cmd("highlight GitSignsCurrentLineBlame guifg=#212630 guibg=CursorLine")
 
@@ -38,4 +42,3 @@ else
   vim.cmd("highlight TreesitterContextLineNumber guibg=#cccccc guifg=#aaaaaa")
   vim.cmd("highlight GitSignsCurrentLineBlame guifg=Comment guibg=CursorLine")
 end
-
