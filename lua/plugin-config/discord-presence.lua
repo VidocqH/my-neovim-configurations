@@ -94,5 +94,17 @@ require("cord").setup({
       type = "vcs",
       icon = "https://github.com/vyfor/cord.nvim/blob/master/assets/vcs/default.png?raw=true",
     },
+    Avante = {
+      name = "Avante",
+      tooltip = "avante.nvim",
+      type = "language",
+      icon = "https://github.com/user-attachments/assets/2e2f2a58-2b28-4d11-afd1-87b65612b2de",
+    },
+    AvanteInput = {
+      name = "Avante",
+      tooltip = "avante.nvim",
+      type = "language",
+      icon = "https://github.com/user-attachments/assets/2e2f2a58-2b28-4d11-afd1-87b65612b2de",
+    },
   },
 })
