@@ -1,5 +1,19 @@
 IS_VSCODE = vim.fn.exists("g:vscode") == 1 and true or false
 
+vim.treesitter.query.set(
+  "typescript",
+  "injections",
+  [[(variable_declarator
+  (comment) @comm (#eq? @comm "/* wgsl */")
+  value: (
+          template_string
+           (string_fragment) @injection.content
+           (#set! injection.combined)
+           (#set! injection.language "wgsl")
+           )
+  )]]
+)
+
 require("nvim-treesitter.configs").setup({
   ensure_installed = { "vim", "lua", "javascript", "json", "typescript", "python", "cpp", "c" },
 
