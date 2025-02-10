@@ -1,3 +1,6 @@
+-- https://github.com/nvimdev/lspsaga.nvim/issues/1520
+vim.diagnostic.config({ severity_sort = true })
+
 local lspsaga = require("lspsaga")
 lspsaga.setup({
   preview = {
