@@ -131,6 +131,17 @@ map("n", "<leader>v", "<cmd>VenvSelect<cr>")
 -- Lazygit
 map("n", "<leader>lg", "<cmd>LazyGit<cr>")
 
+-- Spectre
+map("n", "<leader>gs", '<cmd>lua require("spectre").toggle()<CR>', {
+  desc = "Toggle Spectre",
+})
+map("n", "<leader>gsw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+  desc = "Search current word",
+})
+map("v", "<leader>gsw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+  desc = "Search current word",
+})
+
 local pluginKeys = {}
 -- nvim-cmp auto complete
 pluginKeys.cmp = function(cmp)

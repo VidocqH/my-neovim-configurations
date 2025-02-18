@@ -226,6 +226,7 @@ require("lazy").setup({
     ---@type render.md.UserConfig
     opts = {},
   },
+  { "nvim-pack/nvim-spectre", opts = { mapping = {} } },
 
   {
     "yetone/avante.nvim",
