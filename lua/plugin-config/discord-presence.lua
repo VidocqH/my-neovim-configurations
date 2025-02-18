@@ -33,26 +33,22 @@ end
 local CREDENTIAL_INFO = {
   viewing = "Viewing 🅲🅾🅽🅵🅸🅳🅴🅽🆃🅸🅰🅻", -- Text to display when viewing a readonly file
   editing = "Editing 🅲🅾🅽🅵🅸🅳🅴🅽🆃🅸🅰🅻", -- Text to display when editing a file
-  file_browser = "Browsing files in {}", -- Text to display when browsing files (Empty string to disable)
-  plugin_manager = "Managing plugins in {}", -- Text to display when managing plugins (Empty string to disable)
-  lsp_manager = "Configuring LSP in {}", -- Text to display when managing LSP servers (Empty string to disable)
-  vcs = "Committing changes in {}", -- Text to display when using Git or Git-related plugin (Empty string to disable)
   workspace = "Working on SCP-███", -- Text to display when in a workspace (Empty string to disable)
 }
 
 local NORMAL_INFO = {
-  viewing = "Viewing {}", -- Text to display when viewing a readonly file
-  editing = "Editing {}", -- Text to display when editing a file
-  file_browser = "Browsing files in {}", -- Text to display when browsing files (Empty string to disable)
-  plugin_manager = "Managing plugins in {}", -- Text to display when managing plugins (Empty string to disable)
-  lsp_manager = "Configuring LSP in {}", -- Text to display when managing LSP servers (Empty string to disable)
-  vcs = "Committing changes in {}", -- Text to display when using Git or Git-related plugin (Empty string to disable)
-  workspace = "Working on {}", -- Text to display when in a workspace (Empty string to disable)
+  workspace = "Working on ${workspace}",
 }
 
 local MY_PROFILE_BUTTON = { label = "My Github Profile", url = "https://github.com/VidocqH" }
 local CREDENTIAL_BUTTONS = { { label = "SCP Foundation", url = "https://scp-wiki.wikidot.com" }, MY_PROFILE_BUTTON }
-local NORMAL_BUTTONS = { { label = "View Repository", url = "git" }, MY_PROFILE_BUTTON }
+local NORMAL_BUTTONS =
+  { {
+    label = "View Repository",
+    url = function(opts)
+      return opts.repo_url
+    end,
+  }, MY_PROFILE_BUTTON }
 
 local function getDisplaySettings()
   local project_path = vim.fn.getcwd()
@@ -75,6 +71,7 @@ require("cord").setup({
   },
   text = displaySettings.text,
   buttons = displaySettings.buttons,
+  variables = true,
   assets = {
     Outline = {
       name = "Outline",
