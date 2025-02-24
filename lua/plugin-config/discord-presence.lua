@@ -104,4 +104,11 @@ require("cord").setup({
       icon = "https://github.com/user-attachments/assets/2e2f2a58-2b28-4d11-afd1-87b65612b2de",
     },
   },
+  hooks = {
+    pre_activity = function(opts)
+      if opts.filetype == "neominimap" then
+        opts.manager:skip_update()
+      end
+    end,
+  },
 })
