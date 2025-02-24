@@ -54,6 +54,8 @@ require("nvim-treesitter.configs").setup({
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
+vim.treesitter.language.register("markdown", { "mdx" })
+
 -- Treesitter context config
 require("treesitter-context").setup({
   zindex = 10, -- The Z-index of the context window

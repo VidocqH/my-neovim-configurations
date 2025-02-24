@@ -39,6 +39,9 @@ vim.o.swapfile = false
 vim.o.backup = false
 vim.o.writebackup = false
 
+-- Support for non-builtin filetypes
+vim.filetype.add({ extension = { mdx = "mdx" } })
+
 if IS_NEOVIDE then
   set.winblend = 50
   set.pumblend = 50
