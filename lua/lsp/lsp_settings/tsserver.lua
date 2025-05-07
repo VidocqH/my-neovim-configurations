@@ -1,10 +1,11 @@
 return {
   typescript = {
+    enablePromptUseWorkspaceTsdk = true,
     inlayHints = {
       includeInlayParameterNameHints = "all",
       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
       includeInlayFunctionParameterTypeHints = true,
-      includeInlayVariableTypeHints = false,
+      includeInlayVariableTypeHints = true,
       includeInlayVariableTypeHintsWhenTypeMatchesName = false,
       includeInlayPropertyDeclarationTypeHints = true,
       includeInlayFunctionLikeReturnTypeHints = true,
@@ -16,7 +17,7 @@ return {
       includeInlayParameterNameHints = "all",
       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
       includeInlayFunctionParameterTypeHints = true,
-      includeInlayVariableTypeHints = false,
+      includeInlayVariableTypeHints = true,
       includeInlayVariableTypeHintsWhenTypeMatchesName = false,
       includeInlayPropertyDeclarationTypeHints = true,
       includeInlayFunctionLikeReturnTypeHints = true,
