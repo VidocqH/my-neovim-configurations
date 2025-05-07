@@ -42,6 +42,7 @@ vim.o.writebackup = false
 -- Support for non-builtin filetypes
 vim.filetype.add({ extension = { mdx = "mdx" } })
 
+vim.o.winborder = "rounded"
 if IS_NEOVIDE then
   set.winblend = 50
   set.pumblend = 50
