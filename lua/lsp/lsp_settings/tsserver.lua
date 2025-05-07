@@ -1,6 +1,5 @@
 return {
   typescript = {
-    enablePromptUseWorkspaceTsdk = true,
     inlayHints = {
       includeInlayParameterNameHints = "all",
       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
