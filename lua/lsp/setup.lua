@@ -52,7 +52,7 @@ vim.lsp.config("mdx_analyzer", {
 vim.lsp.config("lua_ls", { settings = require("lsp.lsp_settings.lua_ls") })
 vim.lsp.config("ts_ls", {
   settings = require("lsp.lsp_settings.tsserver"),
-  root_markers = { ".git", "tsconfig.json", "jsconfig.json", "node_modules" },
+  root_markers = { ".git" },
 })
 vim.lsp.config("basedpyright", { settings = require("lsp.lsp_settings.basedpyright") })
 
