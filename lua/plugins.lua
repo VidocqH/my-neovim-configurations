@@ -269,6 +269,7 @@ require("lazy").setup({
       require("plugin-config/neominimap-config")
     end,
   },
+  { "2kabhishek/markit.nvim", opts = {}, event = { "BufReadPre", "BufNewFile" } },
 
   {
     "VidocqH/data-viewer.nvim",
