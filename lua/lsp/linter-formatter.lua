@@ -52,27 +52,27 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local null_ls = require("null-ls")
 null_ls.setup({
-  sources = {
-    -- Typescript & Javascript
-    -- null_ls.builtins.code_actions.eslint_d,
-    -- null_ls.builtins.diagnostics.eslint_d,
-    -- null_ls.builtins.formatting.eslint_d,
-    null_ls.builtins.formatting.prettierd,
-    -- Git
-    null_ls.builtins.diagnostics.gitlint,
-    null_ls.builtins.code_actions.gitsigns,
-    -- Python
-    null_ls.builtins.formatting.black,
-    -- C & C++
-    -- null_ls.builtins.formatting.clang_format,
-    -- null_ls.builtins.diagnostics.cpplint.with({
-    --   args = { "--linelength=120", "$FILENAME" },
-    -- }),
-    -- Prisma
-    null_ls.builtins.formatting.prisma_format,
-    -- Lua
-    null_ls.builtins.formatting.stylua,
-  },
+  -- sources = {
+  --   -- Typescript & Javascript
+  --   -- null_ls.builtins.code_actions.eslint_d,
+  --   -- null_ls.builtins.diagnostics.eslint_d,
+  --   -- null_ls.builtins.formatting.eslint_d,
+  --   null_ls.builtins.formatting.prettierd,
+  --   -- Git
+  --   null_ls.builtins.diagnostics.gitlint,
+  --   null_ls.builtins.code_actions.gitsigns,
+  --   -- Python
+  --   null_ls.builtins.formatting.black,
+  --   -- C & C++
+  --   -- null_ls.builtins.formatting.clang_format,
+  --   -- null_ls.builtins.diagnostics.cpplint.with({
+  --   --   args = { "--linelength=120", "$FILENAME" },
+  --   -- }),
+  --   -- Prisma
+  --   null_ls.builtins.formatting.prisma_format,
+  --   -- Lua
+  --   null_ls.builtins.formatting.stylua,
+  -- },
   on_attach = function(client, bufnr)
     if is_ignored(bufnr) == false and client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
