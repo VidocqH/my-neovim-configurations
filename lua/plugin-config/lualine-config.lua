@@ -55,14 +55,7 @@ require("lualine").setup({
       "encoding",
       "filetype",
       "progress",
-      {
-        wakatime,
-        -- cond = function()
-        --   return vim.g["loaded_wakatime"] == 1
-        -- end,
-        icon = "󱑆",
-        color = { fg = "#73ddec" },
-      },
+      { wakatime, icon = "󱑆", color = { fg = "#73ddec" } },
     },
     lualine_y = { { "datetime", style = "%I:%M:%S %p" } },
     lualine_z = {
