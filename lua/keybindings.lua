@@ -105,7 +105,7 @@ map("n", "<leader>cn", "<cmd>DashboardNewFile<CR>", { silent = true })
 map("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>")
 map("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>") -- N
 map("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>") -- S
-map("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>") -- F
+map("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>")  -- F
 map("n", "<leader>b", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>")
 map("n", "<Leader>B", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 map("n", "<Leader>lp", "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
