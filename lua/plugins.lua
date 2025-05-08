@@ -181,8 +181,6 @@ require("lazy").setup({
   "folke/neoconf.nvim",
   -- Import cost of JS/TS
   -- { "barrett-ruth/import-cost.nvim", build = "sh install.sh yarn", config = true },
-  -- Markdown Renderer
-  { "ellisonleao/glow.nvim",    config = true, cmd = "Glow" },
   -- Animation
   { "echasnovski/mini.animate", version = "*" },
   -- Fold Extension
