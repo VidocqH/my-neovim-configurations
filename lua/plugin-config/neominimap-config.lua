@@ -76,16 +76,16 @@ local todo_comments_handler = {
   end,
 }
 
-local statuscol = require("statuscol")
-_G.NeominimapStatusCol = function()
-  local ok, _ = pcall(require, "statuscol") -- Make sure statuscol is installed and loaded.
-  if ok then
-    return statuscol.get_statuscol_string()
-    -- return _G.StatusCol()  -- For version 0.10
-  else
-    return ""
-  end
-end
+-- local statuscol = require("statuscol")
+-- _G.NeominimapStatusCol = function()
+--   local ok, _ = pcall(require, "statuscol") -- Make sure statuscol is installed and loaded.
+--   if ok then
+--     return statuscol.get_statuscol_string()
+--     -- return _G.StatusCol()  -- For version 0.10
+--   else
+--     return ""
+--   end
+-- end
 
 ---@type Neominimap.UserConfig
 vim.g.neominimap = {
@@ -99,8 +99,5 @@ vim.g.neominimap = {
   buf_filter = function(bufnr)
     local line_count = vim.api.nvim_buf_line_count(bufnr)
     return line_count <= 8192 --- disable minimap for large files
-  end,
-  winopt = function(opt, winid)
-    vim.wo.statuscolumn = "%!v:lua.NeominimapStatusCol()"
   end,
 }

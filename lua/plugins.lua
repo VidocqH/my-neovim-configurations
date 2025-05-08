@@ -183,6 +183,7 @@ require("lazy").setup({
   -- { "barrett-ruth/import-cost.nvim", build = "sh install.sh yarn", config = true },
   -- Animation
   { "echasnovski/mini.animate", version = "*" },
+  { "luukvbaal/statuscol.nvim", event = "FileType" },
   -- Fold Extension
   {
     "kevinhwang91/nvim-ufo",
