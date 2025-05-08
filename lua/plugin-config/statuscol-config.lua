@@ -28,7 +28,7 @@ require("statuscol").setup({
       condition = { is_not_neominimap, is_not_outline },
     },
     { click = "v:lua.ScFa", text = { builtin.foldfunc }, condition = { is_not_neominimap } },
-    { click = "v:lua.ScLa", text = { builtin.lnumfunc, " " }, condition = { is_not_neominimap } },
+    { click = "v:lua.ScLa", text = { "%l", " " },        condition = { is_not_neominimap, true } },
 
     -- NOTE: for neominimap
     {
