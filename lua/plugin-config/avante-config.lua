@@ -1,5 +1,9 @@
 vim.opt.laststatus = 3
 
+local ENDPOINT_PREFIX = require("utils").get_configs().AVANTE_ENDPOINT_PREFIX
+if ENDPOINT_PREFIX == nil then
+end
+
 -- deps:
 require("cmp").setup({})
 require("img-clip").setup({})
@@ -10,54 +14,42 @@ require("avante").setup({
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
   provider = "claude",
   auto_suggestions_provider = "claude",
-  claude = {
-    -- endpoint = "https://api.anthropic.com",
-    model = "claude-3-5-sonnet-latest",
-    temperature = 0,
-    max_tokens = 8192,
-  },
-  openai = {
-  },
-  -- behaviour = {
-  --   auto_suggestions = false, -- Experimental stage
-  --   auto_set_highlight_group = true,
-  --   auto_set_keymaps = true,
-  --   auto_apply_diff_after_generation = false,
-  --   support_paste_from_clipboard = false,
-  --   minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+  -- claude = {
+  --   -- endpoint = "https://api.anthropic.com",
+  --   -- endpoint = ENDPOINT_PREFIX .. "anthropic",
+  --   model = "claude-3-5-sonnet-latest",
   -- },
-  -- mappings = {
-  --   --- @class AvanteConflictMappings
-  --   diff = {
-  --     ours = "co",
-  --     theirs = "ct",
-  --     all_theirs = "ca",
-  --     both = "cb",
-  --     cursor = "cc",
-  --     next = "]x",
-  --     prev = "[x",
-  --   },
-  --   suggestion = {
-  --     accept = "<M-l>",
-  --     next = "<M-]>",
-  --     prev = "<M-[>",
-  --     dismiss = "<C-]>",
-  --   },
-  --   jump = {
-  --     next = "]]",
-  --     prev = "[[",
-  --   },
-  --   submit = {
-  --     normal = "<CR>",
-  --     insert = "<C-s>",
-  --   },
-  --   sidebar = {
-  --     apply_all = "A",
-  --     apply_cursor = "a",
-  --     switch_windows = "<Tab>",
-  --     reverse_switch_windows = "<S-Tab>",
+  -- openai = {
+  --   endpoint = ENDPOINT_PREFIX .. "openai",
+  -- },
+  -- vendors = {
+  --   deepseek = {
+  --     __inherited_from = "openai",
+  --     api_key_name = "DEEPSEEK_API_KEY",
+  --     endpoint = "https://api.deepseek.com",
+  --     model = "deepseek-coder",
   --   },
   -- },
+  providers = {
+    claude = {
+      endpoint = "https://www.dmxapi.cn",
+      model = "claude-haiku-4-5-20251001",
+      -- model = "claude-sonnet-4-5-20250929",
+    },
+  },
+
+  -- MCP Hub setup
+  system_prompt = function()
+    local hub = require("mcphub").get_hub_instance()
+    return hub and hub:get_active_servers_prompt() or ""
+  end,
+  -- Using function prevents requiring mcphub before it's loaded
+  custom_tools = function()
+    return {
+      require("mcphub.extensions.avante").mcp_tool(),
+    }
+  end,
+
   -- hints = { enabled = true },
   -- windows = {
   --   ---@type "right" | "left" | "top" | "bottom"
@@ -69,37 +61,5 @@ require("avante").setup({
   --     align = "center", -- left, center, right for title
   --     rounded = true,
   --   },
-  --   input = {
-  --     prefix = "> ",
-  --     height = 8, -- Height of the input window in vertical layout
-  --   },
-  --   edit = {
-  --     border = "rounded",
-  --     start_insert = true, -- Start insert mode when opening the edit window
-  --   },
-  --   ask = {
-  --     floating = false, -- Open the 'AvanteAsk' prompt in a floating window
-  --     start_insert = true, -- Start insert mode when opening the ask window
-  --     border = "rounded",
-  --     ---@type "ours" | "theirs"
-  --     focus_on_apply = "ours", -- which diff to focus after applying
-  --   },
-  -- },
-  -- highlights = {
-  --   ---@type AvanteConflictHighlights
-  --   diff = {
-  --     current = "DiffText",
-  --     incoming = "DiffAdd",
-  --   },
-  -- },
-  -- --- @class AvanteConflictUserConfig
-  -- diff = {
-  --   autojump = true,
-  --   ---@type string | fun(): any
-  --   list_opener = "copen",
-  --   --- Override the 'timeoutlen' setting while hovering over a diff (see :help timeoutlen).
-  --   --- Helps to avoid entering operator-pending mode with diff mappings starting with `c`.
-  --   --- Disable by setting to -1.
-  --   override_timeoutlen = 500,
   -- },
 })

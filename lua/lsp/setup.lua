@@ -56,6 +56,7 @@ vim.lsp.config("ts_ls", {
 })
 vim.lsp.config("basedpyright", { settings = require("lsp.lsp_settings.basedpyright") })
 
+require("mason").setup()
 require("mason-lspconfig").setup()
 
 -- require("mason-lspconfig").setup_handlers({
