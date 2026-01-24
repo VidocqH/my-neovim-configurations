@@ -50,14 +50,18 @@ vim.lsp.config("mdx_analyzer", {
   end,
 })
 vim.lsp.config("lua_ls", { settings = require("lsp.lsp_settings.lua_ls") })
-vim.lsp.config("ts_ls", {
+-- vim.lsp.config("ts_ls", {
+--   settings = require("lsp.lsp_settings.tsserver"),
+--   root_markers = { ".git" },
+-- })
+vim.lsp.config("tsgo", {
   settings = require("lsp.lsp_settings.tsserver"),
   root_markers = { ".git" },
 })
 vim.lsp.config("basedpyright", { settings = require("lsp.lsp_settings.basedpyright") })
 
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({ automatic_enable = { exclude = { "ts_ls" } } })
 
 -- require("mason-lspconfig").setup_handlers({
 --   function(server_name)

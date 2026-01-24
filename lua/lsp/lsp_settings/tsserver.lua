@@ -10,6 +10,7 @@ return {
       includeInlayFunctionLikeReturnTypeHints = true,
       includeInlayEnumMemberValueHints = true,
     },
+    experimental = { useTsgo = true },
   },
   javascript = {
     inlayHints = {
