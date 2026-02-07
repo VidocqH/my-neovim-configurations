@@ -33,7 +33,10 @@ local wakatime = function()
     -- Update wakatime every 10s
     vim.uv.timer_start(timer, 500, WAKATIME_UPDATE_INTERVAL, function()
       async.run(get_wakatime_time, function(time)
-        comp_wakatime_time = time
+        if time == nil or time == "" then
+          return
+        end
+        comp_wakatime_time = time:gsub(" hrs", "h"):gsub(" mins", "m"):gsub(" secs", "s")
       end)
     end)
 
@@ -43,43 +46,21 @@ local wakatime = function()
   return comp_wakatime_time
 end
 
-local function mcp_hub_status()
-  -- Check if MCPHub is loaded
-  if not vim.g.loaded_mcphub then
-    return "󰐻 -"
-  end
-
-  local count = vim.g.mcphub_servers_count or 0
-  local status = vim.g.mcphub_status or "stopped"
-  local executing = vim.g.mcphub_executing
-
-  -- Show "-" when stopped
-  if status == "stopped" then
-    return "󰐻 -"
-  end
-
-  -- Show spinner when executing, starting, or restarting
-  if executing or status == "starting" or status == "restarting" then
-    local frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-    local frame = math.floor(vim.loop.now() / 100) % #frames + 1
-    return "󰐻 " .. frames[frame]
-  end
-
-  return "󰐻 " .. count
-end
-
-local function mcp_hub_color()
-  if not vim.g.loaded_mcphub then
-    return { fg = "#6c7086" } -- Gray for not loaded
-  end
-
-  local status = vim.g.mcphub_status or "stopped"
-  if status == "ready" or status == "restarted" then
-    return { fg = "#50fa7b" } -- Green for connected
-  elseif status == "starting" or status == "restarting" then
-    return { fg = "#ffb86c" } -- Orange for connecting
+-- local robot_emotions = { "󰚩", "󱚝", "󱚟", "󱚡", "󱚣", "󱜙", "󱚥" }
+local robot_emotions = { "󱙺", "󱚞", "󱚠", "󱚢", "󱚤", "󱜚", "󱚦" }
+local claudecode = require("claudecode")
+local function claudecode_status()
+  if claudecode:is_claude_connected() then
+    return "✳ Claude Code " .. robot_emotions[math.random(#robot_emotions)]
   else
-    return { fg = "#ff5555" } -- Red for error/stopped
+    return "✳ Claude Code 󱙻"
+  end
+end
+local function claudecode_status_color()
+  if claudecode:is_claude_connected() then
+    return { fg = "#D77757" }
+  else
+    return { fg = "#ff5555" }
   end
 end
 
@@ -94,8 +75,9 @@ require("lualine").setup({
     lualine_x = {
       "encoding",
       "filetype",
-      { mcp_hub_status, color = mcp_hub_color },
+      -- { mcp_hub_status, color = mcp_hub_color },
       "progress",
+      { claudecode_status, color = claudecode_status_color },
       { wakatime, icon = "󱑆", color = { fg = "#73ddec" } },
     },
     lualine_y = { { "datetime", style = "%I:%M:%S %p" } },

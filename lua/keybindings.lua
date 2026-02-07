@@ -30,6 +30,8 @@ end
 --
 -- vim.keymap.set("i", "<Tab>", checkTab, nil)
 
+map("t", "<C-j>", [[<C-\><C-n>]], { noremap = true, silent = true })
+
 -- Sidebar nvim-tree file explorer toggler
 -- map('', '<leader>n', '<cmd>NvimTreeFindFileToggle<CR>')
 map("", "<leader>n", "<cmd>Neotree toggle reveal<CR>")
@@ -105,7 +107,7 @@ map("n", "<leader>cn", "<cmd>DashboardNewFile<CR>", { silent = true })
 map("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>")
 map("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>") -- N
 map("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>") -- S
-map("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>")  -- F
+map("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>") -- F
 map("n", "<leader>b", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>")
 map("n", "<Leader>B", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 map("n", "<Leader>lp", "<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
@@ -141,6 +143,70 @@ map("n", "<leader>gsw", '<cmd>lua require("spectre").open_visual({select_word=tr
 map("v", "<leader>gsw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
   desc = "Search current word",
 })
+
+-- TS text objects - select
+map({ "x", "o" }, "af", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+end)
+map({ "x", "o" }, "if", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+end)
+map({ "x", "o" }, "ac", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+end)
+map({ "x", "o" }, "ic", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+end)
+map({ "x", "o" }, "aa", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@parameter.outer", "textobjects")
+end)
+map({ "x", "o" }, "ia", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@parameter.inner", "textobjects")
+end)
+map({ "x", "o" }, "ai", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@conditional.outer", "textobjects")
+end)
+map({ "x", "o" }, "ii", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@conditional.inner", "textobjects")
+end)
+map({ "x", "o" }, "al", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@loop.outer", "textobjects")
+end)
+map({ "x", "o" }, "il", function()
+  require("nvim-treesitter-textobjects.select").select_textobject("@loop.inner", "textobjects")
+end)
+
+-- TS text objects - move
+map({ "n", "x", "o" }, "gaf", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
+end)
+map({ "n", "x", "o" }, "gif", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@function.inner", "textobjects")
+end)
+map({ "n", "x", "o" }, "gac", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
+end)
+map({ "n", "x", "o" }, "gic", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@class.inner", "textobjects")
+end)
+map({ "n", "x", "o" }, "gaa", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@parameter.outer", "textobjects")
+end)
+map({ "n", "x", "o" }, "gia", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@parameter.outer", "textobjects")
+end)
+map({ "n", "x", "o" }, "gai", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@conditional.outer", "textobjects")
+end)
+map({ "n", "x", "o" }, "gii", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@conditional.inner", "textobjects")
+end)
+map({ "n", "x", "o" }, "gal", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@loop.outer", "textobjects")
+end)
+map({ "n", "x", "o" }, "gil", function()
+  require("nvim-treesitter-textobjects.move").goto_previous_start("@loop.inner", "textobjects")
+end)
 
 local pluginKeys = {}
 -- nvim-cmp auto complete
