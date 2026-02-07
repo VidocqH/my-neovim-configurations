@@ -31,6 +31,22 @@ require("lazy").setup({
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   -- Sticky Head
   "nvim-treesitter/nvim-treesitter-context",
+  -- TS text objects
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
+    init = function()
+      vim.g.no_plugin_maps = true
+    end,
+    config = function()
+      require("nvim-treesitter-textobjects").setup({
+        select = {
+          enable = true,
+          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+        },
+      })
+    end,
+  },
   -- Commenting with ts
   "JoosepAlviste/nvim-ts-context-commentstring",
   -- Tabs
@@ -38,7 +54,16 @@ require("lazy").setup({
   -- Github Copilot
   -- "zbirenbaum/copilot.lua",
   -- { "zbirenbaum/copilot-cmp", dependencies="zbirenbaum/copilot.lua" },
-  { "jcdickinson/codeium.nvim", dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" } },
+  -- { "jcdickinson/codeium.nvim", dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" } },
+  {
+    "monkoose/neocodeium",
+    event = "VeryLazy",
+    config = function()
+      local neocodeium = require("neocodeium")
+      neocodeium.setup()
+      vim.keymap.set("i", "<C-j>", neocodeium.accept)
+    end,
+  },
   -- LSP Server
   "neovim/nvim-lspconfig",
 
@@ -215,12 +240,13 @@ require("lazy").setup({
     },
   },
 
-  {
-    "supermaven-inc/supermaven-nvim",
-    config = function()
-      require("supermaven-nvim").setup({ color = { suggestion_color = "#00ff00" } })
-    end,
-  },
+  -- {
+  --   -- "supermaven-inc/supermaven-nvim",
+  --   "noisethanks/supermaven-nvim",
+  --   config = function()
+  --     require("supermaven-nvim").setup({ color = { suggestion_color = "#00ff00" } })
+  --   end,
+  -- },
 
   -- npm package info
   { "vuki656/package-info.nvim", dependencies = "MunifTanjim/nui.nvim" },
@@ -237,48 +263,50 @@ require("lazy").setup({
   },
   { "nvim-pack/nvim-spectre", opts = { mapping = {} } },
 
-  {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
-    version = false, -- set this if you want to always pull the latest change
-    build = "make",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
-      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          -- recommended settings
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
-      },
-      {
-        -- Make sure to set this up properly if you have lazy=true
-        "MeanderingProgrammer/render-markdown.nvim",
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
-    },
-  },
+  -- {
+  --   "yetone/avante.nvim",
+  --   event = "VeryLazy",
+  --   version = false, -- set this if you want to always pull the latest change
+  --   build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+  --     or "make",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --     --- The below dependencies are optional,
+  --     "nvim-mini/mini.pick", -- for file_selector provider mini.pick
+  --     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+  --     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+  --     "ibhagwan/fzf-lua", -- for file_selector provider fzf
+  --     "stevearc/dressing.nvim", -- for input provider dressing
+  --     "folke/snacks.nvim", -- for input provider snacks
+  --     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+  --     {
+  --       -- support for image pasting
+  --       "HakonHarnes/img-clip.nvim",
+  --       event = "VeryLazy",
+  --       opts = {
+  --         -- recommended settings
+  --         default = {
+  --           embed_image_as_base64 = false,
+  --           prompt_for_file_name = false,
+  --           drag_and_drop = {
+  --             insert_mode = true,
+  --           },
+  --           -- required for Windows users
+  --           use_absolute_path = true,
+  --         },
+  --       },
+  --     },
+  --     {
+  --       -- Make sure to set this up properly if you have lazy=true
+  --       "MeanderingProgrammer/render-markdown.nvim",
+  --       opts = {
+  --         file_types = { "markdown", "Avante" },
+  --       },
+  --       ft = { "markdown", "Avante" },
+  --     },
+  --   },
+  -- },
   {
     "Isrothy/neominimap.nvim",
     version = "v3.*.*",
@@ -293,16 +321,16 @@ require("lazy").setup({
       require("inlay-hint-trim").setup()
     end,
   },
-  {
-    "ravitemer/mcphub.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
-    config = function()
-      require("mcphub").setup()
-    end,
-  },
+  -- {
+  --   "ravitemer/mcphub.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  --   build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
+  --   config = function()
+  --     require("mcphub").setup()
+  --   end,
+  -- },
 
   {
     "2kabhishek/markit.nvim",
@@ -310,6 +338,52 @@ require("lazy").setup({
     opts = {},
     event = { "BufReadPre", "BufNewFile" },
   },
+  {
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
+    event = "VeryLazy",
+    keys = {
+      { "<leader>a", nil, desc = "AI/Claude Code" },
+      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+      { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+      { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+      {
+        "<leader>as",
+        "<cmd>ClaudeCodeTreeAdd<cr>",
+        desc = "Add file",
+        ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
+      },
+      -- Diff management
+      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
+    },
+    opts = {
+      terminal = { provider = "none" },
+    },
+  },
+
+  {
+    "jmbuhr/otter.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {},
+  },
+
+  -- {
+  --   "monkoose/neocodeium",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     local neocodeium = require("neocodeium")
+  --     neocodeium.setup()
+  --     vim.keymap.set("i", "<C-j>", neocodeium.accept)
+  --   end,
+  -- },
   -- wait for feature complete
   -- {
   --   "nabekou29/js-i18n.nvim",

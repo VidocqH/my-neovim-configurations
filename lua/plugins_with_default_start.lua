@@ -19,7 +19,7 @@ if IS_VSCODE == false then
   require("hlslens").setup()
   require("inlay-hints").setup()
   -- require("import-cost").setup()
-  require("codeium").setup({})
+  -- require("codeium").setup({})
   -- require("scrollview").setup({ excluded_filetypes = { "neo-tree" } })
   require("leetbuddy").setup({ domain = "cn", language = "cpp" })
   require("package-info").setup()

@@ -63,7 +63,7 @@ cmp.setup({
   -- source
   sources = {
     -- { name = "codeium" },
-    { name = "supermaven" },
+    -- { name = "supermaven" },
     { name = "nvim_lsp" },
     { name = "render-markdown" },
     { name = "vsnip" },
