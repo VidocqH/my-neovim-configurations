@@ -72,10 +72,12 @@ require("lazy").setup({
       local neocodeium = require("neocodeium")
       neocodeium.setup()
       vim.keymap.set("i", "<C-j>", neocodeium.accept)
+      vim.keymap.set("i", "<C-f>", neocodeium.cycle_or_complete)
     end,
   },
   -- LSP Server
   "neovim/nvim-lspconfig",
+  -- "onsails/lspkind.nvim",
 
   -- nvim-cmp
   "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
@@ -166,16 +168,25 @@ require("lazy").setup({
   -- Debugger telescope plugin
   "nvim-telescope/telescope-dap.nvim",
   -- Linter and formatter
-  "nvimtools/none-ls.nvim",
-  -- Linter and formatter integration with Mason
   {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "nvimtools/none-ls.nvim",
+    "stevearc/conform.nvim",
+    opts = {
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "fallback",
+        stop_after_first = true,
+      },
     },
-    opts = { handlers = {} },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    init = function()
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
+    end,
   },
   -- lua debugger for neovim plugin debugging
   "jbyuki/one-small-step-for-vimkind",

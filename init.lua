@@ -20,7 +20,6 @@ if IS_VSCODE == false then
   require("lsp/nvim-cmp")
   require("lsp/lsp-sage")
   require("lsp/dap-general-config")
-  require("lsp/linter-formatter")
   require("lsp/neotest")
   require("plugin-config/indent-blankline-config")
   require("plugin-config/outline-config")
