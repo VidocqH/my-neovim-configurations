@@ -75,9 +75,14 @@ cmp.setup({
   mapping = require("keybindings").cmp(cmp),
   -- type icons
   formatting = {
-    format = function(_, vim_item)
-      vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
-      return vim_item
+    format = function(entry, item)
+      item.kind = (cmp_kinds[item.kind] or "") .. item.kind
+      local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+      if color_item.abbr_hl_group then
+        item.kind_hl_group = color_item.abbr_hl_group
+        item.kind = color_item.abbr
+      end
+      return item
     end,
   },
 

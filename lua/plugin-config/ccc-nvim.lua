@@ -82,5 +82,5 @@ end
 local ccc = require("ccc")
 ccc.setup({
   inputs = { RgbHslCmykInput },
-  highlighter = { auto_enable = true, lsp = true },
+  highlighter = { auto_enable = false, lsp = false },
 })

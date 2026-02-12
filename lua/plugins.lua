@@ -107,6 +107,7 @@ require("lazy").setup({
   "terrortylor/nvim-comment",
   -- colorizer and color picker
   "uga-rosa/ccc.nvim",
+  { "brenoprata10/nvim-highlight-colors", opts = {} },
   -- Dashboard
   { "glepnir/dashboard-nvim", event = "VimEnter" },
   -- Lines ans blocks move
