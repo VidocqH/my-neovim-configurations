@@ -31,6 +31,8 @@ set.hidden = true
 
 set.conceallevel = 3
 
+set.undofile = true
+
 vim.opt_local.spell = true
 vim.opt_local.spelllang = "en"
 

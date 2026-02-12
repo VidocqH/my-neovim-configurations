@@ -27,6 +27,16 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
     },
   },
+  {
+    "kevinhwang91/nvim-fundo",
+    dependencies = { "kevinhwang91/promise-async" },
+    build = function()
+      require("fundo").install()
+    end,
+    init = function()
+      require("fundo").setup()
+    end,
+  },
   -- Highlighting
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   -- Sticky Head
