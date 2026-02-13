@@ -34,7 +34,6 @@ if IS_VSCODE == false then
   require("plugin-config/statuscol-config")
   require("plugin-config/flash-config")
   require("plugin-config/ccc-nvim")
-  require("plugin-config/avante-config")
   require("highlight")
 end
 if IS_NEOVIDE then

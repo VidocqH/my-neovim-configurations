@@ -284,51 +284,6 @@ require("lazy").setup({
     opts = {},
   },
   { "nvim-pack/nvim-spectre", opts = { mapping = {} } },
-
-  -- {
-  --   "yetone/avante.nvim",
-  --   event = "VeryLazy",
-  --   version = false, -- set this if you want to always pull the latest change
-  --   build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-  --     or "make",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "MunifTanjim/nui.nvim",
-  --     --- The below dependencies are optional,
-  --     "nvim-mini/mini.pick", -- for file_selector provider mini.pick
-  --     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-  --     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-  --     "ibhagwan/fzf-lua", -- for file_selector provider fzf
-  --     "stevearc/dressing.nvim", -- for input provider dressing
-  --     "folke/snacks.nvim", -- for input provider snacks
-  --     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-  --     {
-  --       -- support for image pasting
-  --       "HakonHarnes/img-clip.nvim",
-  --       event = "VeryLazy",
-  --       opts = {
-  --         -- recommended settings
-  --         default = {
-  --           embed_image_as_base64 = false,
-  --           prompt_for_file_name = false,
-  --           drag_and_drop = {
-  --             insert_mode = true,
-  --           },
-  --           -- required for Windows users
-  --           use_absolute_path = true,
-  --         },
-  --       },
-  --     },
-  --     {
-  --       -- Make sure to set this up properly if you have lazy=true
-  --       "MeanderingProgrammer/render-markdown.nvim",
-  --       opts = {
-  --         file_types = { "markdown", "Avante" },
-  --       },
-  --       ft = { "markdown", "Avante" },
-  --     },
-  --   },
-  -- },
   {
     "Isrothy/neominimap.nvim",
     version = "v3.*.*",
@@ -343,17 +298,6 @@ require("lazy").setup({
       require("inlay-hint-trim").setup()
     end,
   },
-  -- {
-  --   "ravitemer/mcphub.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  --   build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
-  --   config = function()
-  --     require("mcphub").setup()
-  --   end,
-  -- },
-
   {
     "2kabhishek/markit.nvim",
     dependencies = { "2kabhishek/pickme.nvim", "nvim-lua/plenary.nvim" },
