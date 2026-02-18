@@ -195,7 +195,72 @@ require("lazy").setup({
   -- / search lens
   "kevinhwang91/nvim-hlslens",
   -- Visual Multi -- <VIM plugin>
-  "mg979/vim-visual-multi",
+  -- "mg979/vim-visual-multi",
+  {
+    "jake-stewart/multicursor.nvim",
+    branch = "1.0",
+    config = function()
+      local mc = require("multicursor-nvim")
+      mc.setup()
+
+      local set = vim.keymap.set
+
+      -- 1. Word Selection (The classic Ctrl-n / Ctrl-s)
+      -- Press C-n to select the word under cursor, then C-n again for next
+      set({ "n", "x" }, "<C-n>", function()
+        mc.matchAddCursor(1)
+      end)
+      set({ "n", "x" }, "<C-s>", function()
+        mc.matchSkipCursor(1)
+      end)
+      set({ "n", "x" }, "<C-p>", function()
+        mc.matchAddCursor(-1)
+      end) -- Previous
+
+      -- 2. Vertical Column Creation (C-Down / C-Up)
+      -- set({ "n", "x" }, "<C-Down>", function()
+      --   mc.lineAddCursor(1)
+      -- end)
+      -- set({ "n", "x" }, "<C-Up>", function()
+      --   mc.lineAddCursor(-1)
+      -- end)
+
+      -- 3. Select All Occurrences (Mimics VVM's \\A)
+      set({ "n", "x" }, "<leader>A", mc.matchAllAddCursors)
+
+      -- 4. Visual Multi-style "Exit" logic
+      -- In VVM, Esc usually clears everything.
+      set("n", "<Esc>", function()
+        if mc.hasCursors() then
+          mc.clearCursors()
+        else
+          -- Fallback to default escape behavior (clear search hl)
+          vim.cmd("noh")
+        end
+      end)
+
+      -- 5. The "Layer" (Overlapping commands when cursors are active)
+      mc.addKeymapLayer(function(layerSet)
+        -- Use q to deselect/toggle the current cursor under focus
+        layerSet({ "n", "x" }, "q", function()
+          mc.matchSkipCursor(1)
+        end)
+
+        -- Navigation between existing cursors
+        layerSet({ "n", "x" }, "<Tab>", mc.nextCursor)
+        layerSet({ "n", "x" }, "<S-Tab>", mc.prevCursor)
+
+        -- Delete the current cursor (VVM style)
+        layerSet({ "n", "x" }, "x", mc.deleteCursor)
+      end)
+
+      -- Customize cursors to look distinct (VVM uses Cyan/Green usually)
+      local hl = vim.api.nvim_set_hl
+      hl(0, "MultiCursorCursor", { fg = "#101010", bg = "#fcff00", bold = true })
+      hl(0, "MultiCursorVisual", { link = "Visual" })
+      hl(0, "MultiCursorDisabledCursor", { fg = "#101010", bg = "#7c7c7c" })
+    end,
+  },
   -- Lsp Signature
   "ray-x/lsp_signature.nvim",
   -- Nvim lua dev utils
