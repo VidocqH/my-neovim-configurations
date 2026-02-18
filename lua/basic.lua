@@ -22,6 +22,8 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 set.number = true
 set.relativenumber = true
+set.ignorecase = true
+set.smartcase = true
 
 set.termguicolors = true
 
