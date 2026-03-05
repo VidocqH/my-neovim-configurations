@@ -137,7 +137,7 @@ require("lazy").setup({
   -- Terminal tab
   { "akinsho/toggleterm.nvim", version = "*", opts = { direction = "tab" } },
   -- Notify
-  "rcarriga/nvim-notify",
+  { "rcarriga/nvim-notify", opts = {background_colour = '#000'} },
   -- Rainbow parentheses
   "HiPhish/rainbow-delimiters.nvim",
   -- Auto pairs
@@ -262,7 +262,7 @@ require("lazy").setup({
     end,
   },
   -- Lsp Signature
-  "ray-x/lsp_signature.nvim",
+  -- "ray-x/lsp_signature.nvim",
   -- Nvim lua dev utils
   "folke/neodev.nvim",
   -- Git diffview
@@ -416,16 +416,13 @@ require("lazy").setup({
   --   end,
   -- },
   -- wait for feature complete
-  -- {
-  --   "nabekou29/js-i18n.nvim",
-  --   dependencies = {
-  --     "neovim/nvim-lspconfig",
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  --   event = { "BufReadPre", "BufNewFile" },
-  --   opts = {},
-  -- },
+  {
+    "nabekou29/js-i18n.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      server = { cmd = { "npx", "-y", "js-i18n-language-server" } },
+    },
+  },
 
   {
     "VidocqH/data-viewer.nvim",
