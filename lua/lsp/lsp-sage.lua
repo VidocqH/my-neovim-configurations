@@ -18,6 +18,8 @@ lspsaga.setup({
       quit = "<Esc>",
       exec = "<CR>",
     },
+    extend_gitsigns = true,
+    show_server_name = true,
   },
   outline = {
     keys = {

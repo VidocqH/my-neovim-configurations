@@ -1,4 +1,5 @@
 -- vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("info")
 vim.lsp.set_log_level("off")
 
 local function get_typescript_server_path(root_dir)
