@@ -67,9 +67,10 @@ map("n", "<A-]>", "<cmd>BufferMoveNext<CR>")
 map("", "<leader>l", "<cmd>noh<CR>")
 
 -- Telescope Shortcuts
-map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
+-- map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>")
+map("n", "<leader>ff", "<cmd>lua require('fff').find_files()<CR>")
 map("n", "<leader>fF", "<cmd>lua require('telescope.builtin').find_files({hidden = true})<CR>")
-map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
+map("n", "<leader>fg", "<cmd>lua require('fff').live_grep()<CR>")
 map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
 map("n", "<leader>fc", "<CMD>Telescope commands<CR>")

@@ -102,6 +102,15 @@ require("lazy").setup({
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   {
+    'dmtrKovalenko/fff.nvim',
+    build = function()
+      require("fff.download").download_or_build_binary()
+    end,
+    opts = {prompt = '> '},
+    lazy = false,
+  },
+
+  {
     "linux-cultist/venv-selector.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",
