@@ -91,6 +91,7 @@ require("lazy").setup({
   "rafamadriz/friendly-snippets",
   -- lsp sage
   { "glepnir/lspsaga.nvim", event = "BufRead" },
+  -- {"lewis6991/hover.nvim", opts = {}},
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
@@ -102,11 +103,11 @@ require("lazy").setup({
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   {
-    'dmtrKovalenko/fff.nvim',
+    "dmtrKovalenko/fff.nvim",
     build = function()
       require("fff.download").download_or_build_binary()
     end,
-    opts = {prompt = '> '},
+    opts = { prompt = "> " },
     lazy = false,
   },
 
@@ -146,7 +147,7 @@ require("lazy").setup({
   -- Terminal tab
   { "akinsho/toggleterm.nvim", version = "*", opts = { direction = "tab" } },
   -- Notify
-  { "rcarriga/nvim-notify", opts = {background_colour = '#000'} },
+  { "rcarriga/nvim-notify", opts = { background_colour = "#000" } },
   -- Rainbow parentheses
   "HiPhish/rainbow-delimiters.nvim",
   -- Auto pairs
@@ -184,6 +185,9 @@ require("lazy").setup({
         timeout_ms = 500,
         lsp_format = "fallback",
         stop_after_first = true,
+      },
+      formatters_by_ft = {
+        lua = { "stylua" },
       },
     },
   },
@@ -425,13 +429,13 @@ require("lazy").setup({
   --   end,
   -- },
   -- wait for feature complete
-  {
-    "nabekou29/js-i18n.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      server = { cmd = { "npx", "-y", "js-i18n-language-server" } },
-    },
-  },
+  -- {
+  --   "nabekou29/js-i18n.nvim",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   opts = {
+  --     server = { cmd = { "npx", "-y", "js-i18n-language-server" } },
+  --   },
+  -- },
 
   {
     "VidocqH/data-viewer.nvim",
