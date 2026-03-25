@@ -107,7 +107,7 @@ require("lazy").setup({
     build = function()
       require("fff.download").download_or_build_binary()
     end,
-    opts = { prompt = "> " },
+    opts = { prompt = "> ", grep = { modes = { "plain", "regex" } } },
     lazy = false,
   },
 
@@ -264,7 +264,7 @@ require("lazy").setup({
         layerSet({ "n", "x" }, "<S-Tab>", mc.prevCursor)
 
         -- Delete the current cursor (VVM style)
-        layerSet({ "n", "x" }, "x", mc.deleteCursor)
+        -- layerSet({ "n", "x" }, "x", mc.deleteCursor)
       end)
 
       -- Customize cursors to look distinct (VVM uses Cyan/Green usually)
