@@ -3,8 +3,8 @@ IS_VSCODE = vim.fn.exists("g:vscode") == 1 and true or false
 if IS_VSCODE == false then
   -- you can configure Hop the way you like here; see :h hop-config
   require("nvim-surround").setup({})
-  -- require'lsp_signature'.setup({floating_window = false})
-  require("fidget").setup({})
+  -- require("lsp_signature").setup({ floating_window = false, hint_prefix = "🪄 " })
+  require("fidget").setup({notification = { window = {winblend = 0} }})
   require("trouble").setup({})
   require("mason").setup({ log_level = vim.log.levels.DEBUG })
   require("mason-lspconfig").setup()

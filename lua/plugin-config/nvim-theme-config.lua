@@ -25,7 +25,7 @@ onedarkpro.setup({
     underline = true, -- Use the themes opinionated underline styles?
     undercurl = true, -- Use the themes opinionated undercurl styles?
     cursorline = true, -- Use cursorline highlighting?
-    transparency = false, -- Use a transparent background?
+    transparency = true, -- Use a transparent background?
     terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
     window_unfocused_color = true, -- When the window is out of focus, change the normal background?
     highlight_inactive_windows = false,

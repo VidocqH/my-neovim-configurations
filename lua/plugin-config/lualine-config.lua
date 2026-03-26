@@ -64,6 +64,9 @@ local function claudecode_status_color()
   end
 end
 
+local auto_theme_custom = require('lualine.themes.auto')
+auto_theme_custom.normal.c.bg = 'none'
+
 require("lualine").setup({
   sections = {
     lualine_a = {
@@ -86,7 +89,9 @@ require("lualine").setup({
     },
   },
   options = {
-    theme = "auto",
+    -- theme = "auto",
+    theme = auto_theme_custom,
+    globalstatus = true,
     component_separators = "|",
     section_separators = { left = "", right = "" },
     disabled_filetypes = {

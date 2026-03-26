@@ -6,22 +6,26 @@ if vim.o.background == "dark" then
   vim.cmd("highlight IlluminatedWordRead gui=None guibg=#333333")
   vim.cmd("highlight IlluminatedWordWrite gui=None guibg=#333333")
 
-  vim.cmd("highlight BufferInactive guibg=#0e0e0e guifg=#7f848e")
-  vim.cmd("highlight BufferInactiveMod guibg=#0e0e0e guifg=#7f848e")
-  vim.cmd("highlight BufferInactiveSign guibg=#0e0e0e guifg=#7f848e")
-  vim.cmd("highlight BufferInactiveIndex guibg=#0e0e0e guifg=#7f848e")
-  vim.cmd("highlight BufferInactiveTarget guibg=#0e0e0e guifg=#7f848e gui=bold")
-  vim.cmd("highlight BufferTabpages guibg=#0e0e0e guifg=#7f848e gui=bold")
-  vim.cmd("highlight BufferTabpagesFill guibg=#0e0e0e guifg=#7f848e")
+  -- Transparent
+  -- vim.cmd("highlight RenderMarkdownCode guibg=NONE")
+  -- vim.cmd("highlight RenderMarkdownCodeInline guibg=NONE")
 
-  vim.cmd("highlight TreesitterContext guibg=#101010")
-  vim.cmd("highlight TreesitterContextLineNumber guibg=#101010 guifg=#434852")
+  -- vim.cmd("highlight BufferInactive guibg=#0e0e0e guifg=#7f848e")
+  -- vim.cmd("highlight BufferInactiveMod guibg=#0e0e0e guifg=#7f848e")
+  -- vim.cmd("highlight BufferInactiveSign guibg=#0e0e0e guifg=#7f848e")
+  -- vim.cmd("highlight BufferInactiveIndex guibg=#0e0e0e guifg=#7f848e")
+  -- vim.cmd("highlight BufferInactiveTarget guibg=#0e0e0e guifg=#7f848e gui=bold")
+  -- vim.cmd("highlight BufferTabpages guibg=#0e0e0e guifg=#7f848e gui=bold")
+  -- vim.cmd("highlight BufferTabpagesFill guibg=#0e0e0e guifg=#7f848e")
 
-  vim.cmd("highlight StatusColumnNC guibg=#000")
-  vim.cmd("highlight SignColumnNC guibg=#000")
-  vim.cmd("highlight LineNrNC guibg=#000")
+  -- vim.cmd("highlight TreesitterContext guibg=#101010")
+  -- vim.cmd("highlight TreesitterContextLineNumber guibg=#101010 guifg=#434852")
 
-  vim.cmd("highlight StatusLine guibg = #0d0d0d")
+  -- vim.cmd("highlight StatusColumnNC guibg=#000")
+  -- vim.cmd("highlight SignColumnNC guibg=#000")
+  -- vim.cmd("highlight LineNrNC guibg=#000")
+
+  -- vim.cmd("highlight StatusLine guibg = #0d0d0d")
   vim.cmd("highlight GitSignsCurrentLineBlame guifg=#212630 guibg=CursorLine")
 
   -- vim.cmd("highlight LineNrAbove guifg=#495162 guibg=#000000")
