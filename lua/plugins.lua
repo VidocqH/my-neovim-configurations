@@ -65,15 +65,33 @@ require("lazy").setup({
   -- "zbirenbaum/copilot.lua",
   -- { "zbirenbaum/copilot-cmp", dependencies="zbirenbaum/copilot.lua" },
   -- { "jcdickinson/codeium.nvim", dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" } },
+  -- {
+  --   "monkoose/neocodeium",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     local neocodeium = require("neocodeium")
+  --     neocodeium.setup()
+  --     vim.keymap.set("i", "<C-j>", neocodeium.accept)
+  --     vim.keymap.set("i", "<C-f>", neocodeium.cycle_or_complete)
+  --   end,
+  -- },
   {
-    "monkoose/neocodeium",
-    event = "VeryLazy",
-    config = function()
-      local neocodeium = require("neocodeium")
-      neocodeium.setup()
-      vim.keymap.set("i", "<C-j>", neocodeium.accept)
-      vim.keymap.set("i", "<C-f>", neocodeium.cycle_or_complete)
-    end,
+    "folke/sidekick.nvim",
+    opts = {},
+
+    -- keys = {
+    --   {
+    --     "<C-j>",
+    --     function()
+    --       -- if there is a next edit, jump to it, otherwise apply it if any
+    --       if not require("sidekick").nes_jump_or_apply() then
+    --         -- return "<Tab>" -- fallback to normal tab
+    --       end
+    --     end,
+    --     expr = true,
+    --     desc = "Goto/Apply Next Edit Suggestion",
+    --   },
+    -- },
   },
   -- LSP Server
   "neovim/nvim-lspconfig",
@@ -293,7 +311,7 @@ require("lazy").setup({
     },
   },
   -- cursor word highlight
-  "RRethy/vim-illuminate",
+  "allworldg/doc-highlight",
   -- Inlay Hint
   {
     "MysticalDevil/inlay-hints.nvim",
@@ -359,7 +377,7 @@ require("lazy").setup({
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = { code = { disable_background = true, highlight_border = false } },
   },
   { "nvim-pack/nvim-spectre", opts = { mapping = {} } },
   {

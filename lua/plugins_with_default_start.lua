@@ -4,7 +4,7 @@ if IS_VSCODE == false then
   -- you can configure Hop the way you like here; see :h hop-config
   require("nvim-surround").setup({})
   -- require("lsp_signature").setup({ floating_window = false, hint_prefix = "🪄 " })
-  require("fidget").setup({notification = { window = {winblend = 0} }})
+  require("fidget").setup({ notification = { window = { winblend = 0 } } })
   require("trouble").setup({})
   require("mason").setup({ log_level = vim.log.levels.DEBUG })
   require("mason-lspconfig").setup()
@@ -23,11 +23,7 @@ if IS_VSCODE == false then
   -- require("scrollview").setup({ excluded_filetypes = { "neo-tree" } })
   require("leetbuddy").setup({ domain = "cn", language = "cpp" })
   require("package-info").setup()
-  require("illuminate").configure({
-    should_enable = function(bufnr)
-      return IS_VSCODE == false
-    end,
-  })
+  require("doc-highlight").setup()
 
   vim.cmd("let g:VM_theme='codedark'")
 end
